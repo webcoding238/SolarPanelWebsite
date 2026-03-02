@@ -1,12 +1,28 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, /*Legend, LegendPayload, BarShapeProps,*/ Rectangle } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, /*LegendPayload, BarShapeProps,*/ Rectangle } from 'recharts';
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
 import Trajectory from '../assets/Trajectory.svg'
+import SolarImage from '../assets/SolarImage.png'
 
 const trackingStyles = {
   main: {
-    
+
+  },
+  backgroundImage: {
+    backgroundImage: `url(${SolarImage})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+    width: '100%',
+    height: '100%',
+    opacity: '0.35',
+    zIndex: '-1000',
+    position: 'fixed' as const
+  },
+  navPosition: {
+    position: 'relative' as const,
+    backgroundColor: 'white'
   },
   titleGrid: {
     height: '50px',
@@ -15,7 +31,8 @@ const trackingStyles = {
     display: 'grid',
     gridTemplateColumns: '20% 80%',
     gridTemplateRows: '100%',
-    gap: '5px'
+    gap: '5px',
+    position: 'relative' as const
   },
   titleIcon: {
     gridColumnStart: '1',
@@ -35,18 +52,22 @@ const trackingStyles = {
     marginLeft: '5em',
     marginTop: '2em',
     fontSize: '24px',
-    width: '38vw',
+    width: '38%',
     zIndex: '1000'
   },
     barTitle: {
-    margin: '3em',
+    margin: '2em',
     textAlign: 'center' as const,
     alignItems: 'center',
     fontSize: '28px'
   },
   homeGraph: {
+    margin: 'auto',
+    padding: '3em',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    width: '70%'
   }
 }
 
@@ -116,12 +137,66 @@ const ActiveRectangle = (props: any /*BarShapeProps*/) => {
   return <CustomFillRectangle {...props} stroke="orange" strokeWidth={3} />;
 }
 
+const rawData = `
+100+,110838,476160
+95-99,1141691,3389124
+90-94,6038458,13078242
+85-89,18342182,31348041
+80-84,37166893,53013079
+75-79,65570812,83217973
+70-74,103998992,124048996
+65-69,138182244,154357035
+60-64,170525048,180992721
+55-59,206686596,212285997
+50-54,231342779,232097236
+45-49,240153677,236696232
+40-44,270991534,263180352
+35-39,301744799,289424003
+30-34,310384416,294303405
+25-29,308889349,291429439
+20-24,318912554,300510028
+15-19,335882343,315258559
+10-14,353666705,331681954
+5-9,351991008,332121131
+0-4,331889289,315450649
+`
+ .trim()
+  .split('\n')
+  .map(line => {
+    const [age, m, f] = line.split(',');
+    return { age, male: Number(m), female: Number(f) };
+  });
+
+const totalPopulation: number = rawData.reduce((sum, entry) => sum + entry.male + entry.female, 0);
+
+const percentageData = rawData.map(entry => {
+  return {
+    age: entry.age,
+    male: (entry.male / totalPopulation) * -100,
+    female: (entry.female / totalPopulation) * 100,
+  };
+});
+
+function formatPercent(val: any /*RenderableText | TooltipValueType*/): string {
+  return `${Math.abs(Number(val)).toFixed(1)}%`;
+}
+
+function itemSorter(item: any /*LegendPayload*/): number {
+  return item.value === 'Male' ? 0 : 1;
+}
+
 const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
 
   return (
     <>
-      <Navigation />
       <main style={trackingStyles.main}>
+        <img src={SolarImage}
+          style={trackingStyles.backgroundImage}
+          alt="Photograph of a sloped rooftop with solar panels"
+          />
+        <div style={trackingStyles.navPosition}>
+          <Navigation />
+        </div>
         <div style={trackingStyles.titleGrid}>
           <div style={trackingStyles.titleIcon}>
             <img
@@ -180,6 +255,60 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
             />
             <Bar dataKey="Development" stackId="a" radius={25} shape={CustomFillRectangle} activeBar={ActiveRectangle} />
             <Bar dataKey="Production" stackId="a" radius={25} shape={CustomFillRectangle} activeBar={ActiveRectangle} />
+          </BarChart>
+        </div>
+        <div style={trackingStyles.barTitle}>
+          Percentage of World Population By Age - Present Day - <br/>Who Will Consume More Than 65% of Their Electricity From Solar Power
+        </div>
+        <div style={trackingStyles.homeGraph}>
+          <BarChart
+            data={percentageData}
+            layout="vertical"
+            style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1 }}
+            responsive
+            stackOffset="sign"
+            barCategoryGap={1}
+          >
+            <XAxis
+              type="number"
+              domain={[-10, 10]}
+              tickFormatter={formatPercent}
+              height={50}
+              label={{
+                value: '% of total population',
+                position: 'insideBottom' as const,
+              }}
+            />
+            <YAxis
+              width="auto"
+              type="category"
+              dataKey="age"
+              name="Age group"
+              label={{
+                value: 'Age group',
+                angle: -90,
+                position: 'insideLeft' as const,
+                offset: 10,
+              }}
+            />
+            <Bar
+              stackId="age"
+              name="Female"
+              dataKey="female"
+              fill="#ed7485"
+              radius={[0, 5, 5, 0]}
+              label={{ position: 'right' as const, formatter: formatPercent }}
+            />
+            <Bar
+              stackId="age"
+              name="Male"
+              dataKey="male"
+              fill="#6ea1c7"
+              radius={[0, 5, 5, 0]}
+              label={{ position: 'right' as const, formatter: formatPercent }}
+            />
+            <Tooltip formatter={formatPercent} defaultIndex={defaultIndex} />
+            <Legend itemSorter={itemSorter} verticalAlign="top" align="right" />
           </BarChart>
         </div>
       </main>

@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
+import { usaData, chinaData, southAsiaPacificData, europeData, africaData, greaterAsiaData, southAmericaData } from '../store/data'
 
 const regionsStyles = {
   main: {
@@ -16,11 +18,27 @@ const regionsStyles = {
   homeGraph: {
     display: 'flex',
     justifyContent: 'center'
+  },
+  regionFlex: {
+    paddingTop: '0.5em',
+    width: '100vw',
+    display: 'flex',
+    flexDirection: 'row' as  const,
+    flexWrap: 'wrap' as const,
+    justifyContent: 'space-evenly'
+  },
+  flexRegion: {
+    position: 'relative' as const
   }
 }
 
-const data = [
-  {
+interface chartDataType { name: string; DebtRunEnterprises: number; ProfitRunEnterprises: number, amt: number }
+
+const Regions: React.FC = () => {
+
+  const [currentData, setCurrentData] = useState<string>('U.S.A.')
+  const [data, updateData] = useState<chartDataType[]>([
+ {
     name: '1950',
     DebtRunEnterprises: 4000,
     ProfitRunEnterprises: 2400,
@@ -56,9 +74,42 @@ const data = [
     ProfitRunEnterprises: 3800,
     amt: 2500,
   }
-]
+  ])
 
-const Regions: React.FC = () => {
+  const selectUSA = () => {
+    updateData(usaData)
+    setCurrentData('U.S.A.')
+  }
+
+  const selectChina = () => {
+    updateData(chinaData)
+    setCurrentData('China')
+  }
+
+  const selectSouthAsiaPacific = () => {
+    updateData(southAsiaPacificData)
+    setCurrentData('South Asia Pacific')
+  }
+
+  const selectEurope = () => {
+    updateData(europeData)
+    setCurrentData('Europe')
+  }
+
+  const selectAfrica = () => {
+    updateData(africaData)
+    setCurrentData('Africa')
+  }
+
+  const selectGreaterAsia = () => {
+    updateData(greaterAsiaData)
+    setCurrentData('Greater Asia')
+  }
+
+  const selectSouthAmerica = () => {
+    updateData(southAmericaData)
+    setCurrentData('South America')
+  }
 
   return (
     <>
@@ -66,7 +117,17 @@ const Regions: React.FC = () => {
       <main style={regionsStyles.main}>
         <ChatWindow />
         <div style={regionsStyles.barTitle}>
-          Debt-Driven Solar Industry versus Profit Driven Solar Industry
+          {currentData} Debt-Driven Solar Industry versus Profit Driven Solar Industry
+        </div>
+        <div style={regionsStyles.regionFlex}>
+          <label>Choose Region - </label>
+          <button onClick={() => selectUSA()}>U.S.A.</button>
+          <button onClick={() => selectChina()}>China</button>
+          <button onClick={() => selectSouthAsiaPacific()}>South Asia Pacific</button>
+          <button onClick={() => selectEurope()}>Europe</button>
+          <button onClick={() => selectAfrica()}>Africa</button>
+          <button onClick={() => selectGreaterAsia()}>Greater Asia</button>
+          <button onClick={() => selectSouthAmerica()}>SouthAmerica</button>
         </div>
         <div style={regionsStyles.homeGraph}>
             <LineChart

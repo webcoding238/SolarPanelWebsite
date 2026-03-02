@@ -6,17 +6,20 @@ import ProjectTagIcon from '../assets/ProjectTagIcon.svg'
 
 const projectStyles = {
   main: {
-    
+    backgroundColor: 'lightskyblue',
   },
   projectsTitle: {
-    marginLeft: '2em',
-    marginTop: '2em',
+    paddingLeft: '2em',
+    marginTop: '30px',
+    backgroundColor: 'white',
     fontSize: '64px',
     zIndex: '1000'
   },
   projectsSummary: {
     marginLeft: '5em',
     marginTop: '2em',
+    backgroundColor: 'white',
+    padding: '5px',
     fontSize: '24px',
     width: '38vw',
     zIndex: '1000'
@@ -27,9 +30,10 @@ const projectStyles = {
     flexWrap: 'wrap' as const
   },
   projectCardWrapper: {
-    height: '40em',
-    width: '25em',
+    height: '30em',
+    width: '20em',
     borderRadius: '20px',
+    backgroundColor: 'white',
     padding: '15px',
     boxShadow: '25px 35px',
     position: 'relative' as const,
@@ -57,7 +61,8 @@ const projectStyles = {
     gridColumnStart: '1',
     gridColumnEnd: '3',
     gridRowStart: '2',
-    gridRowEnd: '2'
+    gridRowEnd: '2',
+    fontSize: '14px'
   },
   cardData: {
     paddingTop: '2em',
