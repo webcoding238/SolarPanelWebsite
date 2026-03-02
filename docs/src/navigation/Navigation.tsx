@@ -10,6 +10,14 @@ const navigationStyles = {
     backgroundSize: 'cover',
     height: 'auto'
   },
+  headerScroll: {
+    border: '2px solid black',
+    backgroundImage: `url(${HeaderBackground})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: 'auto',
+    overflow: 'scroll'
+  },
   titles: {
     backgroundColor: 'white',
     margin: '1em'
@@ -24,9 +32,23 @@ const navigationStyles = {
     gridRowEnd: '1',
     overflowWrap: 'anywhere' as const
   },
+  websiteTitleMobile: {
+    paddingLeft: '1em',
+    fontColor: 'black',
+    fontSize: '50px',
+    overflowWrap: 'anywhere' as const
+  },
   subTitles: {
     fontColor: 'black',
     fontSize: '18px',
+    overflowWrap: 'anywhere' as const
+  },
+  subTitlesMobile: {
+    marginTop: '0.5em',
+    paddingLeft: '1em',
+    fontColor: 'black',
+    opacity: '0.80',
+    fontSize: '10px',
     overflowWrap: 'anywhere' as const
   },
   subTitlesFlex: {
@@ -115,23 +137,27 @@ const NavigationButton: React.FC<navigationType> = (webpage) => {
 
 const Navigation: React.FC = () => {
 
-  const [mediaMobile, setMediaMobile] = useState<number>(1200)
-
-    useEffect(() => {
+  const [mediaMobile, setMediaMobile] = useState<number>(1280)
+  const [deviceSize, setDeviceSize] = useState<number>(0)
+  
+  useEffect(() => {
     const getWindow = () => {
       setMediaMobile(window.innerWidth)
+      setDeviceSize(window.screen.width)
     }
     getWindow()
 
     window.addEventListener("resize", getWindow)
 
-    return () => window.removeEventListener("resize", getWindow)
+    return () => {
+      window.removeEventListener("resize", getWindow)
+    }
   }, [])
 
   return (
     <>
       <header>
-        {mediaMobile < 1201 ? (
+        {deviceSize > 449 && mediaMobile < 1201 ? (
           <>
             <div style={navigationStyles.titleGrid}>
               <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
@@ -173,6 +199,36 @@ const Navigation: React.FC = () => {
               <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Project'}>Project Overview</a></div>
               <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Regions'}>Regional Statistics</a></div>
               <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Tracking'}>Historical Tracking</a></div>
+            </div>
+          </>
+        )}
+        {deviceSize < 450 && (
+          <>
+            <div style={navigationStyles.titleGrid}>
+               <div>
+                  <div style={navigationStyles.subTitlesMobile}>Department of Economics</div>
+                  <div style={navigationStyles.subTitlesMobile}>Reported by Project Data Enterprises</div>
+                  <div style={navigationStyles.subTitlesMobile}>Manager: George Payne</div>
+                </div>
+                <div style={navigationStyles.websiteTitleMobile}>Solar Panel Industry Statistical Analysis</div>
+              </div>
+            <div style={navigationStyles.headerScroll}>
+              <nav>
+                  <div style={navigationStyles.container}>
+                    <a href={'/'}>
+                      <img style={navigationStyles.containerItem} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+                    </a>
+                    {navigation.map(webpage => (
+                      <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>
+                        <NavigationButton
+                          keyC={webpage.keyC}
+                          route={webpage.route}
+                          title={webpage.title}
+                          />
+                      </div>
+                    ))}
+                  </div>
+              </nav>
             </div>
           </>
         )}

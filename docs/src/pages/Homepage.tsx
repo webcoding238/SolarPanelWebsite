@@ -18,7 +18,8 @@ const homePageStyles = {
     backgroundColor: 'white',
     fontSize: '64px',
     zIndex: '1000',
-    textAlign: 'center' as const
+    textAlign: 'center' as const,
+    overflowWrap: 'anywhere' as const
   },
   introGrid: {
     margin: '20px',
@@ -42,7 +43,8 @@ const homePageStyles = {
     backgroundSize: 'cover',
     objectFit: 'contain' as const,
     backgroundRepeat: 'no-repeat',
-    color: 'white'
+    color: 'white',
+    width: '95%'
   },
   mobileImage: {
     margin: '2em auto auto auto',
@@ -75,7 +77,7 @@ const homePageStyles = {
     width: '38vw',
     textAlign: 'left' as const
   },
-    gridItem2: {
+  gridItem2: {
     gridColumnStart: '2',
     gridColumnEnd: '2',
     gridRowStart: '1',
@@ -97,11 +99,21 @@ const homePageStyles = {
     alignItems: 'center',
     fontSize: '28px'
   },
+  barTitleMobile: {
+    marginTop: '3em',
+    marginBottom: '1em',
+    textAlign: 'center' as const,
+    alignItems: 'center',
+    fontSize: '28px',
+    overflowWrap: 'anywhere' as const
+  },
   homeGraph: {
     margin: 'auto',
     padding: '3em',
     position: 'relative' as const,
     display: 'flex',
+    flexDirection: 'row' as  const,
+    flexWrap: 'nowrap' as const,
     justifyContent: 'center',
     backgroundColor: 'white',
     width: '70%'
@@ -113,16 +125,20 @@ const Homepage: React.FC = () => {
   const [focusedDataKey, setFocusedDataKey] = useState<string | null>(null);
   const [locked, setLocked] = useState<boolean>(false);
   const [mediaMobile, setMediaMobile] = useState<number>(1200);
-
+  const [deviceSize, setDeviceSize] = useState<number>(0)
+  
   useEffect(() => {
     const getWindow = () => {
       setMediaMobile(window.innerWidth)
+      setDeviceSize(window.screen.width)
     }
     getWindow()
 
     window.addEventListener("resize", getWindow)
 
-    return () => window.removeEventListener("resize", getWindow)
+    return () => {
+      window.removeEventListener("resize", getWindow)
+    }
   }, [])
   
   const { data/*, error, isLoading*/ } = useGetDummyListQuery('users')
@@ -159,14 +175,14 @@ const Homepage: React.FC = () => {
       <main style={homePageStyles.main}>
         <ChatWindow />
         <div style={homePageStyles.homepageTitle}>Solar Power - Industrial Insights</div>
-        <div style={mediaMobile > 1100 ? homePageStyles.introGrid : homePageStyles.mobileWidth}>
+        <div style={mediaMobile > 1100 && deviceSize > 449 ? homePageStyles.introGrid : homePageStyles.mobileWidth}>
           {mediaMobile < 1100 && (<img
             style={homePageStyles.mobileIcon}
             src={Worldwide}
             alt="Cartoon outline of the Earth"
             width='100' height='60'
             />)}
-          <div style={mediaMobile > 1100 ? homePageStyles.gridItem1 : homePageStyles.mobileSummary}>
+          <div style={mediaMobile > 1100 && deviceSize > 449 ? homePageStyles.gridItem1 : homePageStyles.mobileSummary}>
             The energy supply of society has evolved into a combination of
             what was most easily obtainable with also what sources were
             possible under sprawling political control.
@@ -182,20 +198,20 @@ const Homepage: React.FC = () => {
             Often, when we hear oil, hydro-power, coal, wind power, nuclear power, and solar power called "energy" we get the feeling of a superficial definition that lacks details in commerce and lacks effort in explaining what is energy. However, the energy sector, albeit less human, is equally dynamic and elusive in regards to the changes in time, source, type, and multitude as the substance of energy in relation to energy versus matter, and also energy as emotions or feelings.
             <br />
             <br />
-            {mediaMobile > 1100 && (<img
+            {mediaMobile > 1100 && deviceSize > 449 && (<img
               src={Worldwide}
               alt="Cartoon outline of the Earth"
               width='100' height='60'
               />)}
           </div>
-          {mediaMobile > 1100 && (<div style={homePageStyles.gridItem2}>
+          {mediaMobile > 1100 && deviceSize > 449 && (<div style={homePageStyles.gridItem2}>
             <img src={SolarImage}
               style={homePageStyles.backgroundImage}
               alt="Photograph of a sloped rooftop with solar panels"
               />
             </div>)}
         </div>
-        <div style={homePageStyles.barTitle}>
+        <div style={deviceSize > 449 ? homePageStyles.barTitle : homePageStyles.barTitleMobile}>
           Ratio of Energy Sector Per Source - Global
         </div>
         <div style={homePageStyles.homeGraph}>

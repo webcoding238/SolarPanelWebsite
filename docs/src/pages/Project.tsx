@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Pie, PieChart, Line, LineChart, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, ZAxis, /*TooltipIndex,*/ Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, ComposedChart, Area, Bar } from 'recharts'
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
@@ -13,7 +14,15 @@ const projectStyles = {
     marginTop: '30px',
     backgroundColor: 'white',
     fontSize: '64px',
-    zIndex: '1000'
+    zIndex: '1000',
+    overflowWrap: 'anywhere' as const
+  },
+  projectsTitleMobile: {
+    margin: '30px',
+    backgroundColor: 'white',
+    fontSize: '64px',
+    zIndex: '1000',
+    overflowWrap: 'anywhere' as const
   },
   projectsSummary: {
     marginLeft: '5em',
@@ -22,6 +31,14 @@ const projectStyles = {
     padding: '5px',
     fontSize: '24px',
     width: '38vw',
+    zIndex: '1000'
+  },
+  projectsSummaryMobile: {
+    margin: '30px',
+    backgroundColor: 'white',
+    padding: '5px',
+    fontSize: '24px',
+    maxWidth: '90%',
     zIndex: '1000'
   },
   projects: {
@@ -39,6 +56,21 @@ const projectStyles = {
     position: 'relative' as const,
     border: '2px solid grey',
     margin: '5em',
+    display: 'grid',
+    gridTemplateColumns: '20% 80%',
+    gridTemplateRows: '15% 15% 70%',
+    gap: '5px'
+  },
+  projectCardWrapperMobile: {
+    margin: '1em auto 1em auto',
+    height: '30em',
+    width: '80%',
+    borderRadius: '20px',
+    backgroundColor: 'white',
+    padding: '15px',
+    boxShadow: '25px 35px',
+    position: 'relative' as const,
+    border: '2px solid grey',
     display: 'grid',
     gridTemplateColumns: '20% 80%',
     gridTemplateRows: '15% 15% 70%',
@@ -62,7 +94,8 @@ const projectStyles = {
     gridColumnEnd: '3',
     gridRowStart: '2',
     gridRowEnd: '2',
-    fontSize: '14px'
+    fontSize: '14px',
+    overflowWrap: 'anywhere' as const
   },
   cardData: {
     paddingTop: '2em',
@@ -248,13 +281,30 @@ const Project: React.FC = ({
   defaultIndex?: any /*TooltipIndex*/;
 }) => {
 
+  const [mediaMobile, setMediaMobile] = useState<number>(1200);
+  const [deviceSize, setDeviceSize] = useState<number>(0)
+  
+  useEffect(() => {
+    const getWindow = () => {
+      setMediaMobile(window.innerWidth)
+      setDeviceSize(window.screen.width)
+    }
+    getWindow()
+
+    window.addEventListener("resize", getWindow)
+
+    return () => {
+      window.removeEventListener("resize", getWindow)
+    }
+  }, [])
+
   return (
     <>
       <Navigation />
       <main style={projectStyles.main}>
         <ChatWindow />
-        <div style={projectStyles.projectsTitle}>Solar Industry Projects - Highlighted Insights</div>
-        <div style={projectStyles.projectsSummary}>
+        <div style={mediaMobile > 449 && deviceSize > 449 ? projectStyles.projectsTitle : projectStyles.projectsTitleMobile}>Solar Industry Projects - Highlighted Insights</div>
+        <div style={mediaMobile > 449 && deviceSize > 449 ? projectStyles.projectsSummary : projectStyles.projectsSummaryMobile}>
           Key projects in the solar industry are aimed at improving 
           efficiency and speed to market. There are also statistical
           analysis studies to reference for key decision making.
@@ -265,7 +315,7 @@ const Project: React.FC = ({
           plotted webs of human capital.
         </div>
         <div style={projectStyles.projects}>
-          <div style={projectStyles.projectCardWrapper}>
+          <div style={mediaMobile > 449 && deviceSize > 449 ? projectStyles.projectCardWrapper : projectStyles.projectCardWrapperMobile}>
               <div style={projectStyles.cardTitleIcon} >
                 <img
                   src={ProjectTagIcon}
