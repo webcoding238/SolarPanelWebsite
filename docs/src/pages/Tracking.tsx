@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, /*LegendPayload, BarShapeProps,*/ Rectangle } from 'recharts';
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
@@ -34,11 +35,32 @@ const trackingStyles = {
     gap: '5px',
     position: 'relative' as const
   },
+  titleGridMobile: {
+    height: '50px',
+    width: '100vw',
+    margin: '15px',
+    display: 'grid',
+    gridTemplateColumns: '20% 80%',
+    gridTemplateRows: '1fr',
+    gap: '5px',
+    position: 'relative' as const
+  },
   titleIcon: {
     gridColumnStart: '1',
     gridColumnEnd: '1',
     gridRowStart: '1',
     gridRowEnd: '2'
+  },
+  titleIconMobile: {
+    gridColumnStart: '1',
+    gridColumnEnd: '1',
+    gridRowStart: '1',
+    gridRowEnd: '2',
+    marginTop: '2em',
+    paddingTop: '1em',
+    paddingBottom: '1em',
+    backgroundColor: 'white',
+    borderRadius: '100%'
   },
   title: {
     paddingTop: '10px',
@@ -46,25 +68,40 @@ const trackingStyles = {
     gridColumnEnd: '2',
     gridRowStart: '1',
     gridRowEnd: '2',
-    fontSize: '26px'
+    fontSize: '26px',
+    overflowWrap: 'anywhere' as const
   },
-   trackingSummary: {
+  trackingSummary: {
     marginLeft: '5em',
     marginTop: '2em',
+    padding: '5px',
     fontSize: '24px',
     width: '38%',
-    zIndex: '1000'
+    zIndex: '1000',
+    backgroundColor: 'white'
   },
-    barTitle: {
+  trackingSummaryMobile: {
+    margin: '2em auto auto auto',
+    padding: '5px',
+    fontSize: '24px',
+    width: '60%',
+    zIndex: '1000',
+    backgroundColor: 'white'
+  },
+  barTitle: {
     margin: '2em',
     textAlign: 'center' as const,
     alignItems: 'center',
-    fontSize: '28px'
+    fontSize: '28px',
+    overflowWrap: 'anywhere' as const
   },
   homeGraph: {
     margin: 'auto',
     padding: '3em',
     display: 'flex',
+    position: 'relative' as const,
+    flexDirection: 'row' as  const,
+    flexWrap: 'nowrap' as const,
     justifyContent: 'center',
     backgroundColor: 'white',
     width: '70%'
@@ -186,6 +223,22 @@ function itemSorter(item: any /*LegendPayload*/): number {
 }
 
 const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
+  const [mediaMobile, setMediaMobile] = useState<number>(1200);
+  const [deviceSize, setDeviceSize] = useState<number>(0)
+  
+  useEffect(() => {
+    const getWindow = () => {
+      setMediaMobile(window.innerWidth)
+      setDeviceSize(window.screen.width)
+    }
+    getWindow()
+
+    window.addEventListener("resize", getWindow)
+
+    return () => {
+      window.removeEventListener("resize", getWindow)
+    }
+  }, [])
 
   return (
     <>
@@ -197,8 +250,8 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
         <div style={trackingStyles.navPosition}>
           <Navigation />
         </div>
-        <div style={trackingStyles.titleGrid}>
-          <div style={trackingStyles.titleIcon}>
+        <div style={mediaMobile > 449 && deviceSize > 449 ? trackingStyles.titleGrid : trackingStyles.titleGridMobile}>
+          <div style={mediaMobile > 449 && deviceSize > 449 ? trackingStyles.titleIcon : trackingStyles.titleIconMobile}>
             <img
               src={Trajectory}
               alt="Cartoon outline of schedule calendar"

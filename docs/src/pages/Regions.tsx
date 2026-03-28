@@ -13,11 +13,19 @@ const regionsStyles = {
     marginTop: '15px',
     textAlign: 'center' as const,
     alignItems: 'center',
-    fontSize: '28px'
+    fontSize: '28px',
+    overflowWrap: 'anywhere' as const
   },
   homeGraph: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    margin: 'auto',
+    padding: '0.5em',
+    position: 'relative' as const,
+    flexDirection: 'row' as  const,
+    flexWrap: 'nowrap' as const,
+    backgroundColor: 'white',
+    width: '70%'
   },
   regionFlex: {
     paddingTop: '0.5em',

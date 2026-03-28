@@ -10,6 +10,15 @@ const navigationStyles = {
     backgroundSize: 'cover',
     height: 'auto'
   },
+  headerScroll: {
+    border: '2px solid black',
+    backgroundImage: `url(${HeaderBackground})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: 'auto',
+    width: '100vw',
+    overflow: 'scroll'
+  },
   titles: {
     backgroundColor: 'white',
     margin: '1em'
@@ -24,9 +33,23 @@ const navigationStyles = {
     gridRowEnd: '1',
     overflowWrap: 'anywhere' as const
   },
+  websiteTitleMobile: {
+    paddingLeft: '1em',
+    fontColor: 'black',
+    fontSize: '50px',
+    overflowWrap: 'anywhere' as const
+  },
   subTitles: {
     fontColor: 'black',
     fontSize: '18px',
+    overflowWrap: 'anywhere' as const
+  },
+  subTitlesMobile: {
+    marginTop: '0.5em',
+    paddingLeft: '1em',
+    fontColor: 'black',
+    opacity: '0.80',
+    fontSize: '10px',
     overflowWrap: 'anywhere' as const
   },
   subTitlesFlex: {
@@ -115,33 +138,51 @@ const NavigationButton: React.FC<navigationType> = (webpage) => {
 
 const Navigation: React.FC = () => {
 
-  const [mediaMobile, setMediaMobile] = useState<number>(1200)
-
-    useEffect(() => {
+  const [deviceSize, setDeviceSize] = useState<number>(0)
+  
+  useEffect(() => {
     const getWindow = () => {
-      setMediaMobile(window.innerWidth)
+      setDeviceSize(window.screen.width)
     }
     getWindow()
 
     window.addEventListener("resize", getWindow)
 
-    return () => window.removeEventListener("resize", getWindow)
-  }, [])
+    return () => {
+      window.removeEventListener("resize", getWindow)
+    }
+  }, [deviceSize])
 
   return (
     <>
       <header>
-        {mediaMobile < 1201 ? (
+        {deviceSize > 1599 && (
+          <>
+            <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
+            <div style={navigationStyles.subTitlesFlex}>Department of Economics</div>
+            <div style={navigationStyles.subTitlesFlex}>Reported by Project Data Enterprises</div>
+            <div style={navigationStyles.subTitlesFlex}>Manager: George Payne</div>
+            <div style={navigationStyles.navFlex}>
+              <a href={'/'}>
+                <img style={navigationStyles.containerItemFlex} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+              </a>
+              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Project'}>Project Overview</a></div>
+              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Regions'}>Regional Statistics</a></div>
+              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Tracking'}>Historical Tracking</a></div>
+            </div>
+          </>
+        )}
+        {deviceSize < 1600 && (
           <>
             <div style={navigationStyles.titleGrid}>
-              <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
-              <div style={navigationStyles.gridItemSubtitles}>
-                <div style={navigationStyles.subTitles}>Department of Economics</div>
-                <div style={navigationStyles.subTitles}>Reported by Project Data Enterprises</div>
-                <div style={navigationStyles.subTitles}>Manager: George Payne</div>
+               <div>
+                  <div style={navigationStyles.subTitlesMobile}>Department of Economics</div>
+                  <div style={navigationStyles.subTitlesMobile}>Reported by Project Data Enterprises</div>
+                  <div style={navigationStyles.subTitlesMobile}>Manager: George Payne</div>
+                </div>
+                <div style={navigationStyles.websiteTitleMobile}>Solar Panel Industry Statistical Analysis</div>
               </div>
-            </div>
-            <div style={navigationStyles.header}>
+            <div style={navigationStyles.headerScroll}>
               <nav>
                   <div style={navigationStyles.container}>
                     <a href={'/'}>
@@ -158,21 +199,6 @@ const Navigation: React.FC = () => {
                     ))}
                   </div>
               </nav>
-            </div>
-          </>
-        ) : (
-          <>
-            <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
-            <div style={navigationStyles.subTitlesFlex}>Department of Economics</div>
-            <div style={navigationStyles.subTitlesFlex}>Reported by Project Data Enterprises</div>
-            <div style={navigationStyles.subTitlesFlex}>Manager: George Payne</div>
-            <div style={navigationStyles.navFlex}>
-              <a href={'/'}>
-                <img style={navigationStyles.containerItemFlex} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
-              </a>
-              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Project'}>Project Overview</a></div>
-              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Regions'}>Regional Statistics</a></div>
-              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Tracking'}>Historical Tracking</a></div>
             </div>
           </>
         )}
