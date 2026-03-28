@@ -16,6 +16,7 @@ const navigationStyles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     height: 'auto',
+    width: '100vw',
     overflow: 'scroll'
   },
   titles: {
@@ -137,12 +138,10 @@ const NavigationButton: React.FC<navigationType> = (webpage) => {
 
 const Navigation: React.FC = () => {
 
-  const [mediaMobile, setMediaMobile] = useState<number>(1280)
   const [deviceSize, setDeviceSize] = useState<number>(0)
   
   useEffect(() => {
     const getWindow = () => {
-      setMediaMobile(window.innerWidth)
       setDeviceSize(window.screen.width)
     }
     getWindow()
@@ -152,41 +151,12 @@ const Navigation: React.FC = () => {
     return () => {
       window.removeEventListener("resize", getWindow)
     }
-  }, [])
+  }, [deviceSize])
 
   return (
     <>
       <header>
-        {deviceSize > 449 && mediaMobile < 1201 ? (
-          <>
-            <div style={navigationStyles.titleGrid}>
-              <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
-              <div style={navigationStyles.gridItemSubtitles}>
-                <div style={navigationStyles.subTitles}>Department of Economics</div>
-                <div style={navigationStyles.subTitles}>Reported by Project Data Enterprises</div>
-                <div style={navigationStyles.subTitles}>Manager: George Payne</div>
-              </div>
-            </div>
-            <div style={navigationStyles.header}>
-              <nav>
-                  <div style={navigationStyles.container}>
-                    <a href={'/'}>
-                      <img style={navigationStyles.containerItem} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
-                    </a>
-                    {navigation.map(webpage => (
-                      <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>
-                        <NavigationButton
-                          keyC={webpage.keyC}
-                          route={webpage.route}
-                          title={webpage.title}
-                          />
-                      </div>
-                    ))}
-                  </div>
-              </nav>
-            </div>
-          </>
-        ) : (
+        {deviceSize > 1599 && (
           <>
             <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
             <div style={navigationStyles.subTitlesFlex}>Department of Economics</div>
@@ -202,7 +172,7 @@ const Navigation: React.FC = () => {
             </div>
           </>
         )}
-        {deviceSize < 450 && (
+        {deviceSize < 1600 && (
           <>
             <div style={navigationStyles.titleGrid}>
                <div>

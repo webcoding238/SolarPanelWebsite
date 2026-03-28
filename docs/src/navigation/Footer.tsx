@@ -49,12 +49,10 @@ const footerStyles = {
 }
 
 const Footer: React.FC = () => {
-    const [mediaMobile, setMediaMobile] = useState<number>(1200)
     const [deviceSize, setDeviceSize] = useState<number>(0)
   
     useEffect(() => {
     const getWindow = () => {
-        setMediaMobile(window.innerWidth)
         setDeviceSize(window.screen.width)
     }
     getWindow()
