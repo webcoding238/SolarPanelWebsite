@@ -37,7 +37,7 @@ const trackingStyles = {
   },
   titleGridMobile: {
     height: '50px',
-    width: '100vw',
+    width: '100%',
     margin: '15px',
     display: 'grid',
     gridTemplateColumns: '20% 80%',
