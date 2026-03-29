@@ -10,7 +10,8 @@ import { useGetDummyListQuery } from '../store/api/getApi'
 const homePageStyles = {
   main: {
     backgroundColor: 'lightskyblue',
-    paddingBottom: '10px'
+    paddingBottom: '10px',
+    width: '100%'
   },
   homepageTitle: {
     paddingLeft: '2em',
@@ -36,27 +37,14 @@ const homePageStyles = {
     paddingRight: '2em'
   },
   mobileSummary: {
-    margin: '2em auto auto auto',
+    marginTop: '2em',
     padding: '2em',
     backgroundColor: 'white',
     backgroundImage: `url(${SolarImage})`,
     backgroundSize: 'cover',
     objectFit: 'contain' as const,
     backgroundRepeat: 'no-repeat',
-    color: 'white',
-    width: '95%'
-  },
-  mobileImage: {
-    margin: '2em auto auto auto',
-    paddingLeft: '2em',
-    paddingRight: '2em',
-    textAlign: 'center'
-  },
-  mobileImageSize: {
-    margin: 'auto',
-    objectFit: 'contain' as const,
-    width: '50%',
-    height: '50%',
+    color: 'white'
   },
   mobileIcon: {
     marginTop: '2em',

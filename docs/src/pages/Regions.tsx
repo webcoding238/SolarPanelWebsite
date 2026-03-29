@@ -29,7 +29,7 @@ const regionsStyles = {
   },
   regionFlex: {
     paddingTop: '0.5em',
-    width: '100vw',
+    width: '100%',
     display: 'flex',
     flexDirection: 'row' as  const,
     flexWrap: 'wrap' as const,

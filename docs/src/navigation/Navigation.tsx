@@ -16,8 +16,8 @@ const navigationStyles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     height: 'auto',
-    width: '100vw',
-    overflow: 'scroll'
+    width: '100%',
+    overflowX: 'scroll' as const
   },
   titles: {
     backgroundColor: 'white',
@@ -104,7 +104,7 @@ const navigationStyles = {
   },
   navFlex: {
     paddingTop: '0.5em',
-    width: '100vw',
+    width: '100%',
     display: 'flex',
     flexDirection: 'row' as  const,
     flexWrap: 'wrap' as const,

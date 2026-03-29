@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
                         <p>Built with React, Vite, Redux Toolkit, TypeScript, dummy data from RTK API calls, and Rechart.js</p><br />   
                         <p>Build technologies include:</p>    
                         <p>Docker, GitHub Actions, and Elastic Beanstalk for the Continuous Integration website hosting.</p> 
-                        <p>Hosting on a local server.</p>
+                        <p>Was hosting on a local server. Now using Vercel Github CI/CD.</p>
                     </div>
                     <div style={footerStyles.rightFooter}>
                         <div><a style={footerStyles.footerLinkColor} href={'/'}>Home</a></div>
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
                         <p>Built with React, Vite, Redux Toolkit, TypeScript, dummy data from RTK API calls, and Rechart.js</p><br />   
                         <p>Build technologies include:</p>    
                         <p>Docker, GitHub Actions, and Elastic Beanstalk for the Continuous Integration website hosting.</p> 
-                        <p>Hosting on a local server.</p>
+                        <p>Was hosting on a local server. Now using Vercel Github CI/CD.</p>
                     </div>
                 </div>
             )}
