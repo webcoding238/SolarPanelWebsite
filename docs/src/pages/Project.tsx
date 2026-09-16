@@ -13,6 +13,7 @@ const projectStyles = {
     paddingLeft: '2em',
     marginTop: '30px',
     backgroundColor: 'white',
+    color: 'black',
     fontSize: '64px',
     zIndex: '1000',
     overflowWrap: 'anywhere' as const
@@ -20,6 +21,7 @@ const projectStyles = {
   projectsTitleMobile: {
     margin: '30px',
     backgroundColor: 'white',
+    color: 'black',
     fontSize: '64px',
     zIndex: '1000',
     overflowWrap: 'anywhere' as const
@@ -28,6 +30,7 @@ const projectStyles = {
     marginLeft: '5em',
     marginTop: '2em',
     backgroundColor: 'white',
+    color: 'black',
     padding: '5px',
     fontSize: '24px',
     width: '38vw',
@@ -36,6 +39,7 @@ const projectStyles = {
   projectsSummaryMobile: {
     margin: '30px',
     backgroundColor: 'white',
+    color: 'black',
     padding: '5px',
     fontSize: '24px',
     maxWidth: '90%',
@@ -51,6 +55,7 @@ const projectStyles = {
     width: '20em',
     borderRadius: '20px',
     backgroundColor: 'white',
+    color: 'black',
     padding: '15px',
     boxShadow: '25px 35px',
     position: 'relative' as const,
@@ -67,6 +72,7 @@ const projectStyles = {
     width: '80%',
     borderRadius: '20px',
     backgroundColor: 'white',
+    color: 'black',
     padding: '15px',
     boxShadow: '25px 35px',
     position: 'relative' as const,

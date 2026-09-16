@@ -25,6 +25,7 @@ const regionsStyles = {
     flexDirection: 'row' as  const,
     flexWrap: 'nowrap' as const,
     backgroundColor: 'white',
+    color: 'black',
     width: '70%'
   },
   regionFlex: {

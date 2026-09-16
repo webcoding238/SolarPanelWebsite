@@ -23,7 +23,8 @@ const trackingStyles = {
   },
   navPosition: {
     position: 'relative' as const,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    color: 'black'
   },
   titleGrid: {
     height: '50px',
@@ -60,6 +61,7 @@ const trackingStyles = {
     paddingTop: '1em',
     paddingBottom: '1em',
     backgroundColor: 'white',
+    color: 'black',
     borderRadius: '100%'
   },
   title: {
@@ -78,7 +80,8 @@ const trackingStyles = {
     fontSize: '24px',
     width: '38%',
     zIndex: '1000',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    color: 'black'
   },
   trackingSummaryMobile: {
     margin: '2em auto auto auto',
@@ -86,7 +89,8 @@ const trackingStyles = {
     fontSize: '24px',
     width: '60%',
     zIndex: '1000',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    color: 'black'
   },
   barTitle: {
     margin: '2em',
