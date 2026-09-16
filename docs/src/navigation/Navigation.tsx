@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ProfileImage from '../assets/ProfileImage.svg'
 import HeaderBackground from '../assets/HeaderBackground.png'
 
@@ -8,6 +8,7 @@ const navigationStyles = {
     backgroundImage: `url(${HeaderBackground})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    width: '100vw',
     height: 'auto'
   },
   headerScroll: {
@@ -16,27 +17,18 @@ const navigationStyles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     height: 'auto',
-    width: '100%',
+    width: '100vw',
     overflowX: 'scroll' as const
-  },
-  titles: {
-    backgroundColor: 'white',
-    margin: '1em'
   },
   websiteTitle: {
     paddingLeft: '1em',
     fontColor: 'black',
-    fontSize: '50px',
+    minWidth: 0,
+    fontSize: 'clamp(1.5rem, 5vw, 3rem)',
     gridColumnStart: '1',
     gridColumnEnd: '1',
     gridRowStart: '1',
     gridRowEnd: '1',
-    overflowWrap: 'anywhere' as const
-  },
-  websiteTitleMobile: {
-    paddingLeft: '1em',
-    fontColor: 'black',
-    fontSize: '50px',
     overflowWrap: 'anywhere' as const
   },
   subTitles: {
@@ -137,26 +129,25 @@ const NavigationButton: React.FC<navigationType> = (webpage) => {
 }
 
 const Navigation: React.FC = () => {
+  const ref = useRef(null);
+  const [deviceSize, setDeviceSize] = useState<number>(0);
 
-  const [deviceSize, setDeviceSize] = useState<number>(0)
-  
   useEffect(() => {
-    const getWindow = () => {
-      setDeviceSize(window.screen.width)
-    }
-    getWindow()
+      if (!ref.current) return;
 
-    window.addEventListener("resize", getWindow)
+      const observer = new ResizeObserver(entries => {
+          setDeviceSize(entries[0].contentRect.width);
+      });
 
-    return () => {
-      window.removeEventListener("resize", getWindow)
-    }
-  }, [deviceSize])
+      observer.observe(ref.current);
+
+      return () => observer.disconnect();
+  }, []);
 
   return (
-    <>
+    <div ref={ref}>
       <header>
-        {deviceSize > 1599 && (
+        {deviceSize > 949 ? (
           <>
             <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
             <div style={navigationStyles.subTitlesFlex}>Department of Economics</div>
@@ -171,8 +162,7 @@ const Navigation: React.FC = () => {
               <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Tracking'}>Historical Tracking</a></div>
             </div>
           </>
-        )}
-        {deviceSize < 1600 && (
+        ) : (
           <>
             <div style={navigationStyles.titleGrid}>
                <div>
@@ -180,7 +170,7 @@ const Navigation: React.FC = () => {
                   <div style={navigationStyles.subTitlesMobile}>Reported by Project Data Enterprises</div>
                   <div style={navigationStyles.subTitlesMobile}>Manager: George Payne</div>
                 </div>
-                <div style={navigationStyles.websiteTitleMobile}>Solar Panel Industry Statistical Analysis</div>
+                <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
               </div>
             <div style={navigationStyles.headerScroll}>
               <nav>
@@ -203,7 +193,7 @@ const Navigation: React.FC = () => {
           </>
         )}
       </header>
-    </>
+    </div>
   )
 }
 
