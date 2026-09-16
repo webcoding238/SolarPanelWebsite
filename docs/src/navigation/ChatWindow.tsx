@@ -48,7 +48,7 @@ const ChatWindow: React.FC = () => {
 
   function togglePopover() {
     if (popoverRef.current) {
-      popoverRef.current.matches(':popover-open') ? popoverRef.current.hidePopover() : popoverRef.current.showPopover();
+      popoverRef.current.togglePopover();
     }
   }
 
