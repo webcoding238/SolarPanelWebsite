@@ -46,7 +46,7 @@ const ChatForm: React.FC = () => {
 const ChatWindow: React.FC = () => {
   const popoverRef = useRef(null)
 
-  const togglePopover = () => {
+  function togglePopover() {
     if (popoverRef.current) {
       popoverRef.current.matches(':popover-open') ? popoverRef.current.hidePopover() : popoverRef.current.showPopover();
     }
