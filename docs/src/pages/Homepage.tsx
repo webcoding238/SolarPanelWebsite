@@ -17,6 +17,7 @@ const homePageStyles = {
     paddingLeft: '2em',
     marginTop: '30px',
     backgroundColor: 'white',
+    color: 'black',
     fontSize: '64px',
     zIndex: '1000',
     textAlign: 'center' as const,
@@ -40,6 +41,7 @@ const homePageStyles = {
     marginTop: '2em',
     padding: '2em',
     backgroundColor: 'white',
+    color: 'black',
     backgroundImage: `url(${SolarImage})`,
     backgroundSize: 'cover',
     objectFit: 'contain' as const,
@@ -51,10 +53,12 @@ const homePageStyles = {
     paddingTop: '1em',
     paddingBottom: '1em',
     backgroundColor: 'white',
+    color: 'black',
     borderRadius: '100%'
   },
   gridItem1: {
     backgroundColor: 'white',
+    color: 'black',
     padding: '5px',
     gridColumnStart: '1',
     gridColumnEnd: '1',
@@ -104,6 +108,7 @@ const homePageStyles = {
     flexWrap: 'nowrap' as const,
     justifyContent: 'center',
     backgroundColor: 'white',
+    color: 'black',
     width: '70%'
   }
 }

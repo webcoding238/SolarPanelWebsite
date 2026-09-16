@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 import ContactUs from '../assets/ContactUs.gif'
 
 const chatStyles = {
@@ -11,21 +11,20 @@ const chatStyles = {
     cursor: 'pointer',
     zIndex: '100'
   },
-  popUp: {
-    zIndex: '999',
-    position: 'fixed' as const,
-    right: '40px',
-    bottom: '200px'
-  },
   popupWindow: {
     textAlign: 'center' as const,
     border: '2px solid grey',
     backgroundColor: 'white',
+    color: 'black',
     borderRadius: '2em',
     padding: '3em 1em 1em 1em',
-    boxShadow: '12px 21px',
+    boxShadow: '12px 21px black',
     height: '200px',
-    width: '265px'
+    width: '265px',
+    zIndex: '999',
+    position: 'fixed' as const,
+    right: '40px',
+    bottom: '200px'
   },
   chatSendEmail: {
     border: '3px solid blue',
@@ -36,26 +35,27 @@ const chatStyles = {
 };
 
 const ChatForm: React.FC = () => {
-    return (
-        <div style={chatStyles.popupWindow}>
-            <h2>Get in touch!</h2>
-            <button style={chatStyles.chatSendEmail} onClick={() => {window.location.href ='mailto:individual_csx@outlook.com'}}>Send an email</button>
-        </div>
-    )
+  return (
+      <div style={chatStyles.popupWindow}>
+          <h2>Get in touch!</h2>
+          <button style={chatStyles.chatSendEmail} onClick={() => {window.location.href ='mailto:georgepyn1001@gmail.com'}}>Send an email</button>
+      </div>
+  )
 }
 
 const ChatWindow: React.FC = () => {
-  // const [count, setCount] = useState(0)
-  const [showWindow, setShowWindow] = useState(false)
+  const popoverRef = useRef(null)
 
-  const showWindowToggle = () => {
-    return setShowWindow(showWindow => !showWindow)
+  const togglePopover = () => {
+    if (popoverRef.current) {
+      popoverRef.current.matches(':popover-open') ? popoverRef.current.hidePopover() : popoverRef.current.showPopover();
+    }
   }
 
   return (
     <>
-        <div style={chatStyles.popUp}>{showWindow === true ? (<ChatForm />) : ''}</div>
-        <div style={chatStyles.buttonWrapper} onClick={showWindowToggle}>
+        <div ref={popoverRef} popover='manual' style={chatStyles.popUpWindow}><ChatForm /></div>
+        <div onClick={togglePopover} style={chatStyles.buttonWrapper} >
             <img src={ContactUs} alt="Contact Us Window Pop-up Button Gif of Typewriter Cartoon" width='100' height='60'/>
         </div>
     </>
