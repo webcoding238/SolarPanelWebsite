@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend/*, LegendPayload*/ } from 'recharts'
+import { useSelector, useDispatch } from 'react-redux'
+import type { RootState } from '../store/store'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
 import SolarImage from '../assets/SolarImage.png'
 import Worldwide from '../assets/Worldwide.svg'
-import { useGetDummyListQuery } from '../store/api/getApi'
+import { dummyApiThunk } from '../store/usersSlice'
 
 const homePageStyles = {
   main: {
@@ -85,19 +87,16 @@ const homePageStyles = {
     position: 'relative' as const,
     overflow: 'hidden'
   },
-  barTitle: {
-    marginTop: '3em',
-    textAlign: 'center' as const,
-    alignItems: 'center',
-    fontSize: '28px'
-  },
   barTitleMobile: {
-    marginTop: '3em',
     marginBottom: '1em',
+    overflowWrap: 'anywhere' as const
+  },
+  titleGeneric: {
+    marginTop: '3em',
     textAlign: 'center' as const,
     alignItems: 'center',
     fontSize: '28px',
-    overflowWrap: 'anywhere' as const
+    color: 'black'
   },
   homeGraph: {
     margin: 'auto',
@@ -114,12 +113,17 @@ const homePageStyles = {
 }
 
 const Homepage: React.FC = () => {
-
   const [focusedDataKey, setFocusedDataKey] = useState<string | null>(null);
   const [locked, setLocked] = useState<boolean>(false);
   const [mediaMobile, setMediaMobile] = useState<number>(1200);
-  const [deviceSize, setDeviceSize] = useState<number>(0)
-  
+  const [deviceSize, setDeviceSize] = useState<number>(0);
+  const { users, status, error } = useSelector((state: RootState) => state.users)
+  const dispatchApi = useDispatch()
+
+  useEffect(() => {
+    dispatchApi(dummyApiThunk())
+  }, [dispatchApi])
+
   useEffect(() => {
     const getWindow = () => {
       setMediaMobile(window.innerWidth)
@@ -133,10 +137,8 @@ const Homepage: React.FC = () => {
       window.removeEventListener("resize", getWindow)
     }
   }, [])
-  
-  const { data/*, error, isLoading*/ } = useGetDummyListQuery('users')
 
-  const onLegendMouseEnter = (payload: any /*LegendPayload*/) => {
+  const onLegendMouseEnter = (payload: any) => {
     if (!locked) {
       setFocusedDataKey(String(payload.dataKey))
     }
@@ -148,7 +150,7 @@ const Homepage: React.FC = () => {
     }
   }
 
-  const onLegendClick = (payload: any /*LegendPayload*/) => {
+  const onLegendClick = (payload: any) => {
     if (focusedDataKey === String(payload.dataKey)) {
       if (locked) {
         setFocusedDataKey(null)
@@ -204,14 +206,15 @@ const Homepage: React.FC = () => {
               />
             </div>)}
         </div>
-        <div style={deviceSize > 449 ? homePageStyles.barTitle : homePageStyles.barTitleMobile}>
+        <div style={deviceSize > 449 ? homePageStyles.titleGeneric : {...homePageStyles.barTitleMobile, ...homePageStyles.titleGeneric}}>
           Ratio of Energy Sector Per Source - Global
         </div>
         <div style={homePageStyles.homeGraph}>
+          {error !== 'No error' && <div><p>Error: {error}</p><br/><p>Status: {status}</p></div>}
           <BarChart
               style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
               responsive
-              data={data}
+              data={users}
                 margin={{
                 top: 20,
                 right: 0,
