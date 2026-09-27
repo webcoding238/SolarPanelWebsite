@@ -1,34 +1,81 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 
-// Slice example not being used yet
+export const dummyApiThunk = createAsyncThunk(
+  'users/getUser',
+  async () => {
+    const response = await fetch(
+          `https://jsonplaceholder.typicode.com/users`)
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    return await response.json();
+  }
+);
+
+export interface User {
+  address: {
+    street: string,
+    suite: string,
+    city: string,
+    zipcode: string,
+    geo: {
+    lat: string,
+    lng: string
+    }
+  },
+    company: {
+    bs: string,
+    catchPhrase: string,
+    name: string
+  },
+  email: string,
+  id: number;
+  name: string;
+  phone: string,
+  username: string,
+  website: string
+}
+
 interface UsersState {
-  value: number,
+  users: User[];
+  status: 'not received' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+  value: number;
 }
 
 const initialState: UsersState = {
-  value: 0,
+  users: [],
+  status: 'not received',
+  error: 'No error',
+  value: 0
 }
 
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
-    },
+
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(dummyApiThunk.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(dummyApiThunk.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.users = action.payload.slice(0, 5);
+      })
+      .addCase(dummyApiThunk.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message || action.error.stack;
+      });
   }
 })
 
-export const { increment, decrement, incrementByAmount } = usersSlice.actions
-export const selectUsers = (state: RootState) => state.users.value
+export const { } = usersSlice.actions
 
 export default usersSlice.reducer
