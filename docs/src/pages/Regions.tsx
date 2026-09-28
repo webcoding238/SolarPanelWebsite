@@ -3,12 +3,17 @@ import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'r
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
-import { usaData, chinaData, southAsiaPacificData, europeData, africaData, greaterAsiaData, southAmericaData } from '../store/data'
+import {
+  usaData,
+  chinaData,
+  southAsiaPacificData,
+  europeData,
+  africaData,
+  greaterAsiaData,
+  southAmericaData
+} from '../store/data/countryData'
 
 const regionsStyles = {
-  main: {
-    
-  },
   barTitle: {
     marginTop: '15px',
     textAlign: 'center' as const,
