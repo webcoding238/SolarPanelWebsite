@@ -43,15 +43,13 @@ export interface User {
 interface UsersState {
   users: User[];
   status: 'not received' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-  value: number;
+  error: string | null
 }
 
 const initialState: UsersState = {
   users: [],
   status: 'not received',
-  error: 'No error',
-  value: 0
+  error: 'No error'
 }
 
 export const usersSlice = createSlice({
@@ -73,9 +71,14 @@ export const usersSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message || action.error.stack;
       });
+  },
+  selectors: {
+    getUsers: (state) => state.users,
+    getStatus: (state) => state.status,
+    getError: (state) => state.error
   }
 })
 
-export const { } = usersSlice.actions
+export const { getUsers, getStatus, getError } = usersSlice.selectors
 
 export default usersSlice.reducer
