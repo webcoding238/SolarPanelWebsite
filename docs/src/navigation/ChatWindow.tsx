@@ -34,15 +34,6 @@ const chatStyles = {
   }
 };
 
-// const ChatForm: React.FC = () => {
-//   return (
-//       <div style={chatStyles.popupWindow}>
-//           <h2>Get in touch!</h2>
-//           <button style={chatStyles.chatSendEmail} onClick={() => {window.location.href ='mailto:georgepyn1001@gmail.com'}}>Send an email</button>
-//       </div>
-//   )
-// }
-
 const ChatWindow: React.FC = () => {
   const popoverRef = useRef(null)
 
