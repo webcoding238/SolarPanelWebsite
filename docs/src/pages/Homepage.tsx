@@ -7,7 +7,7 @@ import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
 import SolarImage from '../assets/SolarImage.png'
 import Worldwide from '../assets/Worldwide.svg'
-import { dummyApiThunk } from '../store/usersSlice'
+import { dummyApiThunk, getUsers, getStatus, getError } from '../store/usersSlice'
 
 const homePageStyles = {
   main: {
@@ -117,7 +117,9 @@ const Homepage: React.FC = () => {
   const [locked, setLocked] = useState<boolean>(false);
   const [mediaMobile, setMediaMobile] = useState<number>(1200);
   const [deviceSize, setDeviceSize] = useState<number>(0);
-  const { users, status, error } = useSelector((state: RootState) => state.users)
+  const users = useSelector(getUsers);
+  const status = useSelector(getStatus);
+  const error = useSelector(getError);
   const dispatchApi = useDispatch()
 
   useEffect(() => {
