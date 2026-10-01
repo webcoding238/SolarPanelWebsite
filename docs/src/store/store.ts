@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import usersReducer from './usersSlice'
+import generatedDataReducer from './generatedDataSlice'
 
 export const store = configureStore({
   reducer: {
-    users: usersReducer
+    users: usersReducer,
+    generatedData: generatedDataReducer
   }
 })
 

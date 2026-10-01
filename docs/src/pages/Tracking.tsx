@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, /*LegendPayload, BarShapeProps,*/ Rectangle } from 'recharts';
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
 import Trajectory from '../assets/Trajectory.svg'
 import SolarImage from '../assets/SolarImage.png'
+import { dummyDataThunk, getGeneratedData, getStatus, getError } from '../store/generatedDataSlice'
 
 const trackingStyles = {
-  main: {
-
-  },
   backgroundImage: {
     backgroundImage: `url(${SolarImage})`,
     backgroundRepeat: 'no-repeat',
@@ -109,6 +108,12 @@ const trackingStyles = {
     justifyContent: 'center',
     backgroundColor: 'white',
     width: '70%'
+  },
+  distances: {
+    fontSize: 'clamp(12px, 1vw, 20px)',
+    display: 'inline',
+    marginLeft: '3em',
+    overflowWrap: 'anywhere' as const
   }
 }
 
@@ -228,7 +233,15 @@ function itemSorter(item: any /*LegendPayload*/): number {
 
 const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
   const [mediaMobile, setMediaMobile] = useState<number>(1200);
-  const [deviceSize, setDeviceSize] = useState<number>(0)
+  const [deviceSize, setDeviceSize] = useState<number>(0);
+  const generatedData = useSelector(getGeneratedData);
+  const status = useSelector(getStatus);
+  const error = useSelector(getError);
+  const dispatchDummyData = useDispatch();
+
+  useEffect(() => {
+    dispatchDummyData(dummyDataThunk())
+  }, [dispatchDummyData])
   
   useEffect(() => {
     const getWindow = () => {
@@ -279,6 +292,10 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
           grid from solar panels in 2023.
         </div>
         <ChatWindow />
+        <div style={trackingStyles.barTitle}>Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients</div>
+        {status === 'succeeded' ? (generatedData.map(distance => {
+          return <div style={trackingStyles.distances}>{distance}</div>
+        })) : (<div style={trackingStyles.barTitle}>Awaiting data for manufacturing distances...</div>)}
         <div style={trackingStyles.barTitle}>
           Residental Solar Panel Periods of Continued Growth
         </div>
