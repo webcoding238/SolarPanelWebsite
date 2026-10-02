@@ -13,11 +13,11 @@ export const dummyDataThunk = createAsyncThunk(
     const countMax = 45
     let count = 0
 
-    const getCount = () => {
+    async function getCount() {
         return count = Math.floor(Math.random() * (countMax - countMin + 1)) + countMin;
     }
 
-    const response = async () => {
+    async function response() {
         await getCount()
         for (let i = 0; i < count; i++) {
             const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -27,7 +27,7 @@ export const dummyDataThunk = createAsyncThunk(
 
    await response();
 
-    const longDistance = (responseSetThis) => {
+    function longDistance(responseSetThis) {
         const longest = []
         for (let i = 0; i < responseSetThis.length; i++) {
             if (responseSetThis[i] > 2000) {

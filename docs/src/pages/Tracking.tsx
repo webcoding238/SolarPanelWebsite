@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, /*LegendPayload, BarShapeProps,*/ Rectangle } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Rectangle } from 'recharts';
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
@@ -9,6 +9,18 @@ import SolarImage from '../assets/SolarImage.png'
 import { dummyDataThunk, getGeneratedData, getStatus, getError } from '../store/generatedDataSlice'
 
 const trackingStyles = {
+  titleSize: {
+    fontSize: 'clamp(20px, 3vw, 36px)'
+  },
+  fontColorBlack: {
+    color: 'black'
+  },
+  backgroundColorWhite: {
+    backgroundColor: 'white'
+  },
+  positionRelative: {
+    position: 'relative' as const
+  },
   backgroundImage: {
     backgroundImage: `url(${SolarImage})`,
     backgroundRepeat: 'no-repeat',
@@ -20,28 +32,13 @@ const trackingStyles = {
     zIndex: '-1000',
     position: 'fixed' as const
   },
-  navPosition: {
-    position: 'relative' as const,
-    backgroundColor: 'white',
-    color: 'black'
-  },
   titleGrid: {
     height: '50px',
-    width: '40vw',
+    width: 'calc(38% + 7.5em)',
     margin: '15px',
     display: 'grid',
     gridTemplateColumns: '20% 80%',
     gridTemplateRows: '100%',
-    gap: '5px',
-    position: 'relative' as const
-  },
-  titleGridMobile: {
-    height: '50px',
-    width: '100%',
-    margin: '15px',
-    display: 'grid',
-    gridTemplateColumns: '20% 80%',
-    gridTemplateRows: '1fr',
     gap: '5px',
     position: 'relative' as const
   },
@@ -56,20 +53,21 @@ const trackingStyles = {
     gridColumnEnd: '1',
     gridRowStart: '1',
     gridRowEnd: '2',
-    marginTop: '2em',
-    paddingTop: '1em',
+    padding: '1em',
     paddingBottom: '1em',
-    backgroundColor: 'white',
-    color: 'black',
-    borderRadius: '100%'
+    borderRadius: '100%',
+    width: '50px',
+    height: '50px'
+  },
+  centerIcon: {
+    margin: '-0.25em 0 0 -0.25em'
   },
   title: {
-    paddingTop: '10px',
+    padding: '10px',
     gridColumnStart: '2',
     gridColumnEnd: '2',
     gridRowStart: '1',
     gridRowEnd: '2',
-    fontSize: '26px',
     overflowWrap: 'anywhere' as const
   },
   trackingSummary: {
@@ -78,24 +76,12 @@ const trackingStyles = {
     padding: '5px',
     fontSize: '24px',
     width: '38%',
-    zIndex: '1000',
-    backgroundColor: 'white',
-    color: 'black'
-  },
-  trackingSummaryMobile: {
-    margin: '2em auto auto auto',
-    padding: '5px',
-    fontSize: '24px',
-    width: '60%',
-    zIndex: '1000',
-    backgroundColor: 'white',
-    color: 'black'
+    zIndex: '1000'
   },
   barTitle: {
     margin: '2em',
     textAlign: 'center' as const,
     alignItems: 'center',
-    fontSize: '28px',
     overflowWrap: 'anywhere' as const
   },
   homeGraph: {
@@ -106,14 +92,17 @@ const trackingStyles = {
     flexDirection: 'row' as  const,
     flexWrap: 'nowrap' as const,
     justifyContent: 'center',
-    backgroundColor: 'white',
     width: '70%'
   },
   distances: {
+    marginLeft: '1.5em',
+    paddingRight: '1.5em',
     fontSize: 'clamp(12px, 1vw, 20px)',
-    display: 'inline',
-    marginLeft: '3em',
     overflowWrap: 'anywhere' as const
+  },
+  distance: {
+    display: 'inline',
+    margin: '0 0.5em 0 0.5em'
   }
 }
 
@@ -174,12 +163,12 @@ const getBarColor = (outcome: TimelineDataType['outcome']) => {
   }
 }
 
-const CustomFillRectangle = (props: any /*BarShapeProps*/) => {
+const CustomFillRectangle = (props: any) => {
   const { outcome } = props;
   return <Rectangle {...props} fill={getBarColor(outcome)} />;
 }
 
-const ActiveRectangle = (props: any /*BarShapeProps*/) => {
+const ActiveRectangle = (props: any) => {
   return <CustomFillRectangle {...props} stroke="orange" strokeWidth={3} />;
 }
 
@@ -206,12 +195,12 @@ const rawData = `
 5-9,351991008,332121131
 0-4,331889289,315450649
 `
- .trim()
+.trim()
   .split('\n')
   .map(line => {
     const [age, m, f] = line.split(',');
     return { age, male: Number(m), female: Number(f) };
-  });
+  })
 
 const totalPopulation: number = rawData.reduce((sum, entry) => sum + entry.male + entry.female, 0);
 
@@ -221,18 +210,18 @@ const percentageData = rawData.map(entry => {
     male: (entry.male / totalPopulation) * -100,
     female: (entry.female / totalPopulation) * 100,
   };
-});
+})
 
-function formatPercent(val: any /*RenderableText | TooltipValueType*/): string {
+function formatPercent(val: any): string {
   return `${Math.abs(Number(val)).toFixed(1)}%`;
 }
 
-function itemSorter(item: any /*LegendPayload*/): number {
+function itemSorter(item: any): number {
   return item.value === 'Male' ? 0 : 1;
 }
 
 const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
-  const [mediaMobile, setMediaMobile] = useState<number>(1200);
+  const ref = useRef();
   const [deviceSize, setDeviceSize] = useState<number>(0);
   const generatedData = useSelector(getGeneratedData);
   const status = useSelector(getStatus);
@@ -243,41 +232,39 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
     dispatchDummyData(dummyDataThunk())
   }, [dispatchDummyData])
   
-  useEffect(() => {
-    const getWindow = () => {
-      setMediaMobile(window.innerWidth)
-      setDeviceSize(window.screen.width)
-    }
-    getWindow()
+    useEffect(() => {
+        if (!ref.current) return;
 
-    window.addEventListener("resize", getWindow)
+        const observer = new ResizeObserver(entries => {
+            setDeviceSize(entries[0].contentRect.width);
+        });
 
-    return () => {
-      window.removeEventListener("resize", getWindow)
-    }
-  }, [])
+        observer.observe(ref.current);
+
+        return () => observer.disconnect();
+    }, []);
 
   return (
-    <>
+    <div ref={ref}>
       <main style={trackingStyles.main}>
         <img src={SolarImage}
           style={trackingStyles.backgroundImage}
           alt="Photograph of a sloped rooftop with solar panels"
           />
-        <div style={trackingStyles.navPosition}>
+        <div style={{...trackingStyles.positionRelative, ...trackingStyles.fontColorBlack, ...trackingStyles.backgroundColorWhite}}>
           <Navigation />
         </div>
-        <div style={mediaMobile > 449 && deviceSize > 449 ? trackingStyles.titleGrid : trackingStyles.titleGridMobile}>
-          <div style={mediaMobile > 449 && deviceSize > 449 ? trackingStyles.titleIcon : trackingStyles.titleIconMobile}>
-            <img
+        <div style={trackingStyles.titleGrid}>
+          <div style={deviceSize > 949 ? trackingStyles.titleIcon : {...trackingStyles.titleIconMobile, ...trackingStyles.fontColorBlack, ...trackingStyles.backgroundColorWhite}}>
+            <div style={trackingStyles.centerIcon}><img
               src={Trajectory}
               alt="Cartoon outline of schedule calendar"
-              width='100' height='60'
-              />
+              height='60'
+              /></div>
           </div>
-          <div style={trackingStyles.title}>Chronology of Solar Panels</div>
+          <div style={{...trackingStyles.title, ...trackingStyles.titleSize}}>Chronology of Solar Panels</div>
         </div>
-        <div style={trackingStyles.trackingSummary}>
+        <div style={{...trackingStyles.trackingSummary, ...trackingStyles.fontColorBlack, ...trackingStyles.backgroundColorWhite}}>
           In 1964 NASA, building upon previous inventions dating back to earlier than 1873,
           launched a satellite self-sufficient from solar power. In 1983 Prof. Martin Green of UNSW
           invented technology that is present in more than 90% of solar panels.
@@ -292,14 +279,14 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
           grid from solar panels in 2023.
         </div>
         <ChatWindow />
-        <div style={trackingStyles.barTitle}>Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients</div>
-        {status === 'succeeded' ? (generatedData.map(distance => {
-          return <div style={trackingStyles.distances}>{distance}</div>
-        })) : (<div style={trackingStyles.barTitle}>Awaiting data for manufacturing distances...</div>)}
-        <div style={trackingStyles.barTitle}>
-          Residental Solar Panel Periods of Continued Growth
+        <div style={{...trackingStyles.barTitle, ...trackingStyles.titleSize}}>Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients</div>
+        <div style={trackingStyles.distances}>
+          {status === 'succeeded' ? (generatedData.map((distance, index) => {
+            return <div key={index + 33} style={{...trackingStyles.distance, ...trackingStyles.fontColorBlack}}>{distance}</div>
+          })) : (<div style={{...trackingStyles.barTitle, ...trackingStyles.titleSize}}>Awaiting data for manufacturing distances...</div>)}
         </div>
-        <div style={trackingStyles.homeGraph}>
+        <div style={{...trackingStyles.barTitle, ...trackingStyles.titleSize}}>Residental Solar Panel Periods of Continued Growth</div>
+        <div style={{...trackingStyles.homeGraph, ...trackingStyles.backgroundColorWhite}}>
           <BarChart
             layout="vertical"
             style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
@@ -331,7 +318,7 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
             <Bar dataKey="Production" stackId="a" radius={25} shape={CustomFillRectangle} activeBar={ActiveRectangle} />
           </BarChart>
         </div>
-        <div style={trackingStyles.barTitle}>
+        <div style={{...trackingStyles.barTitle, ...trackingStyles.titleSize}}>
           Percentage of World Population By Age - Present Day - <br/>Who Will Consume More Than 65% of Their Electricity From Solar Power
         </div>
         <div style={trackingStyles.homeGraph}>
@@ -387,7 +374,7 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
