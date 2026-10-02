@@ -42,13 +42,11 @@ const homePageStyles = {
   mobileSummary: {
     marginTop: '2em',
     padding: '2em',
-    backgroundColor: 'white',
-    color: 'black',
+    color: 'white',
     backgroundImage: `url(${SolarImage})`,
     backgroundSize: 'cover',
     objectFit: 'contain' as const,
-    backgroundRepeat: 'no-repeat',
-    color: 'white'
+    backgroundRepeat: 'no-repeat'
   },
   mobileIcon: {
     marginTop: '2em',
