@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
-import Navigation from '../navigation/Navigation'
-import Footer from '../navigation/Footer'
-import ChatWindow from '../navigation/ChatWindow'
+import Navigation from '../../navigation/Navigation'
+import Footer from '../../navigation/Footer'
+import ChatWindow from '../../navigation/ChatWindow'
 import {
   usaData,
   chinaData,
@@ -11,7 +11,7 @@ import {
   africaData,
   greaterAsiaData,
   southAmericaData
-} from '../store/data/countryData'
+} from './countryData'
 
 const regionsStyles = {
   barTitle: {

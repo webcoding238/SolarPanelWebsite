@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import Navigation from '../navigation/Navigation'
-import Footer from '../navigation/Footer'
-import ChatWindow from '../navigation/ChatWindow'
-import ProjectTagIcon from '../assets/ProjectTagIcon.svg'
-import ProjectCard from '../components/ProjectCard'
+import Navigation from '../../navigation/Navigation'
+import Footer from '../../navigation/Footer'
+import ChatWindow from '../../navigation/ChatWindow'
+import ProjectTagIcon from '../../assets/ProjectTagIcon.svg'
+import ProjectCard from '../../components/ProjectCard'
 
 const projectStyles = {
   main: {

@@ -30,7 +30,7 @@ import {
     dataScatter,
     dataRadar,
     dataResponsive
-} from '../store/data/cardData'
+} from '../pages/Project/cardData'
 
 const projectStyles = {
   projectCardWrapper: {

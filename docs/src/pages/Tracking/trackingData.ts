@@ -73,3 +73,8 @@ export const rawData = `
     const [age, m, f] = line.split(',');
     return { age, male: Number(m), female: Number(f) };
   })
+
+export const paragraphOne = 'In 1964 NASA, building upon previous inventions dating back to earlier than 1873, launched a satellite self-sufficient from solar power. In 1983 Prof. Martin Green of UNSW invented technology that is present in more than 90% of solar panels.'
+
+export const paragraphTwo = `In the 2000's
+          Japan's mainstream electronics corporations such as Mitsubishi and their peers manufactured a large portion of the solar panels used in residential early adapter regions such as Los Angeles. This marketshare tapered off around 2019, when manufacturing moved mostly to the USA and China. Now, the top 5 countries using residential solar power are United States of America, Japan, China, Australia and India. The U.S.A. produced more than 50% of their electricity in their grid from solar panels in 2023.`

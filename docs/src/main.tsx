@@ -4,8 +4,8 @@ import { store } from './store/store.ts'
 import { BrowserRouter, Routes, Route } from "react-router"
 import './index.css'
 import Homepage from './pages/Homepage/Homepage.tsx'
-import Project from './pages/Project.tsx'
-import Regions from './pages/Regions.tsx'
+import Project from './pages/Project/Project.tsx'
+import Regions from './pages/Regions/Regions.tsx'
 import Tracking from './pages/Tracking/Tracking.tsx'
 
 const root: HTMLElement | null = document.getElementById("root");
