@@ -6,7 +6,14 @@ import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
 import Trajectory from '../assets/Trajectory.svg'
 import SolarImage from '../assets/SolarImage.png'
-import { dummyDataThunk, getGeneratedData, getStatus, getError } from '../store/generatedDataSlice'
+import { 
+  dummyDataThunk,
+  getGeneratedData,
+  getStatus,
+  getError,
+  bubbleSortAscendingReducer,
+  bubbleSortDescendingReducer
+} from '../store/generatedDataSlice'
 
 const trackingStyles = {
   titleSize: {
@@ -222,6 +229,7 @@ function itemSorter(item: any): number {
 
 const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
   const ref = useRef();
+  const popoverRef = useRef(null);
   const [deviceSize, setDeviceSize] = useState<number>(0);
   const generatedData = useSelector(getGeneratedData);
   const status = useSelector(getStatus);
@@ -232,17 +240,31 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
     dispatchDummyData(dummyDataThunk())
   }, [dispatchDummyData])
   
-    useEffect(() => {
-        if (!ref.current) return;
+  useEffect(() => {
+    if (!ref.current) return;
 
-        const observer = new ResizeObserver(entries => {
-            setDeviceSize(entries[0].contentRect.width);
-        });
+    const observer = new ResizeObserver(entries => {
+        setDeviceSize(entries[0].contentRect.width);
+    });
 
-        observer.observe(ref.current);
+    observer.observe(ref.current);
 
-        return () => observer.disconnect();
-    }, []);
+    return () => observer.disconnect();
+  }, []);
+
+  function togglePopover() {
+    if (popoverRef.current) {
+      popoverRef.current.togglePopover();
+    }
+  }
+
+  function sortAscending() {
+    dispatchDummyData(bubbleSortAscendingReducer())
+  }
+
+  function sortDescending() {
+    dispatchDummyData(bubbleSortDescendingReducer())
+  }
 
   return (
     <div ref={ref}>
@@ -281,6 +303,13 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
         <ChatWindow />
         <div style={{...trackingStyles.barTitle, ...trackingStyles.titleSize}}>Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients</div>
         <div style={trackingStyles.distances}>
+          <div onClick={togglePopover}>
+            <div>Sort Results</div>
+            <div ref={popoverRef} popover='manual'>
+              <button onClick={() => sortAscending()}>Ascending</button>
+              <button onClick={() => sortDescending()}>Descending</button>
+            </div>
+          </div>
           {status === 'succeeded' ? (generatedData.map((distance, index) => {
             return <div key={index + 33} style={{...trackingStyles.distance, ...trackingStyles.fontColorBlack}}>{distance}</div>
           })) : (<div style={{...trackingStyles.barTitle, ...trackingStyles.titleSize}}>Awaiting data for manufacturing distances...</div>)}
