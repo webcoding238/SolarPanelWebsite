@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import type { RootState } from '../store/store'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
-import Navigation from '../navigation/Navigation'
-import Footer from '../navigation/Footer'
-import ChatWindow from '../navigation/ChatWindow'
-import SolarImage from '../assets/SolarImage.png'
-import Worldwide from '../assets/Worldwide.svg'
-import { dummyApiThunk, getUsers, getStatus, getError } from '../store/usersSlice'
+import Navigation from '../../navigation/Navigation'
+import Footer from '../../navigation/Footer'
+import ChatWindow from '../../navigation/ChatWindow'
+import SolarImage from '../../assets/SolarImage.png'
+import Worldwide from '../../assets/Worldwide.svg'
+import { getStatus, getError } from './usersSlice'
+import RechartBarChart from './Rechart.tsx'
 
 const homePageStyles = {
   main: {
@@ -111,18 +110,10 @@ const homePageStyles = {
 }
 
 const Homepage: React.FC = () => {
-  const [focusedDataKey, setFocusedDataKey] = useState<string | null>(null);
-  const [locked, setLocked] = useState<boolean>(false);
   const [mediaMobile, setMediaMobile] = useState<number>(1200);
   const [deviceSize, setDeviceSize] = useState<number>(0);
-  const users = useSelector(getUsers);
   const status = useSelector(getStatus);
   const error = useSelector(getError);
-  const dispatchApi = useDispatch()
-
-  useEffect(() => {
-    dispatchApi(dummyApiThunk())
-  }, [dispatchApi])
 
   useEffect(() => {
     const getWindow = () => {
@@ -137,32 +128,6 @@ const Homepage: React.FC = () => {
       window.removeEventListener("resize", getWindow)
     }
   }, [])
-
-  const onLegendMouseEnter = (payload: any) => {
-    if (!locked) {
-      setFocusedDataKey(String(payload.dataKey))
-    }
-  }
-
-  const onLegendMouseOut = () => {
-    if (!locked) {
-      setFocusedDataKey(null)
-    }
-  }
-
-  const onLegendClick = (payload: any) => {
-    if (focusedDataKey === String(payload.dataKey)) {
-      if (locked) {
-        setFocusedDataKey(null)
-        setLocked(false)
-      } else {
-        setLocked(true)
-      }
-    } else {
-      setFocusedDataKey(String(payload.dataKey))
-      setLocked(true);
-    }
-  }
 
   return (
     <>
@@ -211,26 +176,7 @@ const Homepage: React.FC = () => {
         </div>
         <div style={homePageStyles.homeGraph}>
           {error !== 'No error' && <div><p>Error: {error}</p><br/><p>Status: {status}</p></div>}
-          <BarChart
-              style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
-              responsive
-              data={users}
-                margin={{
-                top: 20,
-                right: 0,
-                left: 0,
-                bottom: 5,
-              }}
-            >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis dataKey="address.geo.lat" width="auto" />
-            <Tooltip />
-            <Legend onMouseEnter={onLegendMouseEnter} onMouseOut={onLegendMouseOut} onClick={onLegendClick} />
-            <Bar dataKey="address.geo.lat" stackId="a" fill={focusedDataKey == null || focusedDataKey === 'address.geo.lat' ? '#8884d8' : '#eee'} />
-            <Bar dataKey="address.zipcode" stackId="a" fill={focusedDataKey == null || focusedDataKey === 'address.zipcode' ? '#82ca9d' : '#eee'} />
-            <Bar dataKey="address.geo.lng" fill={focusedDataKey == null || focusedDataKey === 'address.geo.lng' ? '#ffc658' : '#eee'} />
-          </BarChart>
+          <RechartBarChart />
         </div>
       </main>
       <Footer />
