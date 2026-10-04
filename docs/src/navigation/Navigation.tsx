@@ -1,115 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
+import { useDispatch } from 'react-redux'
 import ProfileImage from '../assets/ProfileImage.svg'
 import HeaderBackground from '../assets/HeaderBackground.png'
-
-const navigationStyles = {
-  header: {
-    border: '2px solid black',
-    backgroundImage: `url(${HeaderBackground})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    width: '100vw',
-    height: 'auto'
-  },
-  headerScroll: {
-    border: '2px solid black',
-    backgroundImage: `url(${HeaderBackground})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    height: 'auto',
-    width: '100vw',
-    overflowX: 'scroll' as const
-  },
-  websiteTitle: {
-    paddingLeft: '1em',
-    fontColor: 'black',
-    minWidth: 0,
-    fontSize: 'clamp(1.5rem, 5vw, 3rem)',
-    gridColumnStart: '1',
-    gridColumnEnd: '1',
-    gridRowStart: '1',
-    gridRowEnd: '1',
-    overflowWrap: 'anywhere' as const
-  },
-  subTitles: {
-    fontColor: 'black',
-    fontSize: '18px',
-    overflowWrap: 'anywhere' as const
-  },
-  subTitlesMobile: {
-    marginTop: '0.5em',
-    paddingLeft: '1em',
-    fontColor: 'black',
-    opacity: '0.80',
-    fontSize: '10px',
-    overflowWrap: 'anywhere' as const
-  },
-  subTitlesFlex: {
-    marginLeft: '3em',
-    fontColor: 'black',
-    fontSize: '18px'
-  },
-  titleGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(autoFit, minmax(3fr, 1fr))',
-    gridTemplateRows: '1fr',
-    height: 'auto',
-    width: '95%'
-  },
-  gridItemSubtitles: {
-    gridColumnStart: '2',
-    gridColumnEnd: '2',
-    gridRowStart: '1',
-    gridRowEnd: '1',
-    textAlign: 'right' as const,
-    overflowWrap: 'anywhere' as const
-  },
-  container: {
-    textAlign: 'center' as const,
-    display: 'flex',
-    height: '10em',
-    width: '100%'
-  },
-  containerItem: {
-    marginTop: '3em',
-    marginLeft: '2em',
-    flexGrow: '1',
-    cursor: 'pointer',
-    backgroundColor: 'white',
-    borderRadius: '0.5em'
-  },
-  containerItemFlex: {
-    marginTop: '1em',
-    flexGrow: '1',
-    cursor: 'pointer',
-    backgroundColor: 'white',
-    borderRadius: '0.5em'
-  },
-  containerItemAndAlignment: {
-    margin: '3em',
-    flexGrow: '1',
-    cursor: 'pointer'
-  },
-  menuItem: {
-    color: 'white',
-    fontSize: '20px'
-  },
-  navFlex: {
-    paddingTop: '0.5em',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row' as  const,
-    flexWrap: 'wrap' as const,
-    justifyContent: 'space-evenly'
-  },
-  navFlexTitlesFlex: {
-    color: 'black',
-    position: 'relative' as const
-  },
-  menuSpacingFlex: {
-    paddingTop: '2em',
-  }
-};
+import { setWebpage } from '../store/navigationSlice'
+import sharedStyles from '../components/SharedStyles'
+import navigationStyles from './NavigationStyles'
 
 interface navigationType { title: string; route: string; keyC: string }[]
 
@@ -120,29 +15,37 @@ const navigation: navigationType[] = [
 ];
 
 const NavigationButton: React.FC<navigationType> = (webpage) => {
+  const setWebpage = useDispatch();
+
+  function setCurrentWebpage(webpage:string) {
+    setWebpage(webpage)
+  }
 
   return (
-    <div key={webpage.keyC}>
-      <a style={navigationStyles.menuItem} href={`/${webpage.route}`}>{webpage.title}</a>
-    </div>
+    <div key={webpage.keyC} style={{...navigationStyles.menuItem, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage(`${webpage.route}`)}>{webpage.title}</div>
   )
 }
 
 const Navigation: React.FC = () => {
   const ref = useRef(null);
+  const setWebpageDispatch = useDispatch();
   const [deviceSize, setDeviceSize] = useState<number>(0);
 
   useEffect(() => {
-      if (!ref.current) return;
+    if (!ref.current) return;
 
-      const observer = new ResizeObserver(entries => {
-          setDeviceSize(entries[0].contentRect.width);
-      });
+    const observer = new ResizeObserver(entries => {
+        setDeviceSize(entries[0].contentRect.width);
+    });
 
-      observer.observe(ref.current);
+    observer.observe(ref.current);
 
-      return () => observer.disconnect();
+    return () => observer.disconnect();
   }, []);
+
+  function setCurrentWebpage(webpage:string) {
+    setWebpageDispatch(setWebpage({type: webpage}))
+  }
 
   return (
     <div ref={ref}>
@@ -154,12 +57,12 @@ const Navigation: React.FC = () => {
             <div style={navigationStyles.subTitlesFlex}>Reported by Project Data Enterprises</div>
             <div style={navigationStyles.subTitlesFlex}>Manager: George Payne</div>
             <div style={navigationStyles.navFlex}>
-              <a href={'/'}>
-                <img style={navigationStyles.containerItemFlex} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
-              </a>
-              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Project'}>Project Overview</a></div>
-              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Regions'}>Regional Statistics</a></div>
-              <div style={navigationStyles.menuSpacingFlex}><a style={navigationStyles.navFlexTitlesFlex} href={'/Tracking'}>Historical Tracking</a></div>
+              <div onClick={() => setCurrentWebpage('Homepage')}>
+                <img style={{...navigationStyles.containerItemFlex, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+              </div>
+              <div style={{...navigationStyles.menuSpacingFlex, ...navigationStyles.navFlexTitlesFlex, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage('Project')}>Project Overview</div>
+              <div style={{...navigationStyles.menuSpacingFlex, ...navigationStyles.navFlexTitlesFlex, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage('Regions')}>Regional Statistics</div>
+              <div style={{...navigationStyles.menuSpacingFlex, ...navigationStyles.navFlexTitlesFlex, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage('Tracking')}>Historical Tracking</div>
             </div>
           </>
         ) : (
@@ -176,7 +79,7 @@ const Navigation: React.FC = () => {
               <nav>
                   <div style={navigationStyles.container}>
                     <a href={'/'}>
-                      <img style={navigationStyles.containerItem} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+                      <img style={{...navigationStyles.containerItem, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
                     </a>
                     {navigation.map(webpage => (
                       <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>

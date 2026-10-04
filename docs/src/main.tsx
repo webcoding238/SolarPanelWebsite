@@ -3,10 +3,7 @@ import ReactDOM from "react-dom/client"
 import { store } from './store/store.ts'
 import { BrowserRouter, Routes, Route } from "react-router"
 import './index.css'
-import Homepage from './pages/Homepage/Homepage.tsx'
-import Project from './pages/Project/Project.tsx'
-import Regions from './pages/Regions/Regions.tsx'
-import Tracking from './pages/Tracking/Tracking.tsx'
+import WrapperComponent from './components/WrapperComponent'
 
 const root: HTMLElement | null = document.getElementById("root");
 
@@ -14,10 +11,7 @@ ReactDOM.createRoot(root!).render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/Project" element={<Project />} />
-        <Route path="/Regions" element={<Regions />} />
-        <Route path="/Tracking" element={<Tracking />} />
+        <Route path="/" element={<WrapperComponent />} />
       </Routes>
     </BrowserRouter>
   </Provider>

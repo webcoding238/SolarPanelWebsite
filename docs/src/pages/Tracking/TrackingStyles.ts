@@ -1,24 +1,6 @@
 import SolarImage from '../../assets/SolarImage.png'
 
 const trackingStyles = {
-  titleSize: {
-    fontSize: 'clamp(20px, 3vw, 36px)'
-  },
-  fontColorBlack: {
-    color: 'black'
-  },
-  backgroundColorWhite: {
-    backgroundColor: 'white'
-  },
-  positionRelative: {
-    position: 'relative' as const
-  },
-  positionAbsolute: {
-    position: 'static' as const
-  },
-  displayBlock: {
-    display: 'block' as const
-  },
   backgroundImage: {
     backgroundImage: `url(${SolarImage})`,
     backgroundRepeat: 'no-repeat',

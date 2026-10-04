@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../store/store'
 
 export const dummyApiThunk = createAsyncThunk(
@@ -55,9 +54,6 @@ const initialState: UsersState = {
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {
-
-  },
   extraReducers: (builder) => {
     builder
       .addCase(dummyApiThunk.pending, (state) => {
