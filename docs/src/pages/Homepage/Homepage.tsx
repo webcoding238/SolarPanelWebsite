@@ -1,0 +1,181 @@
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import ChatWindow from '../../navigation/ChatWindow'
+import SolarImage from '../../assets/SolarImage.png'
+import Worldwide from '../../assets/Worldwide.svg'
+import { getStatus, getError } from './usersSlice'
+import RechartBarChart from './Rechart.tsx'
+
+const homePageStyles = {
+  main: {
+    backgroundColor: 'lightskyblue',
+    paddingBottom: '10px',
+    width: '100%'
+  },
+  homepageTitle: {
+    paddingLeft: '2em',
+    marginTop: '30px',
+    backgroundColor: 'white',
+    color: 'black',
+    fontSize: '64px',
+    zIndex: '1000',
+    textAlign: 'center' as const,
+    overflowWrap: 'anywhere' as const
+  },
+  introGrid: {
+    margin: '20px',
+    display: 'grid',
+    position: 'relative' as const,
+    gridTemplateColumns: '1fr 1fr',
+    gap: '3em',
+    textAlign: 'center' as const,
+    width: '100%'
+  },
+  mobileWidth: {
+    margin: 'auto',
+    paddingLeft: '2em',
+    paddingRight: '2em'
+  },
+  mobileSummary: {
+    marginTop: '2em',
+    padding: '2em',
+    color: 'white',
+    backgroundImage: `url(${SolarImage})`,
+    backgroundSize: 'cover',
+    objectFit: 'contain' as const,
+    backgroundRepeat: 'no-repeat'
+  },
+  mobileIcon: {
+    marginTop: '2em',
+    paddingTop: '1em',
+    paddingBottom: '1em',
+    backgroundColor: 'white',
+    color: 'black',
+    borderRadius: '100%'
+  },
+  gridItem1: {
+    backgroundColor: 'white',
+    color: 'black',
+    padding: '5px',
+    gridColumnStart: '1',
+    gridColumnEnd: '1',
+    gridRowStart: '1',
+    gridRowEnd: '1',
+    marginTop: '2em',
+    fontSize: '18px',
+    width: '38vw',
+    textAlign: 'left' as const
+  },
+  gridItem2: {
+    gridColumnStart: '2',
+    gridColumnEnd: '2',
+    gridRowStart: '1',
+    gridRowEnd: '1',
+    marginTop: '2em',
+    marginRight: '2.5em'
+  },
+  backgroundImage: {
+    margin: 'auto',
+    objectFit: 'contain' as const,
+    width: '100%',
+    height: '100%',
+    position: 'relative' as const,
+    overflow: 'hidden'
+  },
+  barTitleMobile: {
+    marginBottom: '1em',
+    overflowWrap: 'anywhere' as const
+  },
+  titleGeneric: {
+    marginTop: '3em',
+    textAlign: 'center' as const,
+    alignItems: 'center',
+    fontSize: '28px',
+    color: 'black'
+  },
+  homeGraph: {
+    margin: 'auto',
+    padding: '3em',
+    position: 'relative' as const,
+    display: 'flex',
+    flexDirection: 'row' as  const,
+    flexWrap: 'nowrap' as const,
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    color: 'black',
+    width: '70%'
+  }
+}
+
+const Homepage: React.FC = () => {
+  const [mediaMobile, setMediaMobile] = useState<number>(1200);
+  const [deviceSize, setDeviceSize] = useState<number>(0);
+  const status = useSelector(getStatus);
+  const error = useSelector(getError);
+
+  useEffect(() => {
+    const getWindow = () => {
+      setMediaMobile(window.innerWidth)
+      setDeviceSize(window.screen.width)
+    }
+    getWindow()
+
+    window.addEventListener("resize", getWindow)
+
+    return () => {
+      window.removeEventListener("resize", getWindow)
+    }
+  }, [])
+
+  return (
+    <main style={homePageStyles.main}>
+      <ChatWindow />
+      <div style={homePageStyles.homepageTitle}>Solar Power - Industrial Insights</div>
+      <div style={mediaMobile > 1100 && deviceSize > 449 ? homePageStyles.introGrid : homePageStyles.mobileWidth}>
+        {mediaMobile < 1100 && (<img
+          style={homePageStyles.mobileIcon}
+          src={Worldwide}
+          alt="Cartoon outline of the Earth"
+          width='100' height='60'
+          />)}
+        <div style={mediaMobile > 1100 && deviceSize > 449 ? homePageStyles.gridItem1 : homePageStyles.mobileSummary}>
+          The energy supply of society has evolved into a combination of
+          what was most easily obtainable with also what sources were
+          possible under sprawling political control.
+          <br />
+          <br />
+          While there is an economy behind the energy industry, for instance the
+          New York Mercantile Exchange, it balances itself between economic power
+          and essential services. Depending on what location and current events
+          throughout the world, you may be more towards either end of that spectrum.
+          <br />
+          <br />
+          Energy in the economy is more similar to energy in nature than most believe it is.
+          Often, when we hear oil, hydro-power, coal, wind power, nuclear power, and solar power called "energy" we get the feeling of a superficial definition that lacks details in commerce and lacks effort in explaining what is energy. However, the energy sector, albeit less human, is equally dynamic and elusive in regards to the changes in time, source, type, and multitude as the substance of energy in relation to energy versus matter, and also energy as emotions or feelings.
+          <br />
+          <br />
+          {mediaMobile > 1100 && deviceSize > 449 && (<img
+            src={Worldwide}
+            alt="Cartoon outline of the Earth"
+            width='100' height='60'
+            />)}
+        </div>
+        {mediaMobile > 1100 && deviceSize > 449 && (<div style={homePageStyles.gridItem2}>
+          <img src={SolarImage}
+            style={homePageStyles.backgroundImage}
+            alt="Photograph of a sloped rooftop with solar panels"
+            />
+          </div>)}
+      </div>
+      <div style={deviceSize > 449 ? homePageStyles.titleGeneric : {...homePageStyles.barTitleMobile, ...homePageStyles.titleGeneric}}>
+        Ratio of Energy Sector Per Source - Global
+      </div>
+      <div style={homePageStyles.homeGraph}>
+        {error !== 'No error' && <div><p>Error: {error}</p><br/><p>Status: {status}</p></div>}
+        <RechartBarChart />
+      </div>
+    </main>
+  )
+}
+
+export default Homepage

@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from './store'
+import type { RootState } from '../../store/store'
 
 export const dummyDataThunk = createAsyncThunk(
   'generatedData/getGeneratedData',
@@ -57,7 +56,30 @@ export const generatedDataSlice = createSlice({
   name: 'generatedData',
   initialState,
   reducers: {
-
+    bubbleSortAscendingReducer(state, action) {
+      for (let i = 0; i < state.shippingDistances.length; i++) {
+        for (let j = 0; j < (state.shippingDistances.length - i - 1); j++) {
+          if (state.shippingDistances[j] > state.shippingDistances[j+1]) {
+            const lesser = state.shippingDistances[j+1];
+            state.shippingDistances[j+1] = state.shippingDistances[j];
+            state.shippingDistances[j] = lesser;
+          }
+        }
+      }
+      state.shippingDistances = state.shippingDistances
+    },
+    bubbleSortDescendingReducer(state, action) {
+      for (let i = 0; i < state.shippingDistances.length; i++) {
+        for (let j = 0; j < (state.shippingDistances.length - i - 1); j++) {
+          if (state.shippingDistances[j] < state.shippingDistances[j+1]) {
+            const greater = state.shippingDistances[j+1];
+            state.shippingDistances[j+1] = state.shippingDistances[j];
+            state.shippingDistances[j] = greater;
+          }
+        }
+      }
+      state.shippingDistances = state.shippingDistances
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -81,5 +103,6 @@ export const generatedDataSlice = createSlice({
 })
 
 export const { getGeneratedData, getStatus, getError } = generatedDataSlice.selectors
+export const { bubbleSortAscendingReducer, bubbleSortDescendingReducer } = generatedDataSlice.actions
 
 export default generatedDataSlice.reducer
