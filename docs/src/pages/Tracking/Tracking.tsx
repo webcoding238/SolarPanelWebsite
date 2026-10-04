@@ -53,12 +53,6 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
     return () => observer.disconnect();
   }, []);
 
-  function togglePopover() {
-    if (popoverRef.current) {
-      popoverRef.current.togglePopover();
-    }
-  }
-
   function sortAscending() {
     dispatchDummyData(bubbleSortAscendingReducer())
   }
@@ -88,13 +82,8 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
         <ChatWindow />
         <TitleTag title={'Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients'} />
         <div style={trackingStyles.distances}>
-          <div onClick={togglePopover} style={{...sharedStyles.positionRelative, ...sharedStyles.cursorPointer, ...trackingStyles.dropdownContainer}}>
-            <div style={{ ...trackingStyles.distance, ...trackingStyles.sortButton, ...sharedStyles.displayBlock, ...sharedStyles.cursorPointer}}>Sort Results</div>
-            <div style={{ ...trackingStyles.dropdown, ...sharedStyles.positionAbsolute}} ref={popoverRef} popover='manual'>
-              <button style={sharedStyles.displayBlock} onClick={() => sortAscending()}>Ascending</button>
-              <button style={sharedStyles.displayBlock} onClick={() => sortDescending()}>Descending</button>
-            </div>
-          </div>
+          <button onClick={() => sortAscending()}>Sort Ascending</button>
+          <button onClick={() => sortDescending()}>Sort Descending</button>
           {status === 'succeeded' ? (generatedData.map((distance, index) => {
             return <div key={index + 33} style={{...trackingStyles.distance, ...sharedStyles.fontColorBlack}}>{distance}</div>
           })) : (<div><TitleTag title={'Awaiting data for manufacturing distances...'} />{error}</div>)}
