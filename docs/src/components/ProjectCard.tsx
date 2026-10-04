@@ -11,7 +11,6 @@ import {
     Tooltip,
     LabelList,
     ZAxis,
-    /*TooltipIndex,*/
     Radar,
     RadarChart,
     PolarGrid,

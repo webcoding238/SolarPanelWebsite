@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Pie, PieChart, Line, LineChart, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, ZAxis, /*TooltipIndex,*/ Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, ComposedChart, Area, Bar } from 'recharts'
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
 import ChatWindow from '../navigation/ChatWindow'
