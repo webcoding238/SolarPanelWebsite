@@ -15,10 +15,10 @@ const navigation: navigationType[] = [
 ];
 
 const NavigationButton: React.FC<navigationType> = (webpage) => {
-  const setWebpage = useDispatch();
+  const setWebpageDispatch = useDispatch();
 
   function setCurrentWebpage(webpage:string) {
-    setWebpage(webpage)
+    setWebpageDispatch(setWebpage({type: webpage}))
   }
 
   return (
@@ -51,7 +51,7 @@ const Navigation: React.FC = () => {
     <div ref={ref}>
       <header>
         {deviceSize > 949 ? (
-          <>
+          <div style={navigationStyles.header}>
             <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
             <div style={navigationStyles.subTitlesFlex}>Department of Economics</div>
             <div style={navigationStyles.subTitlesFlex}>Reported by Project Data Enterprises</div>
@@ -64,7 +64,7 @@ const Navigation: React.FC = () => {
               <div style={{...navigationStyles.menuSpacingFlex, ...navigationStyles.navFlexTitlesFlex, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage('Regions')}>Regional Statistics</div>
               <div style={{...navigationStyles.menuSpacingFlex, ...navigationStyles.navFlexTitlesFlex, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage('Tracking')}>Historical Tracking</div>
             </div>
-          </>
+          </div>
         ) : (
           <>
             <div style={navigationStyles.titleGrid}>
