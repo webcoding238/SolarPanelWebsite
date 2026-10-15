@@ -7,7 +7,8 @@ const navigationStyles = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     width: '100vw',
-    height: 'auto'
+    height: 'auto',
+    color: 'white'
   },
   headerScroll: {
     border: '2px solid black',
@@ -52,7 +53,7 @@ const navigationStyles = {
     gridTemplateColumns: 'repeat(autoFit, minmax(3fr, 1fr))',
     gridTemplateRows: '1fr',
     height: 'auto',
-    width: '95%'
+    backgroundColor: 'white'
   },
   gridItemSubtitles: {
     gridColumnStart: '2',

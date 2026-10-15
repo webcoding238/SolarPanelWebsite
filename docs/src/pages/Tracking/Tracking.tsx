@@ -65,7 +65,7 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
     <div ref={ref}>
       <main style={trackingStyles.main}>
         <img src={SolarImage}
-          style={trackingStyles.backgroundImage}
+          style={deviceSize > 949 ? ({...trackingStyles.backgroundImage, ...trackingStyles.backgroundPlacement}) : ({...trackingStyles.backgroundImage, ...trackingStyles.backgroundPlacementMobile})}
           alt="Photograph of a sloped rooftop with solar panels"
           />
         <div style={trackingStyles.titleGrid}>

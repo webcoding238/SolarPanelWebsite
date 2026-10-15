@@ -12,6 +12,12 @@ const trackingStyles = {
     zIndex: '-1000',
     position: 'fixed' as const
   },
+  backgroundPlacement: {
+    marginTop: '-25%'
+  },
+  backgroundPlacementMobile: {
+    marginTop: '-300px'
+  },
   titleGrid: {
     height: '50px',
     width: 'calc(38% + 7.5em)',
