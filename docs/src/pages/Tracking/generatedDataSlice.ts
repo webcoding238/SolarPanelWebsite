@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { RootState } from '../../store/store'
+//import type { RootState } from '../../store/store'
 
 export const dummyDataThunk = createAsyncThunk(
   'generatedData/getGeneratedData',
   async () => {
 
-    let responseSet = []
+    let responseSet: any = []
     const min = 1680
     const max = 3010
     const countMin = 12
@@ -26,7 +26,7 @@ export const dummyDataThunk = createAsyncThunk(
 
    await response();
 
-    function longDistance(responseSetThis) {
+    function longDistance(responseSetThis: any) {
         const longest = []
         for (let i = 0; i < responseSetThis.length; i++) {
             if (responseSetThis[i] > 2000) {
@@ -40,8 +40,8 @@ export const dummyDataThunk = createAsyncThunk(
   }
 );
 
-interface GeneratedDataState {
-  shippingDistances: [];
+export interface GeneratedDataState {
+  shippingDistances: any[];
   status: 'not received' | 'loading' | 'succeeded' | 'failed';
   error: string | null
 }
@@ -56,7 +56,7 @@ export const generatedDataSlice = createSlice({
   name: 'generatedData',
   initialState,
   reducers: {
-    bubbleSortAscendingReducer(state, action) {
+    bubbleSortAscendingReducer(state) {
       for (let i = 0; i < state.shippingDistances.length; i++) {
         for (let j = 0; j < (state.shippingDistances.length - i - 1); j++) {
           if (state.shippingDistances[j] > state.shippingDistances[j+1]) {
@@ -68,7 +68,7 @@ export const generatedDataSlice = createSlice({
       }
       state.shippingDistances = state.shippingDistances
     },
-    bubbleSortDescendingReducer(state, action) {
+    bubbleSortDescendingReducer(state) {
       for (let i = 0; i < state.shippingDistances.length; i++) {
         for (let j = 0; j < (state.shippingDistances.length - i - 1); j++) {
           if (state.shippingDistances[j] < state.shippingDistances[j+1]) {
@@ -92,7 +92,7 @@ export const generatedDataSlice = createSlice({
       })
       .addCase(dummyDataThunk.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message || action.error.stack;
+        state.error = action.error.message || action.error.stack || null;
       });
   },
   selectors: {

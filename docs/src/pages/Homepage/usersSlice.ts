@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { RootState } from '../../store/store'
+//import type { RootState } from '../../store/store'
 
 export const dummyApiThunk = createAsyncThunk(
   'users/getUser',
@@ -39,7 +39,7 @@ export interface User {
   website: string
 }
 
-interface UsersState {
+export interface UsersState {
   users: User[];
   status: 'not received' | 'loading' | 'succeeded' | 'failed';
   error: string | null
@@ -54,6 +54,9 @@ const initialState: UsersState = {
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
+  reducers: {
+
+  },
   extraReducers: (builder) => {
     builder
       .addCase(dummyApiThunk.pending, (state) => {
@@ -65,7 +68,7 @@ export const usersSlice = createSlice({
       })
       .addCase(dummyApiThunk.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message || action.error.stack;
+        state.error = action.error.message || action.error.stack || null;
       });
   },
   selectors: {

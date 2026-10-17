@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import ChatWindow from '../../navigation/ChatWindow'
 import SolarImage from '../../assets/SolarImage.png'
 import Worldwide from '../../assets/Worldwide.svg'

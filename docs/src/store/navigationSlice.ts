@@ -1,9 +1,9 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../../store/store'
+//import type { RootState } from '../../store/store'
 
-interface NavigationState {
-  webpage: string | null
+export interface NavigationState {
+  webpage: string
 }
 
 const initialState: NavigationState = {
@@ -14,8 +14,8 @@ export const navigationSlice = createSlice({
   name: 'navigation',
   initialState,
   reducers: {
-    setWebpage(state, action: PayloadAction<String>) {
-      state.webpage = action.payload.type
+    setWebpage(state, action: PayloadAction<string>) {
+      state.webpage = action.payload
     },
   },
   selectors: {

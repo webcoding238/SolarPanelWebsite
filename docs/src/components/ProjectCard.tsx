@@ -93,7 +93,15 @@ const projectStyles = {
   }
 }
 
-const ProjectCard: React.FC = ({
+interface ProjectCardType {
+    title: string;
+    summary: string;
+    chartType: string;
+    isAnimationActive: boolean;
+    defaultIndex: any
+}
+
+const ProjectCard: React.FC<ProjectCardType> = ({
     title,
     summary,
     chartType,
@@ -107,7 +115,7 @@ const ProjectCard: React.FC = ({
             <div style={projectStyles.cardTitleIcon}>
             <img
                 src={ProjectTagImage}
-                type='module/text/javascript'
+                //type='module/text/javascript'
                 alt='Cartoon outline of schedule calendar'
                 width='100' height='60'
                 />

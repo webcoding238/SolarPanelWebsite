@@ -92,7 +92,7 @@ const Regions: React.FC = () => {
   }
 
   return (
-    <main style={regionsStyles.main}>
+    <main>
       <ChatWindow />
       <div style={regionsStyles.barTitle}>
         {currentData} Debt-Driven Solar Industry versus Profit Driven Solar Industry
