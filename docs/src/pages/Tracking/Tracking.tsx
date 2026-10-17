@@ -16,26 +16,29 @@ import {
 } from './generatedDataSlice'
 import trackingStyles from './TrackingStyles'
 import sharedStyles from '../../components/SharedStyles'
+import type { AppDispatch } from '../../store/store';
 
-const TitleTag: React.FC = (props?: string) => {
+interface TagType {title: string}
+
+const TitleTag: React.FC<TagType> = (props) => {
   const { title } = props
   return (
     <div style={{...trackingStyles.barTitle, ...sharedStyles.titleSize}}>{title}</div>
   )
 }
 
-const HeadingTag: React.FC = (props?: string) => {
+const HeadingTag: React.FC<TagType> = (props) => {
   const { title } = props
   return (
     <div style={{...trackingStyles.title, ...sharedStyles.titleSize}}>{title}</div>
   )
 }
 
-const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
-  const ref = useRef();
-  const popoverRef = useRef(null);
+const Tracking: React.FC = () => {
+  const ref = useRef(null);
   const [deviceSize, setDeviceSize] = useState<number>(0);
-  const dispatchDummyData = useDispatch();
+  const useAppDispatch = () => useDispatch<AppDispatch>()
+  const dispatchDummyData = useAppDispatch();
   const generatedData = useSelector(getGeneratedData);
   const status = useSelector(getStatus);
   const error = useSelector(getError);
@@ -63,7 +66,7 @@ const Tracking: React.FC = ({ defaultIndex }: { defaultIndex?: number }) => {
 
   return (
     <div ref={ref}>
-      <main style={trackingStyles.main}>
+      <main>
         <img src={SolarImage}
           style={deviceSize > 949 ? ({...trackingStyles.backgroundImage, ...trackingStyles.backgroundPlacement}) : ({...trackingStyles.backgroundImage, ...trackingStyles.backgroundPlacementMobile})}
           alt="Photograph of a sloped rooftop with solar panels"

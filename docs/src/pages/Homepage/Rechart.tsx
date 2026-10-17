@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
+import type { AppDispatch } from '../../store/store';
 import { dummyApiThunk, getUsers } from './usersSlice'
 
 const RechartBarChart: React.FC = () => {
     const users = useSelector(getUsers);
-    const dispatchApi = useDispatch();
+    const useAppDispatch = () => useDispatch<AppDispatch>()
+    const dispatchApi = useAppDispatch();
 
     useEffect(() => {
         dispatchApi(dummyApiThunk())

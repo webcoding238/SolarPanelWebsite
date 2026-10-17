@@ -1,6 +1,11 @@
 {
-  "files": [],
-  "noEmit": true,
+  "files": [
+    "declarations.d.ts"
+  ],
+  "compilerOptions": {
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+  },
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

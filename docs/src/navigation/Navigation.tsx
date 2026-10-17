@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import ProfileImage from '../assets/ProfileImage.svg'
-import HeaderBackground from '../assets/HeaderBackground.png'
 import { setWebpage } from '../store/navigationSlice'
 import sharedStyles from '../components/SharedStyles'
 import navigationStyles from './NavigationStyles'
@@ -17,12 +16,12 @@ const navigation: navigationType[] = [
 const NavigationButton: React.FC<navigationType> = (webpage) => {
   const setWebpageDispatch = useDispatch();
 
-  function setCurrentWebpage(webpage:string) {
-    setWebpageDispatch(setWebpage({type: webpage}))
+  function setCurrentWebpage(webpage: navigationType) {
+    setWebpageDispatch(setWebpage(webpage.route))
   }
 
   return (
-    <div key={webpage.keyC} style={{...navigationStyles.menuItem, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage(`${webpage.route}`)}>{webpage.title}</div>
+    <div key={webpage.keyC} style={{...navigationStyles.menuItem, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage(webpage)}>{webpage.title}</div>
   )
 }
 
@@ -44,7 +43,7 @@ const Navigation: React.FC = () => {
   }, []);
 
   function setCurrentWebpage(webpage:string) {
-    setWebpageDispatch(setWebpage({type: webpage}))
+    setWebpageDispatch(setWebpage(webpage))
   }
 
   return (
@@ -78,9 +77,9 @@ const Navigation: React.FC = () => {
             <div style={navigationStyles.headerScroll}>
               <nav>
                   <div style={navigationStyles.container}>
-                    <a href={'/'}>
-                      <img style={{...navigationStyles.containerItem, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
-                    </a>
+                    <div onClick={() => setCurrentWebpage('Homepage')}>
+                      <img style={{...navigationStyles.containerItemFlex, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+                    </div>
                     {navigation.map(webpage => (
                       <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>
                         <NavigationButton
