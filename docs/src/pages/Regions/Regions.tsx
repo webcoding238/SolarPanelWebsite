@@ -8,7 +8,8 @@ import {
   europeData,
   africaData,
   greaterAsiaData,
-  southAmericaData
+  southAmericaData,
+  chartData
 } from './countryData'
 import regionsStyles from './RegionStyles'
 
@@ -17,44 +18,7 @@ interface chartDataType { name: string; DebtRunEnterprises: number; ProfitRunEnt
 const Regions: React.FC = () => {
 
   const [currentData, setCurrentData] = useState<string>('U.S.A.')
-  const [data, updateData] = useState<chartDataType[]>([
- {
-    name: '1950',
-    DebtRunEnterprises: 4000,
-    ProfitRunEnterprises: 2400,
-    amt: 2400,
-  },
-  {
-    name: '1970',
-    DebtRunEnterprises: 3000,
-    ProfitRunEnterprises: 1398,
-    amt: 2210,
-  },
-  {
-    name: '1990',
-    DebtRunEnterprises: 2000,
-    ProfitRunEnterprises: 9800,
-    amt: 2290,
-  },
-  {
-    name: '2010',
-    DebtRunEnterprises: 2780,
-    ProfitRunEnterprises: 3908,
-    amt: 2000,
-  },
-  {
-    name: '2020',
-    DebtRunEnterprises: 1890,
-    ProfitRunEnterprises: 4800,
-    amt: 2181,
-  },
-  {
-    name: '2040',
-    DebtRunEnterprises: 2390,
-    ProfitRunEnterprises: 3800,
-    amt: 2500,
-  }
-  ])
+  const [data, updateData] = useState<chartDataType[]>(chartData)
 
   const selectUSA = () => {
     updateData(usaData)
