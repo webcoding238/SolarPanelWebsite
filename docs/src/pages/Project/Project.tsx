@@ -1,11 +1,7 @@
 import ChatWindow from '../../navigation/ChatWindow'
 import ProjectCard from '../../components/ProjectCard'
 import projectStyles from './ProjectStyles.ts'
-
-const cardOne = `Project G began in the western region in Aug. 2021. Studies were conducted
-                  on the improvement in watts returned based on scalable battery grids.
-                  The investment has had a savings from infrastructure costs
-                  with a 15 year half-life at current ratios.`
+import { cardOne } from '../Project/cardData.ts'
 
 const Project: React.FC = ({
   isAnimationActive = true,

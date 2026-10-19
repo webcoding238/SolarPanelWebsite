@@ -1,17 +1,16 @@
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import ProfileImage from '../assets/ProfileImage.svg'
+import { SubTitlesTag } from '../components/SharedTags'
 import { setWebpage } from '../store/navigationSlice'
 import sharedStyles from '../components/SharedStyles'
 import navigationStyles from './NavigationStyles'
-
-interface navigationType { title: string; route: string; keyC: string }[]
-
-const navigation: navigationType[] = [
-  {title: 'Project Overview', route: 'Project', keyC: '1'},
-  {title: 'Regional Statistics', route: 'Regions', keyC: '2'},
-  {title: 'Historical Tracking', route: 'Tracking', keyC: '3'}
-];
+import type { navigationType } from '../types/navigation'
+import { 
+  navigation,
+  Title,
+  subTitles
+} from './NavigationData'
 
 const NavigationButton: React.FC<navigationType> = (webpage) => {
   const setWebpageDispatch = useDispatch();
@@ -21,12 +20,23 @@ const NavigationButton: React.FC<navigationType> = (webpage) => {
   }
 
   return (
-    <div key={webpage.keyC} style={{...navigationStyles.menuItem, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage(webpage)}>{webpage.title}</div>
+    <div key={webpage.keyC}
+      onClick={() => setCurrentWebpage(webpage)}
+      style={webpage.type === 'mobile' ? 
+        ({
+          ...navigationStyles.menuItem,
+          ...sharedStyles.cursorPointer
+        }) : ({
+          ...navigationStyles.menuSpacingFlex,
+          ...navigationStyles.navFlexTitlesFlex,
+          ...sharedStyles.cursorPointer
+        })}
+    >{webpage.title}</div>
   )
 }
 
 const Navigation: React.FC = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const setWebpageDispatch = useDispatch();
   const [deviceSize, setDeviceSize] = useState<number>(0);
 
@@ -51,45 +61,59 @@ const Navigation: React.FC = () => {
       <header>
         {deviceSize > 949 ? (
           <div style={navigationStyles.header}>
-            <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
-            <div style={navigationStyles.subTitlesFlex}>Department of Economics</div>
-            <div style={navigationStyles.subTitlesFlex}>Reported by Project Data Enterprises</div>
-            <div style={navigationStyles.subTitlesFlex}>Manager: George Payne</div>
+            <div style={navigationStyles.websiteTitle}>{Title}</div>
+            {subTitles.map(subtitle => (
+              <div key={subtitle.keyC}>
+                <SubTitlesTag
+                  keyC={subtitle.keyC}
+                  title={subtitle.title}
+                  />
+              </div>
+            ))}
             <div style={navigationStyles.navFlex}>
-              <div onClick={() => setCurrentWebpage('Homepage')}>
+              <div onClick={() => setCurrentWebpage('Homepage')} style={navigationStyles.containerItemAndAlignment}>
                 <img style={{...navigationStyles.containerItemFlex, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
               </div>
-              <div style={{...navigationStyles.menuSpacingFlex, ...navigationStyles.navFlexTitlesFlex, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage('Project')}>Project Overview</div>
-              <div style={{...navigationStyles.menuSpacingFlex, ...navigationStyles.navFlexTitlesFlex, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage('Regions')}>Regional Statistics</div>
-              <div style={{...navigationStyles.menuSpacingFlex, ...navigationStyles.navFlexTitlesFlex, ...sharedStyles.cursorPointer}} onClick={() => setCurrentWebpage('Tracking')}>Historical Tracking</div>
+              {navigation.map(webpage => (
+                <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>
+                  <NavigationButton
+                    keyC={webpage.keyC}
+                    route={webpage.route}
+                    title={webpage.title}
+                    type={'desktop'}
+                    />
+                </div>
+              ))}
             </div>
           </div>
         ) : (
           <>
-            <div style={navigationStyles.titleGrid}>
-               <div>
-                  <div style={navigationStyles.subTitlesMobile}>Department of Economics</div>
-                  <div style={navigationStyles.subTitlesMobile}>Reported by Project Data Enterprises</div>
-                  <div style={navigationStyles.subTitlesMobile}>Manager: George Payne</div>
-                </div>
-                <div style={navigationStyles.websiteTitle}>Solar Panel Industry Statistical Analysis</div>
+            <div style={{ ...navigationStyles.titleGrid, ...navigationStyles.websiteTitle}}>{Title}</div>
+            {subTitles.map(subtitle => (
+              <div key={subtitle.keyC}>
+                <SubTitlesTag
+                  keyC={subtitle.keyC}
+                  title={subtitle.title}
+                  />
               </div>
+            ))}
             <div style={navigationStyles.headerScroll}>
               <nav>
-                  <div style={navigationStyles.container}>
-                    <div onClick={() => setCurrentWebpage('Homepage')}>
-                      <img style={{...navigationStyles.containerItemFlex, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
-                    </div>
-                    {navigation.map(webpage => (
-                      <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>
-                        <NavigationButton
-                          keyC={webpage.keyC}
-                          route={webpage.route}
-                          title={webpage.title}
-                          />
-                      </div>
-                    ))}
+                <div style={navigationStyles.container}>
+                  <div onClick={() => setCurrentWebpage('Homepage')} style={navigationStyles.containerItemAndAlignment}>
+                    <img style={{...navigationStyles.containerItemFlex, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
                   </div>
+                  {navigation.map(webpage => (
+                    <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>
+                      <NavigationButton
+                        keyC={webpage.keyC}
+                        route={webpage.route}
+                        title={webpage.title}
+                        type={'mobile'}
+                        />
+                    </div>
+                  ))}
+                </div>
               </nav>
             </div>
           </>

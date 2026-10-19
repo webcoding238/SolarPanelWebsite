@@ -1,0 +1,220 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChatWindowSnapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <header>
+          <div
+            style="display: grid; grid-template-rows: 1fr; height: auto; background-color: white; padding-left: 1em; min-width: 0px; font-size: clamp(1.5rem, 5vw, 3rem); grid-column-start: 1; grid-column-end: 1; grid-row-start: 1; grid-row-end: 1; overflow-wrap: anywhere;"
+          >
+            Solar Panel Industry Statistical Analysis
+          </div>
+          <div>
+            <div
+              style="margin-left: 3em; font-size: 18px;"
+            >
+              Department of Economics
+            </div>
+          </div>
+          <div>
+            <div
+              style="margin-left: 3em; font-size: 18px;"
+            >
+              Reported by Project Data Enterprises
+            </div>
+          </div>
+          <div>
+            <div
+              style="margin-left: 3em; font-size: 18px;"
+            >
+              Manager: George Payne
+            </div>
+          </div>
+          <div
+            style="border: 2px solid black; background-image: url("/src/assets/HeaderBackground.png"); background-repeat: no-repeat; background-size: cover; height: auto; width: 100vw; overflow-x: scroll;"
+          >
+            <nav>
+              <div
+                style="text-align: center; display: flex; height: 10em; width: 100%;"
+              >
+                <div
+                  style="margin: 3em; flex-grow: 1;"
+                >
+                  <img
+                    alt="Cartoon outline of male suit shoulders"
+                    height="60"
+                    src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%201024%201024'%20class='icon'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M512%20616.2m-10%200a10%2010%200%201%200%2020%200%2010%2010%200%201%200-20%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M511.6%20656.9m-10%200a10%2010%200%201%200%2020%200%2010%2010%200%201%200-20%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M512.4%20697.7m-10%200a10%2010%200%201%200%2020%200%2010%2010%200%201%200-20%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M512%20130.8c42.1%200%2081.7%2016.4%20111.5%2046.2s46.2%2069.4%2046.2%20111.5-16.4%2081.7-46.2%20111.5c-29.8%2029.8-69.4%2046.2-111.5%2046.2s-81.7-16.4-111.5-46.2c-29.8-29.8-46.2-69.4-46.2-111.5s16.4-81.7%2046.2-111.5%2069.4-46.2%20111.5-46.2m0-44c-111.4%200-201.6%2090.3-201.6%20201.6C310.4%20399.8%20400.7%20490%20512%20490c111.4%200%20201.6-90.3%20201.6-201.6S623.3%2086.8%20512%2086.8zM512.3%20523.5L84%20681.4v255.7h856V681.4L512.3%20523.5zM896%20893.1H128V712.6l384.3-142.4L896%20712.6v180.5z'%20fill='%2339393A'%20/%3e%3cpath%20d='M555.4%20585.3l-1.4-0.5v159.9c0%2011.7-4.8%2022.3-12.4%2030-7.7%207.7-18.3%2012.4-30%2012.4-23.4%200-42.4-19-42.4-42.4V585.3l-1.4%200.5-14.6%205.2v153.8c0%2032.2%2026.2%2058.4%2058.4%2058.4S570%20777%20570%20744.8V590.5l-14.6-5.2z'%20fill='%23E73B37'%20/%3e%3c/svg%3e"
+                    style="margin-top: 1em; flex-grow: 1; background-color: white; border-radius: 0.5em; cursor: pointer;"
+                    width="100"
+                  />
+                </div>
+                <div
+                  style="margin: 3em; flex-grow: 1;"
+                >
+                  <div
+                    style="color: white; font-size: 20px; cursor: pointer;"
+                  >
+                    Project Overview
+                  </div>
+                </div>
+                <div
+                  style="margin: 3em; flex-grow: 1;"
+                >
+                  <div
+                    style="color: white; font-size: 20px; cursor: pointer;"
+                  >
+                    Regional Statistics
+                  </div>
+                </div>
+                <div
+                  style="margin: 3em; flex-grow: 1;"
+                >
+                  <div
+                    style="color: white; font-size: 20px; cursor: pointer;"
+                  >
+                    Historical Tracking
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <header>
+        <div
+          style="display: grid; grid-template-rows: 1fr; height: auto; background-color: white; padding-left: 1em; min-width: 0px; font-size: clamp(1.5rem, 5vw, 3rem); grid-column-start: 1; grid-column-end: 1; grid-row-start: 1; grid-row-end: 1; overflow-wrap: anywhere;"
+        >
+          Solar Panel Industry Statistical Analysis
+        </div>
+        <div>
+          <div
+            style="margin-left: 3em; font-size: 18px;"
+          >
+            Department of Economics
+          </div>
+        </div>
+        <div>
+          <div
+            style="margin-left: 3em; font-size: 18px;"
+          >
+            Reported by Project Data Enterprises
+          </div>
+        </div>
+        <div>
+          <div
+            style="margin-left: 3em; font-size: 18px;"
+          >
+            Manager: George Payne
+          </div>
+        </div>
+        <div
+          style="border: 2px solid black; background-image: url("/src/assets/HeaderBackground.png"); background-repeat: no-repeat; background-size: cover; height: auto; width: 100vw; overflow-x: scroll;"
+        >
+          <nav>
+            <div
+              style="text-align: center; display: flex; height: 10em; width: 100%;"
+            >
+              <div
+                style="margin: 3em; flex-grow: 1;"
+              >
+                <img
+                  alt="Cartoon outline of male suit shoulders"
+                  height="60"
+                  src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%201024%201024'%20class='icon'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M512%20616.2m-10%200a10%2010%200%201%200%2020%200%2010%2010%200%201%200-20%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M511.6%20656.9m-10%200a10%2010%200%201%200%2020%200%2010%2010%200%201%200-20%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M512.4%20697.7m-10%200a10%2010%200%201%200%2020%200%2010%2010%200%201%200-20%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M512%20130.8c42.1%200%2081.7%2016.4%20111.5%2046.2s46.2%2069.4%2046.2%20111.5-16.4%2081.7-46.2%20111.5c-29.8%2029.8-69.4%2046.2-111.5%2046.2s-81.7-16.4-111.5-46.2c-29.8-29.8-46.2-69.4-46.2-111.5s16.4-81.7%2046.2-111.5%2069.4-46.2%20111.5-46.2m0-44c-111.4%200-201.6%2090.3-201.6%20201.6C310.4%20399.8%20400.7%20490%20512%20490c111.4%200%20201.6-90.3%20201.6-201.6S623.3%2086.8%20512%2086.8zM512.3%20523.5L84%20681.4v255.7h856V681.4L512.3%20523.5zM896%20893.1H128V712.6l384.3-142.4L896%20712.6v180.5z'%20fill='%2339393A'%20/%3e%3cpath%20d='M555.4%20585.3l-1.4-0.5v159.9c0%2011.7-4.8%2022.3-12.4%2030-7.7%207.7-18.3%2012.4-30%2012.4-23.4%200-42.4-19-42.4-42.4V585.3l-1.4%200.5-14.6%205.2v153.8c0%2032.2%2026.2%2058.4%2058.4%2058.4S570%20777%20570%20744.8V590.5l-14.6-5.2z'%20fill='%23E73B37'%20/%3e%3c/svg%3e"
+                  style="margin-top: 1em; flex-grow: 1; background-color: white; border-radius: 0.5em; cursor: pointer;"
+                  width="100"
+                />
+              </div>
+              <div
+                style="margin: 3em; flex-grow: 1;"
+              >
+                <div
+                  style="color: white; font-size: 20px; cursor: pointer;"
+                >
+                  Project Overview
+                </div>
+              </div>
+              <div
+                style="margin: 3em; flex-grow: 1;"
+              >
+                <div
+                  style="color: white; font-size: 20px; cursor: pointer;"
+                >
+                  Regional Statistics
+                </div>
+              </div>
+              <div
+                style="margin: 3em; flex-grow: 1;"
+              >
+                <div
+                  style="color: white; font-size: 20px; cursor: pointer;"
+                >
+                  Historical Tracking
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

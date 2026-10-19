@@ -16,5 +16,3 @@ ReactDOM.createRoot(root!).render(
     </BrowserRouter>
   </Provider>
 )
-
-// const container = document.getElementById('root')

@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-//import type { RootState } from '../../store/store'
 
 export const dummyApiThunk = createAsyncThunk(
   'users/getUser',
