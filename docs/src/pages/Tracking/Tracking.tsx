@@ -16,26 +16,11 @@ import {
 } from './generatedDataSlice'
 import trackingStyles from './TrackingStyles'
 import sharedStyles from '../../components/SharedStyles'
-import type { AppDispatch } from '../../store/store';
-
-interface TagType {title: string}
-
-const TitleTag: React.FC<TagType> = (props) => {
-  const { title } = props
-  return (
-    <div style={{...trackingStyles.barTitle, ...sharedStyles.titleSize}}>{title}</div>
-  )
-}
-
-const HeadingTag: React.FC<TagType> = (props) => {
-  const { title } = props
-  return (
-    <div style={{...trackingStyles.title, ...sharedStyles.titleSize}}>{title}</div>
-  )
-}
+import type { AppDispatch } from '../../store/store'
+import { TitleTag } from '../../components/SharedTags'
 
 const Tracking: React.FC = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [deviceSize, setDeviceSize] = useState<number>(0);
   const useAppDispatch = () => useDispatch<AppDispatch>()
   const dispatchDummyData = useAppDispatch();
@@ -79,7 +64,9 @@ const Tracking: React.FC = () => {
               height='60'
               /></div>
           </div>
-          <HeadingTag title={'Chronology of Solar Panels'} />
+          <div style={trackingStyles.title}>
+            <TitleTag title={'Chronology of Solar Panels'} />
+          </div>
         </div>
         <div style={{...trackingStyles.trackingSummary, ...sharedStyles.fontColorBlack, ...sharedStyles.backgroundColorWhite}}>{paragraphOne}<br/><br/>{paragraphTwo}</div>
         <ChatWindow />

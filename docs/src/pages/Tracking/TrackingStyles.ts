@@ -13,7 +13,7 @@ const trackingStyles = {
     position: 'fixed' as const
   },
   backgroundPlacement: {
-    marginTop: '-25%'
+    marginTop: '-360px'
   },
   backgroundPlacementMobile: {
     marginTop: '-300px'
@@ -24,7 +24,6 @@ const trackingStyles = {
     margin: '15px',
     display: 'grid',
     gridTemplateColumns: '20% 80%',
-    gridTemplateRows: '100%',
     gap: '5px',
     position: 'relative' as const
   },
@@ -49,26 +48,17 @@ const trackingStyles = {
     margin: '-0.25em 0 0 -0.25em'
   },
   title: {
-    padding: '10px',
     gridColumnStart: '2',
     gridColumnEnd: '2',
     gridRowStart: '1',
-    gridRowEnd: '2',
-    overflowWrap: 'anywhere' as const
+    gridRowEnd: '2'
   },
   trackingSummary: {
     marginLeft: '5em',
     marginTop: '2em',
     padding: '5px',
     fontSize: '24px',
-    width: '38%',
-    zIndex: '1000'
-  },
-  barTitle: {
-    margin: '2em',
-    textAlign: 'center' as const,
-    alignItems: 'center',
-    overflowWrap: 'anywhere' as const
+    width: '38%'
   },
   homeGraph: {
     margin: 'auto',

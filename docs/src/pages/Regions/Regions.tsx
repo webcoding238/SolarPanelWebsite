@@ -1,75 +1,49 @@
-import { useState } from 'react'
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
-import ChatWindow from '../../navigation/ChatWindow'
+import { useState } from 'react';
 import {
-  usaData,
-  chinaData,
-  southAsiaPacificData,
-  europeData,
-  africaData,
-  greaterAsiaData,
-  southAmericaData,
-  chartData
-} from './countryData'
-import regionsStyles from './RegionStyles'
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis
+} from 'recharts';
+import ChatWindow from '../../navigation/ChatWindow';
+import { TitleTag } from '../../components/SharedTags';
+import { countryList } from './countryData';
+import regionsStyles from './RegionStyles';
 
-interface chartDataType { name: string; DebtRunEnterprises: number; ProfitRunEnterprises: number, amt: number }
+interface chartDataType {
+  name: string;
+  DebtRunEnterprises: number;
+  ProfitRunEnterprises: number,
+  amt: number
+}
+
+interface CountryType {
+  country: string,
+  countryData: chartDataType[]
+}
 
 const Regions: React.FC = () => {
 
-  const [currentData, setCurrentData] = useState<string>('U.S.A.')
-  const [data, updateData] = useState<chartDataType[]>(chartData)
+  const [currentData, setCurrentData] = useState<string>(countryList[0].country)
+  const [data, updateData] = useState<chartDataType[]>(countryList[0].countryData)
 
-  const selectUSA = () => {
-    updateData(usaData)
-    setCurrentData('U.S.A.')
-  }
-
-  const selectChina = () => {
-    updateData(chinaData)
-    setCurrentData('China')
-  }
-
-  const selectSouthAsiaPacific = () => {
-    updateData(southAsiaPacificData)
-    setCurrentData('South Asia Pacific')
-  }
-
-  const selectEurope = () => {
-    updateData(europeData)
-    setCurrentData('Europe')
-  }
-
-  const selectAfrica = () => {
-    updateData(africaData)
-    setCurrentData('Africa')
-  }
-
-  const selectGreaterAsia = () => {
-    updateData(greaterAsiaData)
-    setCurrentData('Greater Asia')
-  }
-
-  const selectSouthAmerica = () => {
-    updateData(southAmericaData)
-    setCurrentData('South America')
+  const setCurrentChartCountry = (country: CountryType) => {
+    updateData(country.countryData)
+    setCurrentData(country.country)
   }
 
   return (
     <main>
       <ChatWindow />
-      <div style={regionsStyles.barTitle}>
-        {currentData} Debt-Driven Solar Industry versus Profit Driven Solar Industry
-      </div>
+      <TitleTag title={`${currentData} Debt-Driven Solar Industry versus Profit Driven Solar Industry`} />
       <div style={regionsStyles.regionFlex}>
         <label>Choose Region - </label>
-        <button onClick={() => selectUSA()}>U.S.A.</button>
-        <button onClick={() => selectChina()}>China</button>
-        <button onClick={() => selectSouthAsiaPacific()}>South Asia Pacific</button>
-        <button onClick={() => selectEurope()}>Europe</button>
-        <button onClick={() => selectAfrica()}>Africa</button>
-        <button onClick={() => selectGreaterAsia()}>Greater Asia</button>
-        <button onClick={() => selectSouthAmerica()}>SouthAmerica</button>
+        {countryList.map(country => (
+          <button onClick={() => setCurrentChartCountry(country)}>{country.country}</button>
+        ))}
       </div>
       <div style={regionsStyles.homeGraph}>
           <LineChart

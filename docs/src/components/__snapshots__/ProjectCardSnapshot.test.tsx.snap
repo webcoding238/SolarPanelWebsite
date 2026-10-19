@@ -1,0 +1,342 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProjectCardSnapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        style="height: 30em; width: 20em; border-radius: 20px; background-color: white; color: black; padding: 15px; box-shadow: 25px 35px; position: relative; border: 2px solid grey; margin: 5em; display: grid; grid-template-columns: 20% 80%; grid-template-rows: 15% 15% 70%; gap: 5px;"
+      >
+        <div
+          style="grid-column-start: 1; grid-column-end: 1; grid-row-start: 1; grid-row-end: 2;"
+        >
+          <img
+            alt="Cartoon outline of schedule calendar"
+            height="60"
+            src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%201024%201024'%20class='icon'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M716%20190.9v-67.8h-44v67.8H352v-67.8h-44v67.8H92v710h840v-710H716z%20m-580%2044h172v69.2h44v-69.2h320v69.2h44v-69.2h172v151.3H136V234.9z%20m752%20622H136V402.2h752v454.7z'%20fill='%2339393A'%20/%3e%3cpath%20d='M319%20565.7m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M510%20565.7m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M701.1%20565.7m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M319%20693.4m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M510%20693.4m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M701.1%20693.4m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3c/svg%3e"
+            width="100"
+          />
+        </div>
+        <div
+          style="grid-column-start: 2; grid-column-end: 2; grid-row-start: 1; grid-row-end: 2; text-align: center;"
+        >
+          <h2>
+            Estimates
+          </h2>
+        </div>
+        <div
+          style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 2; grid-row-end: 2; font-size: 14px; overflow-wrap: anywhere;"
+        >
+          <p>
+            Project G began in the western region in Aug. 2021. Studies were conducted
+                  on the improvement in watts returned based on scalable battery grids.
+                  The investment has had a savings from infrastructure costs
+                  with a 15 year half-life at current ratios.
+          </p>
+        </div>
+        <div
+          style="padding-top: 2em; grid-column-start: 1; grid-column-end: 3; grid-row-start: 3; grid-row-end: 3;"
+        >
+          <div
+            class="recharts-wrapper"
+            height="100%"
+            style="position: relative; cursor: default; width: 100%; height: 100%; max-width: 500px; max-height: 80vh; aspect-ratio: 1 / 1; margin: auto;"
+            width="100%"
+          >
+            <div
+              class="recharts-tooltip-wrapper"
+              style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"
+              tabindex="-1"
+              xmlns="http://www.w3.org/1999/xhtml"
+            >
+              <div
+                aria-live="assertive"
+                class="recharts-default-tooltip"
+                role="status"
+                style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+              >
+                <p
+                  class="recharts-tooltip-label"
+                  style="margin: 0px;"
+                />
+              </div>
+            </div>
+            <svg
+              class="recharts-surface"
+              cx="50%"
+              cy="50%"
+              height="100"
+              role="application"
+              style="width: 100%; height: 100%; display: block;"
+              tabindex="0"
+              viewBox="0 0 100 100"
+              width="100"
+            >
+              <title />
+              <desc />
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+              <defs>
+                <clippath
+                  id="recharts1-clip"
+                >
+                  <rect
+                    height="90"
+                    width="90"
+                    x="5"
+                    y="5"
+                  />
+                </clippath>
+              </defs>
+              <g
+                tabindex="-1"
+              >
+                <g
+                  class="recharts-layer recharts-pie"
+                  tabindex="0"
+                >
+                  <g
+                    class="recharts-layer"
+                  />
+                </g>
+                <g
+                  class="recharts-layer recharts-pie"
+                  tabindex="0"
+                >
+                  <g
+                    class="recharts-layer"
+                  />
+                </g>
+              </g>
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+              <g
+                tabindex="-1"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      style="height: 30em; width: 20em; border-radius: 20px; background-color: white; color: black; padding: 15px; box-shadow: 25px 35px; position: relative; border: 2px solid grey; margin: 5em; display: grid; grid-template-columns: 20% 80%; grid-template-rows: 15% 15% 70%; gap: 5px;"
+    >
+      <div
+        style="grid-column-start: 1; grid-column-end: 1; grid-row-start: 1; grid-row-end: 2;"
+      >
+        <img
+          alt="Cartoon outline of schedule calendar"
+          height="60"
+          src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='800px'%20height='800px'%20viewBox='0%200%201024%201024'%20class='icon'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M716%20190.9v-67.8h-44v67.8H352v-67.8h-44v67.8H92v710h840v-710H716z%20m-580%2044h172v69.2h44v-69.2h320v69.2h44v-69.2h172v151.3H136V234.9z%20m752%20622H136V402.2h752v454.7z'%20fill='%2339393A'%20/%3e%3cpath%20d='M319%20565.7m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M510%20565.7m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M701.1%20565.7m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M319%20693.4m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M510%20693.4m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3cpath%20d='M701.1%20693.4m-33%200a33%2033%200%201%200%2066%200%2033%2033%200%201%200-66%200Z'%20fill='%23E73B37'%20/%3e%3c/svg%3e"
+          width="100"
+        />
+      </div>
+      <div
+        style="grid-column-start: 2; grid-column-end: 2; grid-row-start: 1; grid-row-end: 2; text-align: center;"
+      >
+        <h2>
+          Estimates
+        </h2>
+      </div>
+      <div
+        style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 2; grid-row-end: 2; font-size: 14px; overflow-wrap: anywhere;"
+      >
+        <p>
+          Project G began in the western region in Aug. 2021. Studies were conducted
+                  on the improvement in watts returned based on scalable battery grids.
+                  The investment has had a savings from infrastructure costs
+                  with a 15 year half-life at current ratios.
+        </p>
+      </div>
+      <div
+        style="padding-top: 2em; grid-column-start: 1; grid-column-end: 3; grid-row-start: 3; grid-row-end: 3;"
+      >
+        <div
+          class="recharts-wrapper"
+          height="100%"
+          style="position: relative; cursor: default; width: 100%; height: 100%; max-width: 500px; max-height: 80vh; aspect-ratio: 1 / 1; margin: auto;"
+          width="100%"
+        >
+          <div
+            class="recharts-tooltip-wrapper"
+            style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"
+            tabindex="-1"
+            xmlns="http://www.w3.org/1999/xhtml"
+          >
+            <div
+              aria-live="assertive"
+              class="recharts-default-tooltip"
+              role="status"
+              style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
+            >
+              <p
+                class="recharts-tooltip-label"
+                style="margin: 0px;"
+              />
+            </div>
+          </div>
+          <svg
+            class="recharts-surface"
+            cx="50%"
+            cy="50%"
+            height="100"
+            role="application"
+            style="width: 100%; height: 100%; display: block;"
+            tabindex="0"
+            viewBox="0 0 100 100"
+            width="100"
+          >
+            <title />
+            <desc />
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+            <defs>
+              <clippath
+                id="recharts1-clip"
+              >
+                <rect
+                  height="90"
+                  width="90"
+                  x="5"
+                  y="5"
+                />
+              </clippath>
+            </defs>
+            <g
+              tabindex="-1"
+            >
+              <g
+                class="recharts-layer recharts-pie"
+                tabindex="0"
+              >
+                <g
+                  class="recharts-layer"
+                />
+              </g>
+              <g
+                class="recharts-layer recharts-pie"
+                tabindex="0"
+              >
+                <g
+                  class="recharts-layer"
+                />
+              </g>
+            </g>
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+            <g
+              tabindex="-1"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

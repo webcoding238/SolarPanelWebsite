@@ -1,11 +1,9 @@
 import ChatWindow from '../../navigation/ChatWindow'
 import ProjectCard from '../../components/ProjectCard'
+import { HeadingTag } from '../../components/SharedTags.tsx'
 import projectStyles from './ProjectStyles.ts'
-
-const cardOne = `Project G began in the western region in Aug. 2021. Studies were conducted
-                  on the improvement in watts returned based on scalable battery grids.
-                  The investment has had a savings from infrastructure costs
-                  with a 15 year half-life at current ratios.`
+import { projectsHeader, projectsSummary } from './ProjectData.ts'
+import { cardOne } from './CardData.ts'
 
 const Project: React.FC = ({
   isAnimationActive = true,
@@ -18,17 +16,8 @@ const Project: React.FC = ({
   return (
     <main style={projectStyles.main}>
       <ChatWindow />
-      <div style={projectStyles.projectsTitle}>Solar Industry Projects - Highlighted Insights</div>
-      <div style={projectStyles.projectsSummary}>
-        Key projects in the solar industry are aimed at improving 
-        efficiency and speed to market. There are also statistical
-        analysis studies to reference for key decision making.
-        Various industry contract leaders are in the projection
-        phase of investigating the most effective organization
-        options for managerial groups before then applying and 
-        seeking more effective statistics through fast,
-        plotted webs of human capital.
-      </div>
+      <HeadingTag title={projectsHeader} />
+      <div style={projectStyles.projectsSummary}>{projectsSummary}</div>
       <div style={projectStyles.projects}>
         <ProjectCard
           chartType='pie'
