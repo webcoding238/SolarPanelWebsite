@@ -6,16 +6,6 @@ const homePageStyles = {
     paddingBottom: '10px',
     width: '100%'
   },
-  homepageTitle: {
-    paddingLeft: '2em',
-    marginTop: '30px',
-    backgroundColor: 'white',
-    color: 'black',
-    fontSize: '64px',
-    zIndex: '1000',
-    textAlign: 'center' as const,
-    overflowWrap: 'anywhere' as const
-  },
   introGrid: {
     margin: '20px',
     display: 'grid',
@@ -75,17 +65,6 @@ const homePageStyles = {
     height: '100%',
     position: 'relative' as const,
     overflow: 'hidden'
-  },
-  barTitleMobile: {
-    marginBottom: '1em',
-    overflowWrap: 'anywhere' as const
-  },
-  titleGeneric: {
-    marginTop: '3em',
-    textAlign: 'center' as const,
-    alignItems: 'center',
-    fontSize: '28px',
-    color: 'black'
   },
   homeGraph: {
     margin: 'auto',

@@ -4,7 +4,7 @@ import { store } from '../store/store.ts';
 import Navigation from './Navigation.tsx';
 import { Provider } from 'react-redux';
 
-it('ChatWindowSnapshot', () => {
+it('NavigationSnapshot', () => {
   const result = render(
     <Provider store={store}>
       <Navigation />

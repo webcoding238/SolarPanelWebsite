@@ -1,0 +1,228 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HomepageSnapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main
+        style="background-color: lightskyblue; padding-bottom: 10px; width: 100%;"
+      >
+        <div
+          popover="manual"
+          style="text-align: center; border: 2px solid grey; background-color: white; color: black; border-radius: 2em; padding: 3em 1em 1em; box-shadow: 12px 21px black; height: 200px; width: 265px; z-index: 999; position: fixed; right: 40px; bottom: 200px;"
+        >
+          <h2>
+            Get in touch!
+          </h2>
+          <button
+            style="border: 3px solid blue; background-color: lightblue; border-radius: 1em; width: 100%;"
+          >
+            Send an email
+          </button>
+        </div>
+        <div
+          style="position: fixed; right: 40px; bottom: 40px; background: white; border: 2px solid black; cursor: pointer; z-index: 100;"
+        >
+          <img
+            alt="Contact Us Window Pop-up Button Gif of Typewriter Cartoon"
+            height="60"
+            src="/src/assets/ContactUs.gif"
+            width="100"
+          />
+        </div>
+        <div
+          style="padding: 10px 10px 10px 1em; color: black; background-color: white; font-size: clamp(20px, 3vw, 36px); overflow-wrap: anywhere;"
+        >
+          Solar Power - Industrial Insights
+        </div>
+        <div
+          style="margin: auto; padding-left: 2em; padding-right: 2em;"
+        >
+          <img
+            alt="Cartoon outline of the Earth"
+            height="60"
+            src="/src/assets/Worldwide.svg"
+            style="margin-top: 2em; padding-top: 1em; padding-bottom: 1em; background-color: white; color: black; border-radius: 100%;"
+            width="100"
+          />
+          <div
+            style="margin-top: 2em; padding: 2em; color: white; background-image: url("/src/assets/SolarImage.png"); background-size: cover; object-fit: contain; background-repeat: no-repeat;"
+          >
+            The energy supply of society has evolved into a combination of
+          what was most easily obtainable with also what sources were
+          possible under sprawling political control.
+            <br />
+            <br />
+            While there is an economy behind the energy industry, for instance the
+          New York Mercantile Exchange, it balances itself between economic power
+          and essential services. Depending on what location and current events
+          throughout the world, you may be more towards either end of that spectrum.
+            <br />
+            <br />
+            Energy in the economy is more similar to energy in nature 
+than most believe it is.
+          Often, when we hear oil, hydro-power, coal, wind power, nuclear power, 
+          and solar power called "energy" we get the feeling of a superficial definition 
+          that lacks details in commerce and lacks effort in explaining what is energy. 
+          However, the energy sector, albeit less human, is equally dynamic and elusive in 
+          regards to the changes in time, source, type, and multitude as the substance of 
+          energy in relation to energy versus matter, and also energy as emotions or feelings.
+            <br />
+            <br />
+          </div>
+        </div>
+        <div
+          style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+        >
+          Ratio of Energy Sector Per Source - Global
+        </div>
+        <div
+          style="margin: auto; padding: 3em; position: relative; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; background-color: white; color: black; width: 70%;"
+        >
+          <div
+            class="recharts-wrapper"
+            style="position: relative; cursor: default; width: 100%; max-width: 700px; max-height: 70vh; aspect-ratio: 1.618 / 1;"
+            width="100%"
+          />
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main
+      style="background-color: lightskyblue; padding-bottom: 10px; width: 100%;"
+    >
+      <div
+        popover="manual"
+        style="text-align: center; border: 2px solid grey; background-color: white; color: black; border-radius: 2em; padding: 3em 1em 1em; box-shadow: 12px 21px black; height: 200px; width: 265px; z-index: 999; position: fixed; right: 40px; bottom: 200px;"
+      >
+        <h2>
+          Get in touch!
+        </h2>
+        <button
+          style="border: 3px solid blue; background-color: lightblue; border-radius: 1em; width: 100%;"
+        >
+          Send an email
+        </button>
+      </div>
+      <div
+        style="position: fixed; right: 40px; bottom: 40px; background: white; border: 2px solid black; cursor: pointer; z-index: 100;"
+      >
+        <img
+          alt="Contact Us Window Pop-up Button Gif of Typewriter Cartoon"
+          height="60"
+          src="/src/assets/ContactUs.gif"
+          width="100"
+        />
+      </div>
+      <div
+        style="padding: 10px 10px 10px 1em; color: black; background-color: white; font-size: clamp(20px, 3vw, 36px); overflow-wrap: anywhere;"
+      >
+        Solar Power - Industrial Insights
+      </div>
+      <div
+        style="margin: auto; padding-left: 2em; padding-right: 2em;"
+      >
+        <img
+          alt="Cartoon outline of the Earth"
+          height="60"
+          src="/src/assets/Worldwide.svg"
+          style="margin-top: 2em; padding-top: 1em; padding-bottom: 1em; background-color: white; color: black; border-radius: 100%;"
+          width="100"
+        />
+        <div
+          style="margin-top: 2em; padding: 2em; color: white; background-image: url("/src/assets/SolarImage.png"); background-size: cover; object-fit: contain; background-repeat: no-repeat;"
+        >
+          The energy supply of society has evolved into a combination of
+          what was most easily obtainable with also what sources were
+          possible under sprawling political control.
+          <br />
+          <br />
+          While there is an economy behind the energy industry, for instance the
+          New York Mercantile Exchange, it balances itself between economic power
+          and essential services. Depending on what location and current events
+          throughout the world, you may be more towards either end of that spectrum.
+          <br />
+          <br />
+          Energy in the economy is more similar to energy in nature 
+than most believe it is.
+          Often, when we hear oil, hydro-power, coal, wind power, nuclear power, 
+          and solar power called "energy" we get the feeling of a superficial definition 
+          that lacks details in commerce and lacks effort in explaining what is energy. 
+          However, the energy sector, albeit less human, is equally dynamic and elusive in 
+          regards to the changes in time, source, type, and multitude as the substance of 
+          energy in relation to energy versus matter, and also energy as emotions or feelings.
+          <br />
+          <br />
+        </div>
+      </div>
+      <div
+        style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+      >
+        Ratio of Energy Sector Per Source - Global
+      </div>
+      <div
+        style="margin: auto; padding: 3em; position: relative; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; background-color: white; color: black; width: 70%;"
+      >
+        <div
+          class="recharts-wrapper"
+          style="position: relative; cursor: default; width: 100%; max-width: 700px; max-height: 70vh; aspect-ratio: 1.618 / 1;"
+          width="100%"
+        />
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

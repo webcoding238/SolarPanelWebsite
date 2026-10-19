@@ -1,7 +1,7 @@
 import { expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 import ProjectCard from './ProjectCard';
-import { cardOne } from '../pages/Project/cardData.ts';
+import { cardOne } from '../pages/Project/CardData.ts';
 
 it('ProjectCardSnapshot', ({
   isAnimationActive = true,

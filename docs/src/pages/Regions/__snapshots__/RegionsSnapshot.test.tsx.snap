@@ -1,0 +1,198 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RegionsSnapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <main>
+        <div
+          popover="manual"
+          style="text-align: center; border: 2px solid grey; background-color: white; color: black; border-radius: 2em; padding: 3em 1em 1em; box-shadow: 12px 21px black; height: 200px; width: 265px; z-index: 999; position: fixed; right: 40px; bottom: 200px;"
+        >
+          <h2>
+            Get in touch!
+          </h2>
+          <button
+            style="border: 3px solid blue; background-color: lightblue; border-radius: 1em; width: 100%;"
+          >
+            Send an email
+          </button>
+        </div>
+        <div
+          style="position: fixed; right: 40px; bottom: 40px; background: white; border: 2px solid black; cursor: pointer; z-index: 100;"
+        >
+          <img
+            alt="Contact Us Window Pop-up Button Gif of Typewriter Cartoon"
+            height="60"
+            src="/src/assets/ContactUs.gif"
+            width="100"
+          />
+        </div>
+        <div
+          style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+        >
+          U.S.A. Debt-Driven Solar Industry versus Profit Driven Solar Industry
+        </div>
+        <div
+          style="padding-top: 0.5em; width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly;"
+        >
+          <label>
+            Choose Region - 
+          </label>
+          <button>
+            U.S.A.
+          </button>
+          <button>
+            China
+          </button>
+          <button>
+            South Asia Pacific
+          </button>
+          <button>
+            Europe
+          </button>
+          <button>
+            Africa
+          </button>
+          <button>
+            Greater Asia
+          </button>
+          <button>
+            South America
+          </button>
+        </div>
+        <div
+          style="display: flex; justify-content: center; margin: auto; padding: 0.5em; position: relative; flex-direction: row; flex-wrap: nowrap; background-color: white; color: black; width: 70%;"
+        >
+          <div
+            class="recharts-wrapper"
+            style="position: relative; cursor: default; width: 100%; max-width: 700px; max-height: 70vh; aspect-ratio: 1.618 / 1;"
+            width="100%"
+          />
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <main>
+      <div
+        popover="manual"
+        style="text-align: center; border: 2px solid grey; background-color: white; color: black; border-radius: 2em; padding: 3em 1em 1em; box-shadow: 12px 21px black; height: 200px; width: 265px; z-index: 999; position: fixed; right: 40px; bottom: 200px;"
+      >
+        <h2>
+          Get in touch!
+        </h2>
+        <button
+          style="border: 3px solid blue; background-color: lightblue; border-radius: 1em; width: 100%;"
+        >
+          Send an email
+        </button>
+      </div>
+      <div
+        style="position: fixed; right: 40px; bottom: 40px; background: white; border: 2px solid black; cursor: pointer; z-index: 100;"
+      >
+        <img
+          alt="Contact Us Window Pop-up Button Gif of Typewriter Cartoon"
+          height="60"
+          src="/src/assets/ContactUs.gif"
+          width="100"
+        />
+      </div>
+      <div
+        style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+      >
+        U.S.A. Debt-Driven Solar Industry versus Profit Driven Solar Industry
+      </div>
+      <div
+        style="padding-top: 0.5em; width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly;"
+      >
+        <label>
+          Choose Region - 
+        </label>
+        <button>
+          U.S.A.
+        </button>
+        <button>
+          China
+        </button>
+        <button>
+          South Asia Pacific
+        </button>
+        <button>
+          Europe
+        </button>
+        <button>
+          Africa
+        </button>
+        <button>
+          Greater Asia
+        </button>
+        <button>
+          South America
+        </button>
+      </div>
+      <div
+        style="display: flex; justify-content: center; margin: auto; padding: 0.5em; position: relative; flex-direction: row; flex-wrap: nowrap; background-color: white; color: black; width: 70%;"
+      >
+        <div
+          class="recharts-wrapper"
+          style="position: relative; cursor: default; width: 100%; max-width: 700px; max-height: 70vh; aspect-ratio: 1.618 / 1;"
+          width="100%"
+        />
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

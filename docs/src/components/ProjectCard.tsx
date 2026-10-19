@@ -30,7 +30,7 @@ import {
     dataScatter,
     dataRadar,
     dataResponsive
-} from '../pages/Project/cardData'
+} from '../pages/Project/CardData'
 import projectStyles from './ProjectCardStyles'
 
 interface ProjectCardType {

@@ -4,7 +4,7 @@ import { store } from '../store/store.ts';
 import Footer from './Footer';
 import { Provider } from 'react-redux';
 
-it('ChatWindowSnapshot', () => {
+it('FooterSnapshot', () => {
   const result = render(
     <Provider store={store}>
       <Footer />

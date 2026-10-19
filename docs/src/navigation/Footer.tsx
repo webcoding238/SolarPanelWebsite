@@ -17,7 +17,7 @@ import {
 const Boilerplate = () => {
     return (
         <>
-            <p>{BoilerPlatePh1}</p><br/>
+            <p>{BoilerPlatePh1}</p><br />
             <p>{BoilerPlatePh2}</p>
             <p>{BoilerPlatePh3}</p><br />   
             <p>{BoilerPlatePh4}</p>    
@@ -36,6 +36,7 @@ const FooterLinks = () => {
 
     return (
         <>
+            <div onClick={() => setWebpageDispatch(setWebpage('Homepage'))}>{'Homepage'}</div>
             {navigation.map(webpage => (
                 <div key={webpage.keyC} onClick={() => setCurrentWebpage(webpage)}>{webpage.title}
                 </div>
