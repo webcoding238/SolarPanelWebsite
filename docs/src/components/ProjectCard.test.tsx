@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import ProjectCard from './ProjectCard';
 import { cardOne } from '../pages/Project/CardData';
 
