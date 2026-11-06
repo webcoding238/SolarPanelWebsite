@@ -65,7 +65,7 @@ export const countryList = [
           name: '2010',
           DebtRunEnterprises: 2490,
           ProfitRunEnterprises: 2808,
-          amt: 2000,
+          amt: 2017,
         },
         {
           name: '2020',
