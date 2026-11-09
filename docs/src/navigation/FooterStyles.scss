@@ -1,0 +1,48 @@
+@use '../components/variables';
+
+.containerFooter {
+    background-color: variables.$opposite-background-color;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    color: variables.$opposite-font-color;
+    width: 100%;
+    bottom: 0px;
+    display: grid;
+    position: relative;
+}
+.containerDesktop {
+    grid-template-columns: 1fr 1fr;
+}
+.containerMobile {
+    grid-template-columns: 1fr 2fr;
+}
+.leftFooter {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    margin-left: 2em;
+}
+.rightFooter {
+    margin-right: 160px;
+    padding: 2em;
+}
+.footerLinksMobile {
+    padding: 0.5em;
+    display: flex;
+}
+.columnStyle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: right;
+}
+.footerBodyMobile {
+    margin-left: 2em;
+    width: 50vw;
+}
+.wordWrapping {
+    word-wrap: normal;
+    word-break: normal;
+}

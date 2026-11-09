@@ -96,7 +96,7 @@ const Navigation: React.FC = () => {
             ))}
             <div className={"header scrollOverflow"}>
               <nav>
-                <div className={"container"}>
+                <div className={"containerNavigation"}>
                   <div onClick={() => setCurrentWebpage('Homepage')} className={"containerItemAndAlignment"}>
                     <img className={"containerItemFlex cursorPointer"} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
                   </div>

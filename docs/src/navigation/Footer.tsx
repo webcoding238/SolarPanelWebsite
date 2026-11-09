@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { setWebpage } from '../store/navigationSlice'
-import footerStyles from './FooterStyles'
-import sharedStyles from '../components/SharedStyles'
+import './FooterStyles.scss'
+import '../components/SharedStyles.scss'
 import type { navigationType } from '../types/navigation'
 import { 
     navigation,
@@ -64,20 +64,20 @@ const Footer: React.FC = () => {
     return (
         <div ref={ref}>
             {deviceSize > 676 ? (
-                <div style={{...footerStyles.container, ...footerStyles.containerDesktop}}>
-                    <div style={{ ...footerStyles.leftFooter, ...footerStyles.wordWrapping}}>
+                <div className={"containerFooter containerDesktop"}>
+                    <div className={"leftFooter wordWrapping"}>
                         {<Boilerplate />}
                     </div>
-                    <div style={{ ...footerStyles.rightFooter, ...footerStyles.columnStyle, ...sharedStyles.cursorPointer}}>
+                    <div className={"rightFooter columnStyle cursorPointer"}>
                         {<FooterLinks />}
                     </div>
                 </div>
             ) : (
-                <div style={{ ...footerStyles.container, ...footerStyles.containerMobile}}>
-                    <div style={{ ...footerStyles.footerLinksMobile, ...footerStyles.columnStyle, ...sharedStyles.cursorPointer}}>
+                <div className={"containerFooter containerMobile"}>
+                    <div className={"footerLinksMobile columnStyle cursorPointer"}>
                         {<FooterLinks />}
                     </div>
-                    <div style={{ ...footerStyles.footerBodyMobile, ...footerStyles.wordWrapping}}>
+                    <div className={"footerBodyMobile wordWrapping"}>
                         {<Boilerplate />}
                     </div>
                 </div>
