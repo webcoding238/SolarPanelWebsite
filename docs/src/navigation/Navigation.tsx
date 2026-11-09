@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import ProfileImage from '../assets/ProfileImage.svg'
 import { SubTitlesTag } from '../components/SharedTags'
 import { setWebpage } from '../store/navigationSlice'
-import sharedStyles from '../components/SharedStyles'
-import navigationStyles from './NavigationStyles'
+import './NavigationStyles.scss'
+import '../components/SharedStyles.scss'
 import type { navigationType } from '../types/navigation'
 import { 
   navigation,
@@ -22,15 +22,12 @@ const NavigationButton: React.FC<navigationType> = (webpage) => {
   return (
     <div key={webpage.keyC}
       onClick={() => setCurrentWebpage(webpage)}
-      style={webpage.type === 'mobile' ? 
-        ({
-          ...navigationStyles.menuItem,
-          ...sharedStyles.cursorPointer
-        }) : ({
-          ...navigationStyles.menuSpacingFlex,
-          ...navigationStyles.navFlexTitlesFlex,
-          ...sharedStyles.cursorPointer
-        })}
+      className={webpage.type === 'mobile' ? 
+        (
+          "menuItem cursorPointer"
+        ) : (
+          "menuSpacingFlex navFlexTitlesFlex cursorPointer"
+        )}
     >{webpage.title}</div>
   )
 }
@@ -60,8 +57,8 @@ const Navigation: React.FC = () => {
     <div ref={ref}>
       <header>
         {deviceSize > 949 ? (
-          <div style={navigationStyles.header}>
-            <div style={navigationStyles.websiteTitle}>{Title}</div>
+          <div className={"header"}>
+            <div className={"websiteTitle overflowWrapAnywhere"}>{Title}</div>
             {subTitles.map(subtitle => (
               <div key={subtitle.keyC}>
                 <SubTitlesTag
@@ -70,12 +67,12 @@ const Navigation: React.FC = () => {
                   />
               </div>
             ))}
-            <div style={navigationStyles.navFlex}>
-              <div onClick={() => setCurrentWebpage('Homepage')} style={navigationStyles.containerItemAndAlignment}>
-                <img style={{...navigationStyles.containerItemFlex, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+            <div className={"navFlex"}>
+              <div onClick={() => setCurrentWebpage('Homepage')} className={"containerItemAndAlignment"}>
+                <img className={"containerItemFlex cursorPointer"} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
               </div>
               {navigation.map(webpage => (
-                <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>
+                <div key={webpage.keyC} className={"containerItemAndAlignment"}>
                   <NavigationButton
                     keyC={webpage.keyC}
                     route={webpage.route}
@@ -88,7 +85,7 @@ const Navigation: React.FC = () => {
           </div>
         ) : (
           <>
-            <div style={{ ...navigationStyles.titleGrid, ...navigationStyles.websiteTitle}}>{Title}</div>
+            <div className={"titleGrid websiteTitle"}>{Title}</div>
             {subTitles.map(subtitle => (
               <div key={subtitle.keyC}>
                 <SubTitlesTag
@@ -97,14 +94,14 @@ const Navigation: React.FC = () => {
                   />
               </div>
             ))}
-            <div style={navigationStyles.headerScroll}>
+            <div className={"header scrollOverflow"}>
               <nav>
-                <div style={navigationStyles.container}>
-                  <div onClick={() => setCurrentWebpage('Homepage')} style={navigationStyles.containerItemAndAlignment}>
-                    <img style={{...navigationStyles.containerItemFlex, ...sharedStyles.cursorPointer}} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+                <div className={"containerNavigation"}>
+                  <div onClick={() => setCurrentWebpage('Homepage')} className={"containerItemAndAlignment"}>
+                    <img className={"containerItemFlex cursorPointer"} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
                   </div>
                   {navigation.map(webpage => (
-                    <div key={webpage.keyC} style={navigationStyles.containerItemAndAlignment}>
+                    <div key={webpage.keyC} className={"containerItemAndAlignment"}>
                       <NavigationButton
                         keyC={webpage.keyC}
                         route={webpage.route}

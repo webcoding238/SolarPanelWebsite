@@ -1,7 +1,7 @@
 import ChatWindow from '../../navigation/ChatWindow'
 import ProjectCard from '../../components/ProjectCard'
 import { HeadingTag } from '../../components/SharedTags.tsx'
-import projectStyles from './ProjectStyles.ts'
+import './ProjectStyles.scss'
 import { projectsHeader, projectsSummary } from './ProjectData.ts'
 import { cardOne } from './CardData.ts'
 
@@ -14,11 +14,11 @@ const Project: React.FC = ({
 }) => {
 
   return (
-    <main style={projectStyles.main}>
+    <main className={"main"}>
       <ChatWindow />
       <HeadingTag title={projectsHeader} />
-      <div style={projectStyles.projectsSummary}>{projectsSummary}</div>
-      <div style={projectStyles.projects}>
+      <div className={"projectsSummary"}>{projectsSummary}</div>
+      <div className={"projects"}>
         <ProjectCard
           chartType='pie'
           title='Estimates'

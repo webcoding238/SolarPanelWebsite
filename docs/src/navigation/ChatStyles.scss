@@ -1,0 +1,31 @@
+@use '../components/variables';
+
+.buttonWrapper {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    background-color: variables.$basic-background-color;
+    border: 2px solid black;
+    z-index: 100;
+}
+.popupWindow {
+    text-align: center;
+    border: 2px solid grey;
+    background-color: variables.$basic-background-color;
+    color: variables.$main-font-color;
+    border-radius: 2em;
+    padding: 3em 1em 1em 1em;
+    box-shadow: 12px 21px black;
+    height: 200px;
+    width: 265px;
+    z-index: 999;
+    position: fixed;
+    right: 40px;
+    bottom: 200px;
+}
+.chatSendEmail {
+    border: 3px solid blue;
+    background-color: lightBlue;
+    border-radius: 1em;
+    width: 100%;
+}

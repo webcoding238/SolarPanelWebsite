@@ -1,0 +1,63 @@
+@use '../components/variables';
+
+.header {
+  border: 2px solid black;
+  background-image: url('../assets/HeaderBackground.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: auto;
+  color: variables.$opposite-font-color;
+}
+.websiteTitle {
+  padding-left: 1em;
+  color: variables.$main-font-color;
+  min-width: 0;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.titleGrid {
+  display: grid;
+  grid-template-columns: repeat(autoFit, minmax(3fr, 1fr));
+  grid-template-rows: 1fr;
+  height: auto;
+  background-color: variables.$basic-background-color;
+}
+.containerNavigation {
+  text-align: center;
+  display: flex;
+  height: 10em;
+  width: 100%;
+}
+.containerItemFlex {
+  margin-top: 1em;
+  flex-grow: 1;
+  background-color: variables.$basic-background-color;
+  border-radius: 0.5em;
+}
+.containerItemAndAlignment {
+  margin: 3em;
+  flex-grow: 1;
+}
+.menuItem {
+  color: variables.$opposite-font-color;
+  font-size: variables.$subtitle-font-size;
+}
+.navFlex {
+  padding-top: 0.5em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.navFlexTitlesFlex {
+  color: variables.$main-font-color;
+  position: relative;
+}
+.menuSpacingFlex {
+  padding-top: 2em;
+}
