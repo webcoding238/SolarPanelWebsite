@@ -11,7 +11,7 @@ import {
 import ChatWindow from '../../navigation/ChatWindow';
 import { TitleTag } from '../../components/SharedTags';
 import { countryList } from './countryData';
-import regionsStyles from './RegionStyles';
+import './RegionStyles.scss';
 
 interface chartDataType {
   name: string;
@@ -39,13 +39,13 @@ const Regions: React.FC = () => {
     <main>
       <ChatWindow />
       <TitleTag title={`${currentData} Debt-Driven Solar Industry versus Profit Driven Solar Industry`} />
-      <div style={regionsStyles.regionFlex}>
+      <div className={"regionFlex"}>
         <label>Choose Region - </label>
         {countryList.map(country => (
           <button onClick={() => setCurrentChartCountry(country)}>{country.country}</button>
         ))}
       </div>
-      <div style={regionsStyles.homeGraph}>
+      <div className={"homeGraph"}>
           <LineChart
             style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
             responsive

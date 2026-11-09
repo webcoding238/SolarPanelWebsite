@@ -1,0 +1,22 @@
+@use '../../components/variables';
+
+.homeGraph {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0.5em;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: variables.$basic-background-color;
+    color: variables.$main-font-color;
+    width: 70%;
+}
+.regionFlex {
+    padding-top: 0.5em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
