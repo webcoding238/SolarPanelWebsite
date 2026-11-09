@@ -14,8 +14,7 @@ import {
   bubbleSortAscendingReducer,
   bubbleSortDescendingReducer
 } from './generatedDataSlice'
-import trackingStyles from './TrackingStyles'
-import sharedStyles from '../../components/SharedStyles'
+import './TrackingStyles.scss'
 import type { AppDispatch } from '../../store/store'
 import { TitleTag } from '../../components/SharedTags'
 
@@ -53,36 +52,36 @@ const Tracking: React.FC = () => {
     <div ref={ref}>
       <main>
         <img src={SolarImage}
-          style={deviceSize > 949 ? ({...trackingStyles.backgroundImage, ...trackingStyles.backgroundPlacement}) : ({...trackingStyles.backgroundImage, ...trackingStyles.backgroundPlacementMobile})}
+          className={deviceSize > 949 ? ("backgroundImage backgroundPlacement") : ("backgroundImage backgroundPlacementMobile")}
           alt="Photograph of a sloped rooftop with solar panels"
           />
-        <div style={trackingStyles.titleGrid}>
-          <div style={deviceSize > 949 ? trackingStyles.titleIcon : {...trackingStyles.titleIconMobile, ...sharedStyles.fontColorBlack, ...sharedStyles.backgroundColorWhite}}>
-            <div style={trackingStyles.centerIcon}><img
+        <div className={"titleGridTracking"}>
+          <div className={deviceSize > 949 ? ("titleIcon") : ("titleIconMobile")}>
+            <div className={"centerIcon"}><img
               src={Trajectory}
               alt="Cartoon outline of schedule calendar"
               height='60'
               /></div>
           </div>
-          <div style={trackingStyles.title}>
+          <div className={"titleTracking"}>
             <TitleTag title={'Chronology of Solar Panels'} />
           </div>
         </div>
-        <div style={{...trackingStyles.trackingSummary, ...sharedStyles.fontColorBlack, ...sharedStyles.backgroundColorWhite}}>{paragraphOne}<br/><br/>{paragraphTwo}</div>
+        <div className={"trackingSummary"}>{paragraphOne}<br/><br/>{paragraphTwo}</div>
         <ChatWindow />
         <TitleTag title={'Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients'} />
-        <div style={trackingStyles.distances}>
+        <div className={"distances overflowWrapAnywhere"}>
           <button onClick={() => sortAscending()}>Sort Ascending</button>
           <button onClick={() => sortDescending()}>Sort Descending</button>
           {status === 'succeeded' ? (generatedData.map((distance, index) => {
-            return <div key={index + 33} style={{...trackingStyles.distance, ...sharedStyles.fontColorBlack}}>{distance}</div>
+            return <div key={index + 33} className={"distance"}>{distance}</div>
           })) : (<div><TitleTag title={'Awaiting data for manufacturing distances...'} />{error}</div>)}
         </div>
         <TitleTag title={'Residental Solar Panel Periods of Continued Growth'} />
-        <div style={{...trackingStyles.homeGraph, ...sharedStyles.backgroundColorWhite}}><GrowthChart /></div>
+        <div className={"homeGraph"}><GrowthChart /></div>
         <TitleTag title={'Percentage of World Population By Age - Present Day - '}/>
         <TitleTag title={'Who Will Consume More Than 65% of Their Electricity From Solar Power'}/>
-        <div style={trackingStyles.homeGraph}><AgeChart /></div>
+        <div className={"homeGraph"}><AgeChart /></div>
       </main>
     </div>
   )

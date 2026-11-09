@@ -1,0 +1,103 @@
+@use '../../components/variables';
+
+.backgroundImage {
+  background-image: url('../../assets/SolarImage.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
+  z-index: -1000;
+  position: fixed;
+}
+.backgroundPlacement {
+  margin-top: -360px;
+}
+.backgroundPlacementMobile {
+  margin-top: -300px;
+}
+.titleGridTracking {
+  height: 50px;
+  width: calc(38% + 7.5em);
+  margin: 15px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  gap: 5px;
+  position: relative;
+}
+.titleIcon {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.titleIconMobile {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding: 1em;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  color: variables.$main-font-color;
+  background-color: variables.$basic-background-color;
+}
+.centerIcon {
+  margin: -0.25em 0 0 -0.25em;
+}
+.titleTracking {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.trackingSummary {
+  margin-left: 5em;
+  margin-top: 2em;
+  padding: 5px;
+  font-size: 24px;
+  width: 38%;
+  color: variables.$main-font-color;
+  background-color: variables.$basic-background-color;
+}
+.homeGraph {
+  margin: auto;
+  padding: 3em;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 70%;
+  background-color: variables.$basic-background-color;
+}
+.distances {
+  margin: 2em 0 0 1.5em;
+  padding-right: 1.5em;
+  font-size: clamp(12px, 1vw, 20px); 
+}
+.distance {
+  display: inline;
+  margin: 0 0.5em 0 0.5em;
+  color: variables.$main-font-color;
+}
+.dropdownContainer {
+  width: 10em;
+}
+.sortButton {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10%;
+  color: variables.$main-font-color;
+  background-color: variables.$basic-background-color;
+  margin-bottom: 2em;
+  text-align: center;
+  width: 8em;
+}
+.dropdown {
+  margin-left: 2em;
+  top: 109%;
+  width: 8.5em;
+}
