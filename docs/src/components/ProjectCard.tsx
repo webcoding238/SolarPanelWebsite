@@ -30,8 +30,9 @@ import {
     dataScatter,
     dataRadar,
     dataResponsive
-} from '../pages/Project/CardData'
-import projectStyles from './ProjectCardStyles'
+} from '../pages/Project/CardData.ts'
+import './ProjectCardStyles.scss'
+import '../components/SharedStyles.scss'
 
 interface ProjectCardType {
     title: string;
@@ -51,23 +52,23 @@ const ProjectCard: React.FC<ProjectCardType> = ({
 
   return (
     <>
-        <div style={projectStyles.projectCardWrapper}>
-            <div style={projectStyles.cardTitleIcon}>
+        <div className={"projectCardWrapper"}>
+            <div className={"cardTitleIcon"}>
             <img
                 src={ProjectTagImage}
                 alt='Cartoon outline of schedule calendar'
                 width='100' height='60'
                 />
             </div>
-            <div style={projectStyles.cardTitle}>
+            <div className={"cardTitle"}>
             <h2>{title}</h2>
             </div>
-            <div style={projectStyles.cardSummary}>
+            <div className={"cardSummary overflowWrapAnywhere"}>
             <p>{summary}</p>
             </div>
-            <div style={projectStyles.cardData}>
+            <div className={"cardData"}>
                 {chartType === 'pie' && (
-                    <PieChart style={projectStyles.chartStyles} responsive>
+                    <PieChart className={"chartStyles"} responsive>
                         <Pie
                             data={data01}
                             dataKey="value"
@@ -93,7 +94,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({
                 )}
                 {chartType === 'line' && (
                     <LineChart
-                        style={projectStyles.chartStyles}
+                        className={"chartStyles"}
                         responsive
                         data={data}
                         >
@@ -102,7 +103,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({
                 )}
                 {chartType === 'scatter' && (
                     <ScatterChart
-                        style={projectStyles.chartStyles}
+                        className={"chartStyles"}
                         responsive
                         margin={{
                         top: 20,
@@ -123,7 +124,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({
                 )}
                 {chartType === 'radar' && (
                     <RadarChart
-                        style={projectStyles.chartStyles}
+                        className={"chartStyles"}
                         responsive
                         outerRadius="80%"
                         data={dataRadar}
