@@ -1,0 +1,79 @@
+@use '../../components/variables';
+
+.main {
+    background-color: lightskyblue;
+    padding-bottom: 10px;
+    width: 100%;
+}
+.introGrid {
+    margin: 20px;
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+    text-align: center;
+    width: 100%;
+}
+.mobileWidth {
+    margin: auto;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.mobileSummary {
+    margin-top: 2em;
+    padding: 2em;
+    color: variables.$opposite-font-color;
+    background-image: url('../../assets/SolarImage.png');
+    background-size: cover;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.mobileIcon {
+    margin-top: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: variables.$basic-background-color;
+    color: variables.$main-font-color;
+    border-radius: 100%;
+}
+.gridItem1 {
+    background-color: variables.$basic-background-color;
+    color: variables.$main-font-color;
+    padding: 5px;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    margin-top: 2em;
+    font-size: variables.$subtitle-font-size;
+    width: 38vw;
+    text-align: left;
+}
+.gridItem2 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    margin-top: 2em;
+    margin-right: 2.5em;
+}
+.backgroundImage {
+    margin: auto;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.homeGraph {
+    margin: auto;
+    padding: 3em;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: variables.$basic-background-color;
+    color: variables.$main-font-color;
+    width: 70%;
+}

@@ -1,0 +1,20 @@
+@use '../../components/variables';
+
+.main {
+    background-color: lightskyblue;
+}
+.projectsSummary {
+    margin-left: 5em;
+    margin-top: 2em;
+    background-color: variables.$basic-background-color;
+    color: variables.$main-font-color;
+    padding: 5px;
+    font-size: 24px;
+    width: 38vw;
+    z-index: 1000;
+}
+.projects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

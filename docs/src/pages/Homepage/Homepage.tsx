@@ -5,7 +5,7 @@ import SolarImage from '../../assets/SolarImage.png'
 import Worldwide from '../../assets/Worldwide.svg'
 import { getStatus, getError } from './usersSlice'
 import RechartBarChart from './Rechart.tsx'
-import homePageStyles from './HomepageStyles.ts'
+import './HompageStyles.scss'
 import { HeadingTag, TitleTag } from '../../components/SharedTags.tsx'
 import {
   Paragraph1,
@@ -34,17 +34,17 @@ const Homepage: React.FC = () => {
   }, [])
 
   return (
-    <main style={homePageStyles.main}>
+    <main className={"main"}>
       <ChatWindow />
       <HeadingTag title={'Solar Power - Industrial Insights'} />
-      <div style={mediaMobile > 1100 && deviceSize > 449 ? homePageStyles.introGrid : homePageStyles.mobileWidth}>
+      <div className={mediaMobile > 1100 && deviceSize > 449 ? ("introGrid") : ("mobileWidth")}>
         {mediaMobile < 1100 && (<img
-          style={homePageStyles.mobileIcon}
+          className={"mobileIcon"}
           src={Worldwide}
           alt="Cartoon outline of the Earth"
           width='100' height='60'
           />)}
-        <div style={mediaMobile > 1100 && deviceSize > 449 ? homePageStyles.gridItem1 : homePageStyles.mobileSummary}>
+        <div className={mediaMobile > 1100 && deviceSize > 449 ? ("gridItem1") : ("mobileSummary")}>
           {Paragraph1}
           <br />
           <br />
@@ -60,15 +60,15 @@ const Homepage: React.FC = () => {
             width='100' height='60'
             />)}
         </div>
-        {mediaMobile > 1100 && deviceSize > 449 && (<div style={homePageStyles.gridItem2}>
+        {mediaMobile > 1100 && deviceSize > 449 && (<div className={"gridItem2"}>
           <img src={SolarImage}
-            style={homePageStyles.backgroundImage}
+            className={"backgroundImage"}
             alt="Photograph of a sloped rooftop with solar panels"
             />
           </div>)}
       </div>
       <TitleTag title={'Ratio of Energy Sector Per Source - Global'} />
-      <div style={homePageStyles.homeGraph}>
+      <div className={"homeGraph"}>
         {error !== 'No error' && <div><p>Error: {error}</p><br/><p>Status: {status}</p></div>}
         <RechartBarChart />
       </div>
