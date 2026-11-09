@@ -8,7 +8,6 @@ import {
   XAxis,
   YAxis
 } from 'recharts';
-import ChatWindow from '../../navigation/ChatWindow';
 import { TitleTag } from '../../components/SharedTags';
 import { countryList } from './countryData';
 import './RegionStyles.scss';
@@ -37,7 +36,6 @@ const Regions: React.FC = () => {
 
   return (
     <main>
-      <ChatWindow />
       <TitleTag title={`${currentData} Debt-Driven Solar Industry versus Profit Driven Solar Industry`} />
       <div className={"regionFlex"}>
         <label>Choose Region - </label>

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import ChatWindow from '../../navigation/ChatWindow'
 import SolarImage from '../../assets/SolarImage.png'
 import Worldwide from '../../assets/Worldwide.svg'
 import { getStatus, getError } from './usersSlice'
@@ -35,7 +34,6 @@ const Homepage: React.FC = () => {
 
   return (
     <main className={"main"}>
-      <ChatWindow />
       <HeadingTag title={'Solar Power - Industrial Insights'} />
       <div className={mediaMobile > 1100 && deviceSize > 449 ? ("introGrid") : ("mobileWidth")}>
         {mediaMobile < 1100 && (<img

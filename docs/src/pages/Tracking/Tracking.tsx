@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import ChatWindow from '../../navigation/ChatWindow'
 import GrowthChart from './GrowthChart'
 import AgeChart from './AgeChart'
 import SolarImage from '../../assets/SolarImage.png'
@@ -68,7 +67,6 @@ const Tracking: React.FC = () => {
           </div>
         </div>
         <div className={"trackingSummary"}>{paragraphOne}<br/><br/>{paragraphTwo}</div>
-        <ChatWindow />
         <TitleTag title={'Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients'} />
         <div className={"distances overflowWrapAnywhere"}>
           <button onClick={() => sortAscending()}>Sort Ascending</button>
