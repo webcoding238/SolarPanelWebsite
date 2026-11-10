@@ -6,12 +6,11 @@
     width: 100%;
 }
 .introGrid {
-    margin: 20px;
+    margin: 30px;
     display: grid;
     position: relative;
     grid-template-columns: 1fr 1fr;
     gap: 3em;
-    text-align: center;
     width: 100%;
 }
 .mobileWidth {
@@ -36,7 +35,7 @@
     color: variables.$main-font-color;
     border-radius: 100%;
 }
-.gridItem1 {
+.gridItem1Homepage {
     background-color: variables.$basic-background-color;
     color: variables.$main-font-color;
     padding: 5px;
@@ -44,24 +43,24 @@
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
-    margin-top: 2em;
+    margin-top: 25px;
     font-size: variables.$subtitle-font-size;
-    width: 38vw;
+    width: 50vw;
     text-align: left;
 }
-.gridItem2 {
+.gridItem2Homepage {
+    margin-top: 25px;
+    padding: 5px;
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 1;
-    margin-top: 2em;
-    margin-right: 2.5em;
 }
-.backgroundImage {
-    margin: auto;
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
+.backgroundImageHomepage {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../assets/SolarImage.png');
+    width: 40vw;
     position: relative;
     overflow: hidden;
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import SolarImage from '../../assets/SolarImage.png'
+//import SolarImage from '../../assets/SolarImage.png'
 import Worldwide from '../../assets/Worldwide.svg'
 import { getStatus, getError } from './usersSlice'
 import RechartBarChart from './Rechart.tsx'
@@ -42,7 +42,7 @@ const Homepage: React.FC = () => {
           alt="Cartoon outline of the Earth"
           width='100' height='60'
           />)}
-        <div className={mediaMobile > 1100 && deviceSize > 449 ? ("gridItem1") : ("mobileSummary")}>
+        <div className={mediaMobile > 1100 && deviceSize > 449 ? ("gridItem1Homepage") : ("mobileSummary")}>
           {Paragraph1}
           <br />
           <br />
@@ -58,12 +58,7 @@ const Homepage: React.FC = () => {
             width='100' height='60'
             />)}
         </div>
-        {mediaMobile > 1100 && deviceSize > 449 && (<div className={"gridItem2"}>
-          <img src={SolarImage}
-            className={"backgroundImage"}
-            alt="Photograph of a sloped rooftop with solar panels"
-            />
-          </div>)}
+        {mediaMobile > 1100 && deviceSize > 449 && (<div className={"gridItem2Homepage backgroundImageHomepage"} />)}
       </div>
       <TitleTag title={'Ratio of Energy Sector Per Source - Global'} />
       <div className={"homeGraph"}>
