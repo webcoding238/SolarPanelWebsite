@@ -1,4 +1,4 @@
-@use '../../components/variables';
+@use '../../components/themes/variables';
 
 .homeGraph {
     display: flex;
@@ -13,6 +13,7 @@
     width: 70%;
 }
 .regionFlex {
+    margin-bottom: 2em;
     padding-top: 0.5em;
     width: 100%;
     display: flex;

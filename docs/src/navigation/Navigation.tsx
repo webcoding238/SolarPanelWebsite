@@ -4,7 +4,7 @@ import ProfileImage from '../assets/ProfileImage.svg'
 import { SubTitlesTag } from '../components/SharedTags'
 import { setWebpage } from '../store/navigationSlice'
 import './NavigationStyles.scss'
-import '../components/SharedStyles.scss'
+import '../components/themes/SharedStyles.scss'
 import type { navigationType } from '../types/navigation'
 import { 
   navigation,

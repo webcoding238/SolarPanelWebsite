@@ -32,7 +32,7 @@ import {
     dataResponsive
 } from '../pages/Project/CardData.ts'
 import './ProjectCardStyles.scss'
-import '../components/SharedStyles.scss'
+import '../components/themes/SharedStyles.scss'
 
 interface ProjectCardType {
     title: string;

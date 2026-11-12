@@ -1,0 +1,108 @@
+@use './variables';
+
+@mixin theme-contrast-font($mode) {
+  @if $mode == "light" {
+    color: variables.$main-font-color;
+    transition: color 0.6s ease;
+  } @else {
+    color: variables.$opposite-font-color;
+    transition: color 0.6s ease;
+  }
+}
+
+@mixin theme-contrast-background($mode) {
+  @if $mode == "light" {
+    background-color: variables.$basic-background-color;
+    transition: background-color 0.6s ease;
+  } @else {
+    background-color: variables.$opposite-background-color;
+    transition: background-color 0.6s ease;
+  }
+}
+
+.subTitlesFlex {
+  margin-left: 3em;
+  font-size: variables.$subtitle-font-size;
+  @include theme-contrast-font("light");
+  
+  &.is-dark {
+    @include theme-contrast-font("dark");
+  }
+}
+
+.barTitle {
+  text-align: center;
+  font-size: clamp(14px, 2vw, 36px);
+  align-items: center;
+  overflow-wrap: #{"anywhere"};
+  @include theme-contrast-font("light");
+  
+  &.is-dark {
+    @include theme-contrast-font("dark");
+  }
+}
+
+.title {
+  padding: 10px 10px 10px 1em;
+  background-color: variables.$basic-background-color;
+  font-size: clamp(20px, 3vw, 36px);
+  overflow-wrap: #{"anywhere"};
+  @include theme-contrast-font("light");
+  
+  &.is-dark {
+    @include theme-contrast-font("dark");
+  }
+
+  @include theme-contrast-background("light");
+  
+  &.is-dark {
+    @include theme-contrast-background("dark");
+  }
+}
+
+.theme-background {
+  @include theme-contrast-background("light");
+  
+  &.is-dark {
+    @include theme-contrast-background("dark");
+  }
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.scrollOverflow {
+  overflow-x: scroll;
+}
+
+.overflowWrapAnywhere {
+  overflow-wrap: #{"anywhere"};
+}
+
+.utilityButton {
+  border: 3px solid blue;
+  background-color: lightBlue;
+  border-radius: 1em;
+  width: 100%;
+}
+
+.popupWindow {
+  @include theme-contrast-font("light");
+  
+  &.is-dark {
+    @include theme-contrast-font("dark");
+  }
+
+  @include theme-contrast-background("light");
+  
+  &.is-dark {
+    @include theme-contrast-background("dark");
+  }
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 2em;
+  padding: 3em 1em 1em 1em;
+  box-shadow: 12px 21px black;
+  position: fixed;
+}

@@ -43,11 +43,6 @@ const navigationStyles = {
     fontSize: '10px',
     overflowWrap: 'anywhere' as const
   },
-  subTitlesFlex: {
-    marginLeft: '3em',
-    fontColor: 'black',
-    fontSize: '18px'
-  },
   titleGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(autoFit, minmax(3fr, 1fr))',

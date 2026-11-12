@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getThemeContrast } from '../../store/navigationSlice';
 import {
   CartesianGrid,
   Legend,
@@ -11,6 +13,7 @@ import {
 import { TitleTag } from '../../components/SharedTags';
 import { countryList } from './countryData';
 import './RegionStyles.scss';
+import '../../components/themes/SharedStyles.scss'
 
 interface chartDataType {
   name: string;
@@ -28,6 +31,7 @@ const Regions: React.FC = () => {
 
   const [currentData, setCurrentData] = useState<string>(countryList[0].country)
   const [data, updateData] = useState<chartDataType[]>(countryList[0].countryData)
+  const isDarkTheme = useSelector(getThemeContrast)
 
   const setCurrentChartCountry = (country: CountryType) => {
     updateData(country.countryData)
@@ -35,7 +39,7 @@ const Regions: React.FC = () => {
   }
 
   return (
-    <main>
+    <main className={`theme-background ${isDarkTheme ? 'is-dark' : ''}`}>
       <TitleTag title={`${currentData} Debt-Driven Solar Industry versus Profit Driven Solar Industry`} />
       <div className={"regionFlex"}>
         <label>Choose Region - </label>

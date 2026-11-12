@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { setWebpage } from '../store/navigationSlice'
 import './FooterStyles.scss'
-import '../components/SharedStyles.scss'
+import '../components/themes/SharedStyles.scss'
 import type { navigationType } from '../types/navigation'
 import { 
     navigation,
