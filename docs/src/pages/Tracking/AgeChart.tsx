@@ -54,7 +54,7 @@ import {
               label={{ position: 'right' as const, formatter: formatPercent }}
             />
             <Tooltip formatter={formatPercent} defaultIndex={defaultIndex} />
-            <Legend itemSorter={itemSorter} verticalAlign="top" align="right" />
+            <Legend itemSorter={itemSorter} />
           </BarChart>
     )
  }

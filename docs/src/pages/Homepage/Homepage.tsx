@@ -35,14 +35,14 @@ const Homepage: React.FC = () => {
   return (
     <main className={"main"}>
       <HeadingTag title={'Solar Power - Industrial Insights'} />
-      <div className={mediaMobile > 1100 && deviceSize > 449 ? ("introGrid") : ("mobileWidth")}>
+      <div className={mediaMobile > 1100 && deviceSize > 449 ? ("intro-grid") : ("mobile-width")}>
         {mediaMobile < 1100 && (<img
-          className={"mobileIcon"}
+          className={"mobile-icon"}
           src={Worldwide}
           alt="Cartoon outline of the Earth"
           width='100' height='60'
           />)}
-        <div className={mediaMobile > 1100 && deviceSize > 449 ? ("gridItem1Homepage") : ("mobileSummary")}>
+        <div className={mediaMobile > 1100 && deviceSize > 449 ? ("grid-item1-homepage") : ("mobile-summary")}>
           {Paragraph1}
           <br />
           <br />
@@ -58,10 +58,10 @@ const Homepage: React.FC = () => {
             width='100' height='60'
             />)}
         </div>
-        {mediaMobile > 1100 && deviceSize > 449 && (<div className={"gridItem2Homepage backgroundImageHomepage"} />)}
+        {mediaMobile > 1100 && deviceSize > 449 && (<div className={"grid-item2-homepage background-image-homepage"} />)}
       </div>
       <TitleTag title={'Ratio of Energy Sector Per Source - Global'} />
-      <div className={"homeGraph"}>
+      <div className={"home-graph"}>
         {error !== 'No error' && <div><p>Error: {error}</p><br/><p>Status: {status}</p></div>}
         <RechartBarChart />
       </div>

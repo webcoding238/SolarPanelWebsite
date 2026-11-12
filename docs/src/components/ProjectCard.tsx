@@ -52,23 +52,23 @@ const ProjectCard: React.FC<ProjectCardType> = ({
 
   return (
     <>
-        <div className={"projectCardWrapper"}>
-            <div className={"cardTitleIcon"}>
+        <div className={"project-card-wrapper"}>
+            <div className={"card-title-icon"}>
             <img
                 src={ProjectTagImage}
                 alt='Cartoon outline of schedule calendar'
                 width='100' height='60'
                 />
             </div>
-            <div className={"cardTitle"}>
+            <div className={"card-title"}>
             <h2>{title}</h2>
             </div>
-            <div className={"cardSummary overflowWrapAnywhere"}>
+            <div className={"card-summary overflow-wrap-anywhere"}>
             <p>{summary}</p>
             </div>
-            <div className={"cardData"}>
+            <div className={"card-data"}>
                 {chartType === 'pie' && (
-                    <PieChart className={"chartStyles"} responsive>
+                    <PieChart className={"chart-styles"} responsive>
                         <Pie
                             data={data01}
                             dataKey="value"
@@ -94,7 +94,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({
                 )}
                 {chartType === 'line' && (
                     <LineChart
-                        className={"chartStyles"}
+                        className={"chart-styles"}
                         responsive
                         data={data}
                         >
@@ -103,7 +103,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({
                 )}
                 {chartType === 'scatter' && (
                     <ScatterChart
-                        className={"chartStyles"}
+                        className={"chart-styles"}
                         responsive
                         margin={{
                         top: 20,
@@ -124,7 +124,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({
                 )}
                 {chartType === 'radar' && (
                     <RadarChart
-                        className={"chartStyles"}
+                        className={"chart-styles"}
                         responsive
                         outerRadius="80%"
                         data={dataRadar}
@@ -137,7 +137,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({
                         <Legend />
                     </RadarChart>
                 )}
-                {chartType === 'composedChart' && (
+                {chartType === 'composed-chart' && (
                     <ResponsiveContainer>
                         <ComposedChart
                         width={500}

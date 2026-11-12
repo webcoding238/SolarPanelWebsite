@@ -29,14 +29,14 @@ const ThemeSelection: React.FC = () => {
   return (
     <>
         {displayThemePopup &&
-            <div className={`themePopup popupWindow ${isDarkTheme ? 'is-dark' : ''}`}>
+            <div className={`theme-popup popup-window ${isDarkTheme ? 'is-dark' : ''}`}>
                 <TitleTag title={'Click to Set Theme to Light or Dark'} />
                 {isDarkTheme ? (
-                    <div onClick={toggleTheme} className={"cursorPointer"}><img className={"cursorPointer"} src={LayoutLight} alt="Outline of light colored website layout shapes" width='300' height='300'/></div>
+                    <div onClick={toggleTheme} className={"cursor-pointer"}><img className={"cursorPointer"} src={LayoutLight} alt="Outline of light colored website layout shapes" width='300' height='300'/></div>
                 ): (
-                    <div onClick={toggleTheme} className={"cursorPointer"}><img className={"cursorPointer"} src={LayoutDark} alt="Outline of dark colored website layout shapes" width='300' height='300'/></div>
+                    <div onClick={toggleTheme} className={"cursor-pointer"}><img className={"cursorPointer"} src={LayoutDark} alt="Outline of dark colored website layout shapes" width='300' height='300'/></div>
                 )}
-                <div onClick={togglePopover} className={"utilityButton cursorPointer"}>{ButtonSelection}</div>
+                <div onClick={togglePopover} className={"utility-button cursor-pointer"}>{ButtonSelection}</div>
             </div>
         }
     </>

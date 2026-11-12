@@ -14,11 +14,11 @@ const ChatWindow: React.FC = () => {
 
   return (
     <>
-      <div ref={popoverRef} className={"popupWindow chatPopup"} popover='manual'>
+      <div ref={popoverRef} className={"popup-window chat-popup"} popover='manual'>
           <h2>Get in touch!</h2>
-          <button className={"utilityButton"} onClick={() => {window.location.href ='mailto:georgepyn1001@gmail.com'}}>Send an email</button>
+          <button className={"utility-button"} onClick={() => {window.location.href ='mailto:georgepyn1001@gmail.com'}}>Send an email</button>
       </div>
-      <div onClick={togglePopover} className={"buttonWrapper cursorPointer"} >
+      <div onClick={togglePopover} className={"button-wrapper cursor-pointer"} >
           <img src={ContactUs} alt="Contact Us Window Pop-up Button Gif of Typewriter Cartoon" width='100' height='60'/>
       </div>
     </>

@@ -1,6 +1,6 @@
 @use './themes/variables';
 
-.projectCardWrapper {
+.project-card-wrapper {
     height: 30em;
     width: 20em;
     border-radius: 20px;
@@ -16,34 +16,34 @@
     grid-template-rows: 15% 15% 70%;
     gap: 5px;
 }
-.cardTitleIcon {
+.card-title-icon {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 2;
 }
-.cardTitle {
+.card-title {
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
     text-align: center;
 }
-.cardSummary {
+.card-summary {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
     font-size: 14px;
 }
-.cardData {
+.card-data {
     padding-top: 2em;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 3;
 }
-.chartStyles {
+.chart-styles {
     width: 100%;
     height: 100%;
     max-width: 500px;
@@ -52,7 +52,7 @@
     margin: auto;
     position: relative;
 }
-.scatterSize {
+.scatter-size {
     margin-top: 3em;
     width: 80%;
     height: 80%;

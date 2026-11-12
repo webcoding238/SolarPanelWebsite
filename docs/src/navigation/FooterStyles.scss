@@ -1,6 +1,6 @@
 @use '../components/themes/variables';
 
-.containerFooter {
+.container-footer {
     background-color: variables.$opposite-background-color;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -11,38 +11,38 @@
     display: grid;
     position: relative;
 }
-.containerDesktop {
+.container-desktop {
     grid-template-columns: 1fr 1fr;
 }
-.containerMobile {
+.container-mobile {
     grid-template-columns: 1fr 2fr;
 }
-.leftFooter {
+.left-footer {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
     margin-left: 2em;
 }
-.rightFooter {
+.right-footer {
     margin-right: 160px;
     padding: 2em;
 }
-.footerLinksMobile {
+.footer-links-mobile {
     padding: 0.5em;
     display: flex;
 }
-.columnStyle {
+.column-style {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     text-align: right;
 }
-.footerBodyMobile {
+.footer-body-mobile {
     margin-left: 2em;
     width: 50vw;
 }
-.wordWrapping {
+.word-wrapping {
     word-wrap: normal;
     word-break: normal;
 }

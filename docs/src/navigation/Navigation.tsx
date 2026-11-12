@@ -1,10 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import ProfileImage from '../assets/ProfileImage.svg'
+import LayoutLightThumbnail from '../assets/svgrepo/LayoutLightThumbnail.svg'
+import LayoutDarkThumbnail from '../assets/svgrepo/LayoutDarkThumbnail.svg'
 import { SubTitlesTag } from '../components/SharedTags'
 import { setWebpage } from '../store/navigationSlice'
 import './NavigationStyles.scss'
 import '../components/themes/SharedStyles.scss'
+import {
+  getThemePopup,
+  getThemeContrast,
+  toggleThemeContrast
+} from '../store/navigationSlice'
 import type { navigationType } from '../types/navigation'
 import { 
   navigation,
@@ -36,6 +43,9 @@ const Navigation: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const setWebpageDispatch = useDispatch();
   const [deviceSize, setDeviceSize] = useState<number>(0);
+  const toggleThemeContrastHandler = useDispatch();
+  const isDarkTheme = useSelector(getThemeContrast);
+  const displayThemePopup = useSelector(getThemePopup);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -50,7 +60,11 @@ const Navigation: React.FC = () => {
   }, []);
 
   function setCurrentWebpage(webpage:string) {
-    setWebpageDispatch(setWebpage(webpage))
+    setWebpageDispatch(setWebpage(webpage));
+  }
+
+  function toggleTheme() {
+    toggleThemeContrastHandler(toggleThemeContrast(!isDarkTheme));
   }
 
   return (
@@ -58,21 +72,41 @@ const Navigation: React.FC = () => {
       <header>
         {deviceSize > 949 ? (
           <div className={"header"}>
-            <div className={"websiteTitle overflowWrapAnywhere"}>{Title}</div>
-            {subTitles.map(subtitle => (
-              <div key={subtitle.keyC}>
-                <SubTitlesTag
-                  keyC={subtitle.keyC}
-                  title={subtitle.title}
+            <div className={`title-grid theme-background theme-font-color ${isDarkTheme ? 'is-dark' : ''}`}>
+              <div className={"website-title overflow-wrap-anywhere title-text"}>{Title}</div>
+              <div className={"title-theme-icon"}>
+                {isDarkTheme ? (
+                !displayThemePopup && <img
+                  className={"cursor-pointer"}
+                  onClick={toggleTheme}
+                  src={LayoutLightThumbnail}
+                  alt="Outline of light colored website layout shapes thumbnail" width='60' height='60'
                   />
+                ) : (
+                  !displayThemePopup && <img
+                    className={"cursor-pointer"}
+                    onClick={toggleTheme}
+                    src={LayoutDarkThumbnail}
+                    alt="Outline of light colored website layout shapes thumbnail" width='60' height='60'
+                    />)}
               </div>
-            ))}
-            <div className={"navFlex"}>
-              <div onClick={() => setCurrentWebpage('Homepage')} className={"containerItemAndAlignment"}>
-                <img className={"containerItemFlex cursorPointer"} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+            </div>
+            <div className={`theme-background ${isDarkTheme ? 'is-dark' : ''}`}>
+              {subTitles.map(subtitle => (
+                <div key={subtitle.keyC} className={"cursor-pointer"}>
+                  <SubTitlesTag
+                    keyC={subtitle.keyC}
+                    title={subtitle.title}
+                    />
+                </div>
+              ))}
+            </div>
+            <div className={"nav-flex"}>
+              <div onClick={() => setCurrentWebpage('Homepage')} className={"container-item-and-alignment"}>
+                <img className={"container-item-flex cursor-pointer"} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
               </div>
               {navigation.map(webpage => (
-                <div key={webpage.keyC} className={"containerItemAndAlignment"}>
+                <div key={webpage.keyC} className={"cursor-pointer container-item-and-alignment"}>
                   <NavigationButton
                     keyC={webpage.keyC}
                     route={webpage.route}
@@ -85,23 +119,43 @@ const Navigation: React.FC = () => {
           </div>
         ) : (
           <>
-            <div className={"titleGrid websiteTitle"}>{Title}</div>
-            {subTitles.map(subtitle => (
-              <div key={subtitle.keyC}>
-                <SubTitlesTag
-                  keyC={subtitle.keyC}
-                  title={subtitle.title}
+            <div className={`title-grid-mobile theme-background theme-font-color ${isDarkTheme ? 'is-dark' : ''}`}>
+              <div className={"title-theme-icon-mobile"}>
+                {isDarkTheme ? (
+                !displayThemePopup && <img
+                  className={"cursor-pointer"}
+                  onClick={toggleTheme}
+                  src={LayoutLightThumbnail}
+                  alt="Outline of light colored website layout shapes thumbnail" width='60' height='60'
                   />
+                ) : (
+                  !displayThemePopup && <img
+                    className={"cursor-pointer"}
+                    onClick={toggleTheme}
+                    src={LayoutDarkThumbnail}
+                    alt="Outline of light colored website layout shapes thumbnail" width='60' height='60'
+                    />)}
               </div>
-            ))}
-            <div className={"header scrollOverflow"}>
+              <div className={"overflow-wrap-anywhere title-text-mobile"}>{Title}</div>
+            </div>
+            <div className={`theme-background ${isDarkTheme ? 'is-dark' : ''}`}>
+              {subTitles.map(subtitle => (
+                <div key={subtitle.keyC}>
+                  <SubTitlesTag
+                    keyC={subtitle.keyC}
+                    title={subtitle.title}
+                    />
+                </div>
+              ))}
+            </div>
+            <div className={"header scroll-overflow"}>
               <nav>
-                <div className={"containerNavigation"}>
-                  <div onClick={() => setCurrentWebpage('Homepage')} className={"containerItemAndAlignment"}>
-                    <img className={"containerItemFlex cursorPointer"} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
+                <div className={"container-navigation"}>
+                  <div onClick={() => setCurrentWebpage('Homepage')} className={"container-item-and-alignment"}>
+                    <img className={"container-item-flex cursor-pointer"} src={ProfileImage} alt="Cartoon outline of male suit shoulders" width='100' height='60'/>
                   </div>
                   {navigation.map(webpage => (
-                    <div key={webpage.keyC} className={"containerItemAndAlignment"}>
+                    <div key={webpage.keyC} className={"cursor-pointer container-item-and-alignment"}>
                       <NavigationButton
                         keyC={webpage.keyC}
                         route={webpage.route}

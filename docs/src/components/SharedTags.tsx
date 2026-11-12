@@ -7,7 +7,7 @@ import { getThemeContrast } from '../store/navigationSlice'
 export const SubTitlesTag: React.FC<subTitleType> = (subtitle) => {
   const isDarkTheme = useSelector(getThemeContrast)
   return (
-    <div key={subtitle.keyC} className={`subTitlesFlex overflowWrapAnywhere ${isDarkTheme ? 'is-dark' : ''}`}>{subtitle.title}</div>
+    <div key={subtitle.keyC} className={`sub-titles-flex overflow-wrap-anywhere ${isDarkTheme ? 'is-dark' : ''}`}>{subtitle.title}</div>
   )
 }
 
@@ -15,7 +15,7 @@ export const TitleTag: React.FC<TagType> = (props) => {
   const { title } = props
   const isDarkTheme = useSelector(getThemeContrast)
   return (
-    <div className={`barTitle ${isDarkTheme ? 'is-dark' : ''}`}>{title}</div>
+    <div className={`bar-title ${isDarkTheme ? 'is-dark' : ''}`}>{title}</div>
   )
 }
 

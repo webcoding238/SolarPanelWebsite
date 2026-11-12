@@ -5,7 +5,7 @@
     padding-bottom: 10px;
     width: 100%;
 }
-.introGrid {
+.intro-grid {
     margin: 30px;
     display: grid;
     position: relative;
@@ -13,12 +13,12 @@
     gap: 3em;
     width: 100%;
 }
-.mobileWidth {
+.mobile-width {
     margin: auto;
     padding-left: 2em;
     padding-right: 2em;
 }
-.mobileSummary {
+.mobile-summary {
     margin-top: 2em;
     padding: 2em;
     color: variables.$opposite-font-color;
@@ -27,7 +27,7 @@
     object-fit: contain;
     background-repeat: no-repeat;
 }
-.mobileIcon {
+.mobile-icon {
     margin-top: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -35,7 +35,7 @@
     color: variables.$main-font-color;
     border-radius: 100%;
 }
-.gridItem1Homepage {
+.grid-item1-homepage {
     background-color: variables.$basic-background-color;
     color: variables.$main-font-color;
     padding: 5px;
@@ -48,7 +48,7 @@
     width: 50vw;
     text-align: left;
 }
-.gridItem2Homepage {
+.grid-item2-homepage {
     margin-top: 25px;
     padding: 5px;
     grid-column-start: 2;
@@ -56,7 +56,7 @@
     grid-row-start: 1;
     grid-row-end: 1;
 }
-.backgroundImageHomepage {
+.background-image-homepage {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../assets/SolarImage.png');
@@ -64,7 +64,7 @@
     position: relative;
     overflow: hidden;
 }
-.homeGraph {
+.home-graph {
     margin: auto;
     padding: 3em;
     position: relative;

@@ -15,7 +15,7 @@ const Project: React.FC = ({
   return (
     <main className={"main"}>
       <HeadingTag title={projectsHeader} />
-      <div className={"projectsSummary"}>{projectsSummary}</div>
+      <div className={"projects-summary"}>{projectsSummary}</div>
       <div className={"projects"}>
         <ProjectCard
           chartType='pie'
