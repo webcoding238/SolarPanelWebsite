@@ -6,6 +6,7 @@ import Tracking from '../pages/Tracking/Tracking.tsx'
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
 import ChatWindow from './ChatWindow.tsx'
+import ThemeTooltip from './ThemeTooltip.tsx'
 import ThemeSelection from './ThemeSelection.tsx'
 import { getWebpage } from '../store/navigationSlice'
 
@@ -15,6 +16,7 @@ const WrapperComponent: React.FC = () => {
         <>
             <Navigation />
             <ThemeSelection />
+            <ThemeTooltip />
             <ChatWindow />
                 {currentPage === 'Homepage' && <Homepage />}
                 {currentPage === 'Project' && <Project />}

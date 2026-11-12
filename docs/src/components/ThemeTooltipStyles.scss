@@ -1,0 +1,86 @@
+@use './themes/variables';
+
+.button-wrapper-tooltip-desktop {
+  position: fixed;
+  right: 110px;
+  top: 5px;
+  z-index: 100;
+}
+.button-wrapper-tooltip-mobile {
+  position: fixed;
+  left: 10px;
+  top: 0px;
+  z-index: 100;
+}
+.tooltip-bubble-desktop {
+  position: relative;
+  z-index: 1020;
+  height: 60px;
+  width: 180px;
+  padding: 20px 10px 10px 10px;
+  background-color: variables.$basic-background-color;
+  text-align: center;
+  border: 3px solid black;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.tooltip-bubble-desktop:before {
+  content: ' ';
+  position: absolute;
+  z-index: 1020;
+  width: 0;
+  height: 0;
+  right: -50px;
+  top: 20px;
+  border: 25px solid;
+  border-color: black transparent transparent black;
+}
+.tooltip-bubble-desktop:after {
+  content: ' ';
+  position: absolute;
+  z-index: 1020;
+  width: 0;
+  height: 0;
+  right: -28px;
+  top: 30px;
+  border: 15px solid;
+  border-color: #fff transparent transparent #fff;
+}
+.tooltip-bubble-mobile {
+  position: relative;
+  left: 100px;
+  top: 5px;
+  z-index: 1020;
+  height: 60px;
+  width: 180px;
+  padding: 20px 10px 10px 10px;
+  background-color: variables.$basic-background-color;
+  text-align: center;
+  border: 3px solid black;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.tooltip-bubble-mobile:before {
+  content: ' ';
+  position: absolute;
+  z-index: 1020;
+  width: 0;
+  height: 0;
+  left: -50px;
+  top: 20px;
+  border: 25px solid;
+  border-color: black black transparent transparent;
+}
+.tooltip-bubble-mobile:after {
+  content: ' ';
+  position: absolute;
+  z-index: 1020;
+  width: 0;
+  height: 0;
+  left: -30px;
+  top: 26px;
+  border: 15px solid;
+  border-color: #fff #fff transparent transparent;
+}
