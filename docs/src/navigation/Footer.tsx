@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { setWebpage } from '../store/navigationSlice'
 import './FooterStyles.scss'
-import '../components/SharedStyles.scss'
+import '../components/themes/SharedStyles.scss'
 import type { navigationType } from '../types/navigation'
 import { 
     navigation,
@@ -64,20 +64,20 @@ const Footer: React.FC = () => {
     return (
         <div ref={ref}>
             {deviceSize > 676 ? (
-                <div className={"containerFooter containerDesktop"}>
-                    <div className={"leftFooter wordWrapping"}>
+                <div className={"container-footer container-desktop"}>
+                    <div className={"left-footer word-wrapping"}>
                         {<Boilerplate />}
                     </div>
-                    <div className={"rightFooter columnStyle cursorPointer"}>
+                    <div className={"right-footer column-style cursor-pointer"}>
                         {<FooterLinks />}
                     </div>
                 </div>
             ) : (
-                <div className={"containerFooter containerMobile"}>
-                    <div className={"footerLinksMobile columnStyle cursorPointer"}>
+                <div className={"container-footer container-mobile"}>
+                    <div className={"footer-links-mobile column-style cursor-pointer"}>
                         {<FooterLinks />}
                     </div>
-                    <div className={"footerBodyMobile wordWrapping"}>
+                    <div className={"footer-body-mobile word-wrapping"}>
                         {<Boilerplate />}
                     </div>
                 </div>

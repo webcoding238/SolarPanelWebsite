@@ -1,0 +1,9 @@
+@use './themes/variables';
+
+.theme-popup {
+    height: 400px;
+    width: 33%;
+    z-index: 1010;
+    right: 33%;
+    top: 5%;
+}

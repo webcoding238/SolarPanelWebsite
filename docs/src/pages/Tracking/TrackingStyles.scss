@@ -1,6 +1,6 @@
-@use '../../components/variables';
+@use '../../components/themes/variables';
 
-.backgroundImage {
+.background-image {
   background-image: url('../../assets/SolarImage.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,13 +11,13 @@
   z-index: -1000;
   position: fixed;
 }
-.backgroundPlacement {
+.background-placement {
   margin-top: -360px;
 }
-.backgroundPlacementMobile {
+.background-placement-mobile {
   margin-top: -300px;
 }
-.titleGridTracking {
+.title-grid-tracking {
   height: 50px;
   width: calc(38% + 7.5em);
   margin: 15px;
@@ -26,13 +26,13 @@
   gap: 5px;
   position: relative;
 }
-.titleIcon {
+.title-icon {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 2;
 }
-.titleIconMobile {
+.title-icon-mobile {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
@@ -44,16 +44,16 @@
   color: variables.$main-font-color;
   background-color: variables.$basic-background-color;
 }
-.centerIcon {
+.center-icon {
   margin: -0.25em 0 0 -0.25em;
 }
-.titleTracking {
+.title-tracking {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
 }
-.trackingSummary {
+.tracking-summary {
   margin-left: 5em;
   margin-top: 2em;
   padding: 5px;
@@ -62,7 +62,7 @@
   color: variables.$main-font-color;
   background-color: variables.$basic-background-color;
 }
-.homeGraph {
+.home-graph {
   margin: auto;
   padding: 3em;
   display: flex;
@@ -83,10 +83,10 @@
   margin: 0 0.5em 0 0.5em;
   color: variables.$main-font-color;
 }
-.dropdownContainer {
+.dropdown-container {
   width: 10em;
 }
-.sortButton {
+.sort-button {
   padding: 10px;
   border: 2px solid black;
   border-radius: 10%;

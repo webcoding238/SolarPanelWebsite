@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getThemeContrast } from '../../store/navigationSlice';
 import {
   CartesianGrid,
   Legend,
@@ -8,10 +10,10 @@ import {
   XAxis,
   YAxis
 } from 'recharts';
-import ChatWindow from '../../navigation/ChatWindow';
 import { TitleTag } from '../../components/SharedTags';
 import { countryList } from './countryData';
 import './RegionStyles.scss';
+import '../../components/themes/SharedStyles.scss'
 
 interface chartDataType {
   name: string;
@@ -29,6 +31,7 @@ const Regions: React.FC = () => {
 
   const [currentData, setCurrentData] = useState<string>(countryList[0].country)
   const [data, updateData] = useState<chartDataType[]>(countryList[0].countryData)
+  const isDarkTheme = useSelector(getThemeContrast)
 
   const setCurrentChartCountry = (country: CountryType) => {
     updateData(country.countryData)
@@ -36,16 +39,15 @@ const Regions: React.FC = () => {
   }
 
   return (
-    <main>
-      <ChatWindow />
+    <main className={`theme-background ${isDarkTheme ? 'is-dark' : ''}`}>
       <TitleTag title={`${currentData} Debt-Driven Solar Industry versus Profit Driven Solar Industry`} />
-      <div className={"regionFlex"}>
+      <div className={"region-flex"}>
         <label>Choose Region - </label>
         {countryList.map(country => (
           <button onClick={() => setCurrentChartCountry(country)}>{country.country}</button>
         ))}
       </div>
-      <div className={"homeGraph"}>
+      <div className={"home-graph"}>
           <LineChart
             style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
             responsive

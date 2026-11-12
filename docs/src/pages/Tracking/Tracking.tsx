@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import ChatWindow from '../../navigation/ChatWindow'
 import GrowthChart from './GrowthChart'
 import AgeChart from './AgeChart'
 import SolarImage from '../../assets/SolarImage.png'
@@ -52,25 +51,24 @@ const Tracking: React.FC = () => {
     <div ref={ref}>
       <main>
         <img src={SolarImage}
-          className={deviceSize > 949 ? ("backgroundImage backgroundPlacement") : ("backgroundImage backgroundPlacementMobile")}
+          className={deviceSize > 949 ? ("background-image background-placement") : ("background-image background-placement-mobile")}
           alt="Photograph of a sloped rooftop with solar panels"
           />
-        <div className={"titleGridTracking"}>
-          <div className={deviceSize > 949 ? ("titleIcon") : ("titleIconMobile")}>
-            <div className={"centerIcon"}><img
+        <div className={"title-grid-tracking"}>
+          <div className={deviceSize > 949 ? ("title-icon") : ("title-icon-mobile")}>
+            <div className={"center-icon"}><img
               src={Trajectory}
               alt="Cartoon outline of schedule calendar"
               height='60'
               /></div>
           </div>
-          <div className={"titleTracking"}>
+          <div className={"title-tracking"}>
             <TitleTag title={'Chronology of Solar Panels'} />
           </div>
         </div>
-        <div className={"trackingSummary"}>{paragraphOne}<br/><br/>{paragraphTwo}</div>
-        <ChatWindow />
+        <div className={"tracking-summary"}>{paragraphOne}<br/><br/>{paragraphTwo}</div>
         <TitleTag title={'Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients'} />
-        <div className={"distances overflowWrapAnywhere"}>
+        <div className={"distances overflow-wrap-anywhere"}>
           <button onClick={() => sortAscending()}>Sort Ascending</button>
           <button onClick={() => sortDescending()}>Sort Descending</button>
           {status === 'succeeded' ? (generatedData.map((distance, index) => {
@@ -78,10 +76,10 @@ const Tracking: React.FC = () => {
           })) : (<div><TitleTag title={'Awaiting data for manufacturing distances...'} />{error}</div>)}
         </div>
         <TitleTag title={'Residental Solar Panel Periods of Continued Growth'} />
-        <div className={"homeGraph"}><GrowthChart /></div>
+        <div className={"home-graph"}><GrowthChart /></div>
         <TitleTag title={'Percentage of World Population By Age - Present Day - '}/>
         <TitleTag title={'Who Will Consume More Than 65% of Their Electricity From Solar Power'}/>
-        <div className={"homeGraph"}><AgeChart /></div>
+        <div className={"home-graph"}><AgeChart /></div>
       </main>
     </div>
   )

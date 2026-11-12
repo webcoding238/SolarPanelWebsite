@@ -9,17 +9,17 @@ exports[`TrackingSnapshot 1`] = `
         <main>
           <img
             alt="Photograph of a sloped rooftop with solar panels"
+            class="backgroundImage backgroundPlacementMobile"
             src="/src/assets/SolarImage.png"
-            style="background-image: url("/src/assets/SolarImage.png"); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; width: 100%; height: 100%; opacity: 0.35; z-index: -1000; position: fixed; margin-top: -300px;"
           />
           <div
-            style="height: 50px; width: calc(38% + 7.5em); margin: 15px; display: grid; grid-template-columns: 20% 80%; gap: 5px; position: relative;"
+            class="titleGridTracking"
           >
             <div
-              style="grid-column-start: 1; grid-column-end: 1; grid-row-start: 1; grid-row-end: 2; padding: 1em; border-radius: 100%; width: 50px; height: 50px; color: black; background-color: white;"
+              class="titleIconMobile"
             >
               <div
-                style="margin: -0.25em 0px 0px -0.25em;"
+                class="centerIcon"
               >
                 <img
                   alt="Cartoon outline of schedule calendar"
@@ -29,17 +29,17 @@ exports[`TrackingSnapshot 1`] = `
               </div>
             </div>
             <div
-              style="grid-column-start: 2; grid-column-end: 2; grid-row-start: 1; grid-row-end: 2;"
+              class="titleTracking"
             >
               <div
-                style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+                class="barTitle "
               >
                 Chronology of Solar Panels
               </div>
             </div>
           </div>
           <div
-            style="margin-left: 5em; margin-top: 2em; padding: 5px; font-size: 24px; width: 38%; color: black; background-color: white;"
+            class="trackingSummary"
           >
             In 1964 NASA, building upon previous inventions dating back to earlier than 1873, launched a satellite self-sufficient from solar power. In 1983 Prof. Martin Green of UNSW invented technology that is present in more than 90% of solar panels.
             <br />
@@ -48,35 +48,12 @@ exports[`TrackingSnapshot 1`] = `
           Japan's mainstream electronics corporations such as Mitsubishi and their peers manufactured a large portion of the solar panels used in residential early adapter regions such as Los Angeles. This marketshare tapered off around 2019, when manufacturing moved mostly to the USA and China. Now, the top 5 countries using residential solar power are United States of America, Japan, China, Australia and India. The U.S.A. produced more than 50% of their electricity in their grid from solar panels in 2023.
           </div>
           <div
-            popover="manual"
-            style="text-align: center; border: 2px solid grey; background-color: white; color: black; border-radius: 2em; padding: 3em 1em 1em; box-shadow: 12px 21px black; height: 200px; width: 265px; z-index: 999; position: fixed; right: 40px; bottom: 200px;"
-          >
-            <h2>
-              Get in touch!
-            </h2>
-            <button
-              style="border: 3px solid blue; background-color: lightblue; border-radius: 1em; width: 100%;"
-            >
-              Send an email
-            </button>
-          </div>
-          <div
-            style="position: fixed; right: 40px; bottom: 40px; background: white; border: 2px solid black; cursor: pointer; z-index: 100;"
-          >
-            <img
-              alt="Contact Us Window Pop-up Button Gif of Typewriter Cartoon"
-              height="60"
-              src="/src/assets/ContactUs.gif"
-              width="100"
-            />
-          </div>
-          <div
-            style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+            class="barTitle "
           >
             Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients
           </div>
           <div
-            style="margin: 2em 0px 0px 1.5em; padding-right: 1.5em; font-size: clamp(12px, 1vw, 20px); overflow-wrap: anywhere;"
+            class="distances overflowWrapAnywhere"
           >
             <button>
               Sort Ascending
@@ -86,7 +63,7 @@ exports[`TrackingSnapshot 1`] = `
             </button>
             <div>
               <div
-                style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+                class="barTitle "
               >
                 Awaiting data for manufacturing distances...
               </div>
@@ -94,12 +71,12 @@ exports[`TrackingSnapshot 1`] = `
             </div>
           </div>
           <div
-            style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+            class="barTitle "
           >
             Residental Solar Panel Periods of Continued Growth
           </div>
           <div
-            style="margin: auto; padding: 3em; display: flex; position: relative; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 70%; background-color: white;"
+            class="homeGraph"
           >
             <div
               class="recharts-wrapper"
@@ -108,17 +85,17 @@ exports[`TrackingSnapshot 1`] = `
             />
           </div>
           <div
-            style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+            class="barTitle "
           >
             Percentage of World Population By Age - Present Day - 
           </div>
           <div
-            style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+            class="barTitle "
           >
             Who Will Consume More Than 65% of Their Electricity From Solar Power
           </div>
           <div
-            style="margin: auto; padding: 3em; display: flex; position: relative; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 70%;"
+            class="homeGraph"
           >
             <div
               class="recharts-wrapper"
@@ -135,17 +112,17 @@ exports[`TrackingSnapshot 1`] = `
       <main>
         <img
           alt="Photograph of a sloped rooftop with solar panels"
+          class="backgroundImage backgroundPlacementMobile"
           src="/src/assets/SolarImage.png"
-          style="background-image: url("/src/assets/SolarImage.png"); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; width: 100%; height: 100%; opacity: 0.35; z-index: -1000; position: fixed; margin-top: -300px;"
         />
         <div
-          style="height: 50px; width: calc(38% + 7.5em); margin: 15px; display: grid; grid-template-columns: 20% 80%; gap: 5px; position: relative;"
+          class="titleGridTracking"
         >
           <div
-            style="grid-column-start: 1; grid-column-end: 1; grid-row-start: 1; grid-row-end: 2; padding: 1em; border-radius: 100%; width: 50px; height: 50px; color: black; background-color: white;"
+            class="titleIconMobile"
           >
             <div
-              style="margin: -0.25em 0px 0px -0.25em;"
+              class="centerIcon"
             >
               <img
                 alt="Cartoon outline of schedule calendar"
@@ -155,17 +132,17 @@ exports[`TrackingSnapshot 1`] = `
             </div>
           </div>
           <div
-            style="grid-column-start: 2; grid-column-end: 2; grid-row-start: 1; grid-row-end: 2;"
+            class="titleTracking"
           >
             <div
-              style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+              class="barTitle "
             >
               Chronology of Solar Panels
             </div>
           </div>
         </div>
         <div
-          style="margin-left: 5em; margin-top: 2em; padding: 5px; font-size: 24px; width: 38%; color: black; background-color: white;"
+          class="trackingSummary"
         >
           In 1964 NASA, building upon previous inventions dating back to earlier than 1873, launched a satellite self-sufficient from solar power. In 1983 Prof. Martin Green of UNSW invented technology that is present in more than 90% of solar panels.
           <br />
@@ -174,35 +151,12 @@ exports[`TrackingSnapshot 1`] = `
           Japan's mainstream electronics corporations such as Mitsubishi and their peers manufactured a large portion of the solar panels used in residential early adapter regions such as Los Angeles. This marketshare tapered off around 2019, when manufacturing moved mostly to the USA and China. Now, the top 5 countries using residential solar power are United States of America, Japan, China, Australia and India. The U.S.A. produced more than 50% of their electricity in their grid from solar panels in 2023.
         </div>
         <div
-          popover="manual"
-          style="text-align: center; border: 2px solid grey; background-color: white; color: black; border-radius: 2em; padding: 3em 1em 1em; box-shadow: 12px 21px black; height: 200px; width: 265px; z-index: 999; position: fixed; right: 40px; bottom: 200px;"
-        >
-          <h2>
-            Get in touch!
-          </h2>
-          <button
-            style="border: 3px solid blue; background-color: lightblue; border-radius: 1em; width: 100%;"
-          >
-            Send an email
-          </button>
-        </div>
-        <div
-          style="position: fixed; right: 40px; bottom: 40px; background: white; border: 2px solid black; cursor: pointer; z-index: 100;"
-        >
-          <img
-            alt="Contact Us Window Pop-up Button Gif of Typewriter Cartoon"
-            height="60"
-            src="/src/assets/ContactUs.gif"
-            width="100"
-          />
-        </div>
-        <div
-          style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+          class="barTitle "
         >
           Solar Panels Manufacturing Locations Distances Greater Than 2,000 Miles of Clients
         </div>
         <div
-          style="margin: 2em 0px 0px 1.5em; padding-right: 1.5em; font-size: clamp(12px, 1vw, 20px); overflow-wrap: anywhere;"
+          class="distances overflowWrapAnywhere"
         >
           <button>
             Sort Ascending
@@ -212,7 +166,7 @@ exports[`TrackingSnapshot 1`] = `
           </button>
           <div>
             <div
-              style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+              class="barTitle "
             >
               Awaiting data for manufacturing distances...
             </div>
@@ -220,12 +174,12 @@ exports[`TrackingSnapshot 1`] = `
           </div>
         </div>
         <div
-          style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+          class="barTitle "
         >
           Residental Solar Panel Periods of Continued Growth
         </div>
         <div
-          style="margin: auto; padding: 3em; display: flex; position: relative; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 70%; background-color: white;"
+          class="homeGraph"
         >
           <div
             class="recharts-wrapper"
@@ -234,17 +188,17 @@ exports[`TrackingSnapshot 1`] = `
           />
         </div>
         <div
-          style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+          class="barTitle "
         >
           Percentage of World Population By Age - Present Day - 
         </div>
         <div
-          style="margin: 2em; text-align: center; font-size: clamp(14px, 2vw, 36px); align-items: center; overflow-wrap: anywhere;"
+          class="barTitle "
         >
           Who Will Consume More Than 65% of Their Electricity From Solar Power
         </div>
         <div
-          style="margin: auto; padding: 3em; display: flex; position: relative; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 70%;"
+          class="homeGraph"
         >
           <div
             class="recharts-wrapper"

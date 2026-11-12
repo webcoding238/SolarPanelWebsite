@@ -5,6 +5,9 @@ import Regions from '../pages/Regions/Regions.tsx'
 import Tracking from '../pages/Tracking/Tracking.tsx'
 import Navigation from '../navigation/Navigation'
 import Footer from '../navigation/Footer'
+import ChatWindow from './ChatWindow.tsx'
+import ThemeTooltip from './ThemeTooltip.tsx'
+import ThemeSelection from './ThemeSelection.tsx'
 import { getWebpage } from '../store/navigationSlice'
 
 const WrapperComponent: React.FC = () => {
@@ -12,6 +15,9 @@ const WrapperComponent: React.FC = () => {
     return (
         <>
             <Navigation />
+            <ThemeSelection />
+            <ThemeTooltip />
+            <ChatWindow />
                 {currentPage === 'Homepage' && <Homepage />}
                 {currentPage === 'Project' && <Project />}
                 {currentPage === 'Regions' && <Regions />}
