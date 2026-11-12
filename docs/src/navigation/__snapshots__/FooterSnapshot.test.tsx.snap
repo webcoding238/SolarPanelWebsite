@@ -7,10 +7,10 @@ exports[`FooterSnapshot 1`] = `
     <div>
       <div>
         <div
-          style="background-color: black; padding-top: 10px; padding-bottom: 10px; text-align: left; color: white; width: 100%; bottom: 0px; display: grid; position: relative; grid-template-columns: 1fr 2fr;"
+          class="containerFooter containerMobile"
         >
           <div
-            style="padding: 0.5em; display: flex; flex-direction: column; justify-content: space-evenly; text-align: right; cursor: pointer;"
+            class="footerLinksMobile columnStyle cursorPointer"
           >
             <div>
               Homepage
@@ -26,7 +26,7 @@ exports[`FooterSnapshot 1`] = `
             </div>
           </div>
           <div
-            style="margin-left: 2em; width: 50vw; word-wrap: normal; word-break: normal;"
+            class="footerBodyMobile wordWrapping"
           >
             <p>
               Copyright 2026 - George Payne - All content is fictional.
@@ -56,10 +56,10 @@ exports[`FooterSnapshot 1`] = `
   "container": <div>
     <div>
       <div
-        style="background-color: black; padding-top: 10px; padding-bottom: 10px; text-align: left; color: white; width: 100%; bottom: 0px; display: grid; position: relative; grid-template-columns: 1fr 2fr;"
+        class="containerFooter containerMobile"
       >
         <div
-          style="padding: 0.5em; display: flex; flex-direction: column; justify-content: space-evenly; text-align: right; cursor: pointer;"
+          class="footerLinksMobile columnStyle cursorPointer"
         >
           <div>
             Homepage
@@ -75,7 +75,7 @@ exports[`FooterSnapshot 1`] = `
           </div>
         </div>
         <div
-          style="margin-left: 2em; width: 50vw; word-wrap: normal; word-break: normal;"
+          class="footerBodyMobile wordWrapping"
         >
           <p>
             Copyright 2026 - George Payne - All content is fictional.
